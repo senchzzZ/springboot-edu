@@ -9,14 +9,14 @@ server:
 #  basic:
 #    enabled: false
 spring:
+  profiles:
+    active: dev
   thymeleaf:
     mode: LEGACYHTML5
     cache: false
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
-  profiles: 
-    active: dev
   servlet:
     multipart:
       max-file-size: 30Mb
