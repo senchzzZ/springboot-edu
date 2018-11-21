@@ -2,6 +2,8 @@ package com.bootdo.system.service.impl;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 import com.bootdo.common.config.BootdoConfig;
@@ -11,6 +13,7 @@ import com.bootdo.common.utils.*;
 import com.bootdo.system.service.DeptService;
 import com.bootdo.system.vo.UserVO;
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -216,7 +219,6 @@ public class UserServiceImpl implements UserService {
     public Map<String, Object> updatePersonalImg(MultipartFile file, String avatar_data, Long userId) throws Exception {
         String fileName = file.getOriginalFilename();
         fileName = FileUtil.renameToUUID(fileName);
-        FileDO sysFile = new FileDO(FileType.fileType(fileName), "/files/" + fileName, new Date());
         //获取图片后缀
         String prefix = fileName.substring((fileName.lastIndexOf(".") + 1));
         String[] str = avatar_data.split(",");
@@ -237,10 +239,13 @@ public class UserServiceImpl implements UserService {
             boolean flag = ImageIO.write(rotateImage, prefix, out);
             //转换后存入数据库
             byte[] b = out.toByteArray();
-            FileUtil.uploadFile(b, bootdoConfig.getUploadPath(), fileName);
+            FileUtil.uploadFile(b,  bootdoConfig.getUploadPath(), fileName);
         } catch (Exception e) {
+            logger.warn(ExceptionUtils.getFullStackTrace(e));
             throw new Exception("图片裁剪错误！！");
         }
+
+        FileDO sysFile = new FileDO(FileType.fileType(fileName), "/files/" + fileName, new Date());
         Map<String, Object> result = new HashMap<>();
         if (sysFileService.save(sysFile) > 0) {
             UserDO userDO = new UserDO();
@@ -251,6 +256,14 @@ public class UserServiceImpl implements UserService {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(System.getProperty("user.dir"));
+        System.out.println(new File("").getCanonicalPath());
+        System.out.println(UserServiceImpl.class.getClassLoader().getResource("").getPath());
+        //System.out.println(UserServiceImpl.class.getClassLoader().getResource("/").getPath());
+        System.out.println(UserServiceImpl.class.getClassLoader().getResource(".").getPath());
     }
 
 }

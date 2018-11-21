@@ -10,7 +10,9 @@ import com.bootdo.common.utils.MD5Utils;
 import com.bootdo.common.utils.R;
 import com.bootdo.common.utils.ShiroUtils;
 import com.bootdo.system.domain.MenuDO;
+import com.bootdo.system.domain.UserDO;
 import com.bootdo.system.service.MenuService;
+import com.bootdo.system.service.UserService;
 import io.swagger.models.auth.In;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -37,6 +39,8 @@ public class LoginController extends BaseController {
     FileService fileService;
     @Autowired
     BootdoConfig bootdoConfig;
+    @Autowired
+    UserService userService;
 
     @GetMapping({"/", ""})
     String welcome(Model model) {
@@ -94,7 +98,10 @@ public class LoginController extends BaseController {
     }
 
     @GetMapping("/main")
-    String main() {
+    String main(Model model) {
+        UserDO userDO  = userService.get(getUserId());
+        model.addAttribute("user",userDO);
+
         return "main";
     }
 
