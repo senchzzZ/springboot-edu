@@ -31,7 +31,7 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 
 /**
- * @author bootdo 1992lcg@163.com
+ * @author bootdo sench.zhao@gmail.com
  */
 @Configuration
 public class ShiroConfig {

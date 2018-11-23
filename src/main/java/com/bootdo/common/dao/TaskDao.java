@@ -9,11 +9,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 
- * @author chglee
- * @email 1992lcg@163.com
+ * @author zhaoshengqi
+ * @email sench.zhao@gmail.com
  * @date 2017-10-03 15:45:42
  */
-@Mapper
 public interface TaskDao {
 
 	TaskDO get(Long id);
