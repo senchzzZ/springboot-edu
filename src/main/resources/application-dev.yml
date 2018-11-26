@@ -1,5 +1,6 @@
 bootdo:
-  uploadPath: /Users/zhaoshengqi/bootdo_files/
+  #uploadPath: /Users/zhaoshengqi/bootdo_files/
+  uploadPath: D:\bootdo_files
   username: admin
   password: 765434565
 logging:

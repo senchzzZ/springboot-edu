@@ -4,6 +4,7 @@ server:
 #        max-threads: 1000
 #        min-spare-threads: 30
   port: 8080
+  address: 0.0.0.0
 #    uri-encoding: utf-8
 #security:
 #  basic:

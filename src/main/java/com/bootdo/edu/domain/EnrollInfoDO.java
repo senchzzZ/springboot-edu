@@ -10,7 +10,7 @@ import java.util.Date;
  * 
  * @author zhaoshengqi
  * @email sench.zhao@gmail.com
- * @date 2018-11-23 20:51:01
+ * @date 2018-11-24 16:13:42
  */
 public class EnrollInfoDO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,9 +26,9 @@ public class EnrollInfoDO implements Serializable {
 	//政治面貌
 	private String political;
 	//省
-	private Integer province;
+	private String province;
 	//市
-	private Integer city;
+	private String city;
 	//目前所在地
 	private String address;
 	//报考学校
@@ -36,21 +36,21 @@ public class EnrollInfoDO implements Serializable {
 	//报考专业
 	private String specialty;
 	//报考形式
-	private Integer enrollType;
+	private String enrollType;
 	//目前学历
-	private Integer qualification;
+	private String qualification;
 	//毕业院校
 	private String graduationSchool;
 	//毕业专业
 	private String graduatiSpecialty;
 	//职业类别
-	private Integer occupationType;
+	private String occupationType;
 	//考生类别
-	private Integer studentType;
+	private String studentType;
 	//照顾对象
-	private Integer privilegeType;
+	private String privilegeType;
 	//民族
-	private Integer nation;
+	private String nation;
 	//电话
 	private String phone;
 	//QQ
@@ -141,25 +141,25 @@ public class EnrollInfoDO implements Serializable {
 	/**
 	 * 设置：省
 	 */
-	public void setProvince(Integer province) {
+	public void setProvince(String province) {
 		this.province = province;
 	}
 	/**
 	 * 获取：省
 	 */
-	public Integer getProvince() {
+	public String getProvince() {
 		return province;
 	}
 	/**
 	 * 设置：市
 	 */
-	public void setCity(Integer city) {
+	public void setCity(String city) {
 		this.city = city;
 	}
 	/**
 	 * 获取：市
 	 */
-	public Integer getCity() {
+	public String getCity() {
 		return city;
 	}
 	/**
@@ -201,25 +201,25 @@ public class EnrollInfoDO implements Serializable {
 	/**
 	 * 设置：报考形式
 	 */
-	public void setEnrollType(Integer enrollType) {
+	public void setEnrollType(String enrollType) {
 		this.enrollType = enrollType;
 	}
 	/**
 	 * 获取：报考形式
 	 */
-	public Integer getEnrollType() {
+	public String getEnrollType() {
 		return enrollType;
 	}
 	/**
 	 * 设置：目前学历
 	 */
-	public void setQualification(Integer qualification) {
+	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
 	/**
 	 * 获取：目前学历
 	 */
-	public Integer getQualification() {
+	public String getQualification() {
 		return qualification;
 	}
 	/**
@@ -249,49 +249,49 @@ public class EnrollInfoDO implements Serializable {
 	/**
 	 * 设置：职业类别
 	 */
-	public void setOccupationType(Integer occupationType) {
+	public void setOccupationType(String occupationType) {
 		this.occupationType = occupationType;
 	}
 	/**
 	 * 获取：职业类别
 	 */
-	public Integer getOccupationType() {
+	public String getOccupationType() {
 		return occupationType;
 	}
 	/**
 	 * 设置：考生类别
 	 */
-	public void setStudentType(Integer studentType) {
+	public void setStudentType(String studentType) {
 		this.studentType = studentType;
 	}
 	/**
 	 * 获取：考生类别
 	 */
-	public Integer getStudentType() {
+	public String getStudentType() {
 		return studentType;
 	}
 	/**
 	 * 设置：照顾对象
 	 */
-	public void setPrivilegeType(Integer privilegeType) {
+	public void setPrivilegeType(String privilegeType) {
 		this.privilegeType = privilegeType;
 	}
 	/**
 	 * 获取：照顾对象
 	 */
-	public Integer getPrivilegeType() {
+	public String getPrivilegeType() {
 		return privilegeType;
 	}
 	/**
 	 * 设置：民族
 	 */
-	public void setNation(Integer nation) {
+	public void setNation(String nation) {
 		this.nation = nation;
 	}
 	/**
 	 * 获取：民族
 	 */
-	public Integer getNation() {
+	public String getNation() {
 		return nation;
 	}
 	/**
