@@ -4,7 +4,6 @@ server:
 #        max-threads: 1000
 #        min-spare-threads: 30
   port: 8080
-  address: 0.0.0.0
 #    uri-encoding: utf-8
 #security:
 #  basic:
@@ -15,7 +14,7 @@ spring:
   thymeleaf:
     mode: LEGACYHTML5
     cache: false
-    prefix: classpath:/templates/
+    #prefix: classpath:/templates/
     #resources:
    # static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/*
   jackson:

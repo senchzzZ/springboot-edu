@@ -10,7 +10,7 @@ import java.util.Date;
  * 
  * @author zhaoshengqi
  * @email sench.zhao@gmail.com
- * @date 2018-11-24 16:13:42
+ * @date 2018-11-29 19:16:26
  */
 public class EnrollInfoDO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -73,6 +73,8 @@ public class EnrollInfoDO implements Serializable {
 	private String remark;
 	//状态
 	private Integer status;
+	//报名类型0成教1网教2证书
+	private Integer type;
 	//创建时间
 	private Date createTime;
 	//修改时间
@@ -425,6 +427,18 @@ public class EnrollInfoDO implements Serializable {
 	 */
 	public Integer getStatus() {
 		return status;
+	}
+	/**
+	 * 设置：报名类型0成教1网教2证书
+	 */
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	/**
+	 * 获取：报名类型0成教1网教2证书
+	 */
+	public Integer getType() {
+		return type;
 	}
 	/**
 	 * 设置：创建时间

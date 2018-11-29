@@ -22,8 +22,13 @@
                                 <span>性别:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <div class="radio i-checks">
-
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="sex" checked value="1"/> 男
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="sex" value="0"/> 女
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +45,11 @@
                                 <span>政治面貌:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="political" name="political"/>
+                                <select data-placeholder="请选择" name="political" id="political"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="political" name="political"/>-->
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -48,7 +57,7 @@
                                 <em class="gg-star">*</em>
                                 <span>户口所在地:</span>
                             </div>
-                            <div class="gg-formDetail gg-font0" data-toggle="distpicker" >
+                            <div class="gg-formDetail gg-font0" data-toggle="distpicker">
                                 <div class="gg-area">
                                     <select class="form-control" id="province" name="province">
                                     </select>
@@ -60,22 +69,7 @@
 
                             </div>
                         </div>
-                        <!--<div class="gg-formGroup">
-                            <div class="gg-formTitle">
-                                <span>省:</span>
-                            </div>
-                            <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="province" name="province"/>
-                            </div>
-                        </div>
-                        <div class="gg-formGroup">
-                            <div class="gg-formTitle">
-                                <span>市:</span>
-                            </div>
-                            <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="city" name="city"/>
-                            </div>
-                        </div>-->
+
                         <div class="gg-formGroup">
                             <div class="gg-formTitle">
                                 <span>目前所在地:</span>
@@ -105,7 +99,11 @@
                                 <span>报考形式:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="enrollType" name="enrollType"/>
+                                <select data-placeholder="请选择" name="enrollType" id="enrollType"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="enrollType" name="enrollType"/>-->
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -113,7 +111,11 @@
                                 <span>目前学历:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="qualification" name="qualification"/>
+                                <select data-placeholder="请选择" name="qualification" id="qualification"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="qualification" name="qualification"/>-->
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -138,7 +140,11 @@
                                 <span>职业类别:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="occupationType" name="occupationType"/>
+                                <select data-placeholder="请选择" name="occupationType" id="occupationType"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="occupationType" name="occupationType"/>-->
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -146,7 +152,14 @@
                                 <span>考生类别:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="studentType" name="studentType"/>
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="studentType" checked value="1"/> 统考生
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="studentType" value="0"/> 免考生
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -154,7 +167,11 @@
                                 <span>照顾对象:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="privilegeType" name="privilegeType"/>
+                                <select data-placeholder="请选择" name="privilegeType" id="privilegeType"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="privilegeType" name="privilegeType"/>-->
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -162,7 +179,11 @@
                                 <span>民族:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="nation" name="nation"/>
+                                <select data-placeholder="请选择" name="nation" id="nation"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="nation" name="nation"/>-->
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -202,7 +223,14 @@
                                 <span>是否快递:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="ifDelivery" name="ifDelivery"/>
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ifDelivery" checked value="0"/> 未发
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ifDelivery" value="1"/> 已发
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="gg-formGroup">
@@ -218,7 +246,9 @@
                                 <span>快递时间:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="deliveryTime" name="deliveryTime"/>
+                                <input type="text" class="laydate-icon layer-date form-control" id="deliveryTime" name="deliveryTime"  placeholder="请选择快递日期"
+                                       onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly"/>
+                               <!-- <input type="text" class="form-control" id="deliveryTime" name="deliveryTime"/>-->
                             </div>
                         </div>
                         <div class="gg-formGroup">
