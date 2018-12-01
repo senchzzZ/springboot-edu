@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.bootdo.system.dao.EnrollInfoDao">
+<mapper namespace="com.bootdo.edu.dao.EnrollInfoDao">
 
-	<select id="get" resultType="com.bootdo.system.domain.EnrollInfoDO">
+	<select id="get" resultType="com.bootdo.edu.domain.EnrollInfoDO">
 		select `id`,`name`,`sex`,`id_card`,`political`,`province`,`city`,`address`,`school`,`specialty`,`enroll_type`,`qualification`,`graduation_school`,`graduati_specialty`,`occupation_type`,`student_type`,`privilege_type`,`nation`,`phone`,`qq`,`email`,`wechat`,`if_delivery`,`delivery_name`,`delivery_time`,`delivery_num`,`if_pay`,`remark`,`status`,`type`,`create_time`,`update_time` from edu_enroll_info where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.bootdo.system.domain.EnrollInfoDO">
+	<select id="list" resultType="com.bootdo.edu.domain.EnrollInfoDO">
 		select `id`,`name`,`sex`,`id_card`,`political`,`province`,`city`,`address`,`school`,`specialty`,`enroll_type`,`qualification`,`graduation_school`,`graduati_specialty`,`occupation_type`,`student_type`,`privilege_type`,`nation`,`phone`,`qq`,`email`,`wechat`,`if_delivery`,`delivery_name`,`delivery_time`,`delivery_num`,`if_pay`,`remark`,`status`,`type`,`create_time`,`update_time` from edu_enroll_info
         <where>  
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
@@ -94,7 +94,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.bootdo.system.domain.EnrollInfoDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.bootdo.edu.domain.EnrollInfoDO" useGeneratedKeys="true" keyProperty="id">
 		insert into edu_enroll_info
 		(
 			`name`, 
@@ -165,7 +165,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.bootdo.system.domain.EnrollInfoDO">
+	<update id="update" parameterType="com.bootdo.edu.domain.EnrollInfoDO">
 		update edu_enroll_info 
 		<set>
 			<if test="name != null">`name` = #{name}, </if>

@@ -3,7 +3,6 @@ package com.bootdo.edu.controller;
 import java.util.List;
 import java.util.Map;
 
-import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -16,56 +15,56 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bootdo.edu.domain.EnrollInfoDO;
-import com.bootdo.edu.service.EnrollInfoService;
+import com.bootdo.edu.domain.EnrollRemarkDO;
+import com.bootdo.edu.service.EnrollRemarkService;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
 
 /**
- * 报名管理
+ * 报名备注信息
  * 
  * @author zhaoshengqi
  * @email sench.zhao@gmail.com
- * @date 2018-11-23 17:18:28
+ * @date 2018-12-01 18:06:58
  */
  
 @Controller
-@RequestMapping("/edu/enrollInfo")
-public class EnrollInfoController extends BaseController {
+@RequestMapping("/edu/enrollRemark")
+public class EnrollRemarkController {
 	@Autowired
-	private EnrollInfoService enrollInfoService;
+	private EnrollRemarkService enrollRemarkService;
 	
 	@GetMapping()
-	@RequiresPermissions("edu:enrollInfo:enrollInfo")
-	String EnrollInfo(){
-	    return "edu/enrollInfo/enrollInfo";
+	@RequiresPermissions("edu:enrollRemark:enrollRemark")
+	String EnrollRemark(){
+	    return "edu/enrollRemark/enrollRemark";
 	}
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("edu:enrollInfo:enrollInfo")
+	@RequiresPermissions("edu:enrollRemark:enrollRemark")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<EnrollInfoDO> enrollInfoList = enrollInfoService.list(query);
-		int total = enrollInfoService.count(query);
-		PageUtils pageUtils = new PageUtils(enrollInfoList, total);
+		List<EnrollRemarkDO> enrollRemarkList = enrollRemarkService.list(query);
+		int total = enrollRemarkService.count(query);
+		PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
 		return pageUtils;
 	}
 	
 	@GetMapping("/add")
-	@RequiresPermissions("edu:enrollInfo:add")
+	@RequiresPermissions("edu:enrollRemark:add")
 	String add(){
-	    return "edu/enrollInfo/add";
+	    return "edu/enrollRemark/add";
 	}
 
 	@GetMapping("/edit/{id}")
-	@RequiresPermissions("edu:enrollInfo:edit")
+	@RequiresPermissions("edu:enrollRemark:edit")
 	String edit(@PathVariable("id") Long id,Model model){
-		EnrollInfoDO enrollInfo = enrollInfoService.get(id);
-		model.addAttribute("enrollInfo", enrollInfo);
-	    return "edu/enrollInfo/edit";
+		EnrollRemarkDO enrollRemark = enrollRemarkService.get(id);
+		model.addAttribute("enrollRemark", enrollRemark);
+	    return "edu/enrollRemark/edit";
 	}
 	
 	/**
@@ -73,9 +72,9 @@ public class EnrollInfoController extends BaseController {
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	@RequiresPermissions("edu:enrollInfo:add")
-	public R save( EnrollInfoDO enrollInfo){
-		if(enrollInfoService.save(enrollInfo)>0){
+	@RequiresPermissions("edu:enrollRemark:add")
+	public R save( EnrollRemarkDO enrollRemark){
+		if(enrollRemarkService.save(enrollRemark)>0){
 			return R.ok();
 		}
 		return R.error();
@@ -85,9 +84,9 @@ public class EnrollInfoController extends BaseController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions("edu:enrollInfo:edit")
-	public R update( EnrollInfoDO enrollInfo){
-		enrollInfoService.update(enrollInfo);
+	@RequiresPermissions("edu:enrollRemark:edit")
+	public R update( EnrollRemarkDO enrollRemark){
+		enrollRemarkService.update(enrollRemark);
 		return R.ok();
 	}
 	
@@ -96,9 +95,9 @@ public class EnrollInfoController extends BaseController {
 	 */
 	@PostMapping( "/remove")
 	@ResponseBody
-	@RequiresPermissions("edu:enrollInfo:remove")
+	@RequiresPermissions("edu:enrollRemark:remove")
 	public R remove( Long id){
-		if(enrollInfoService.remove(id)>0){
+		if(enrollRemarkService.remove(id)>0){
 		return R.ok();
 		}
 		return R.error();
@@ -109,18 +108,10 @@ public class EnrollInfoController extends BaseController {
 	 */
 	@PostMapping( "/batchRemove")
 	@ResponseBody
-	@RequiresPermissions("edu:enrollInfo:batchRemove")
+	@RequiresPermissions("edu:enrollRemark:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] ids){
-		enrollInfoService.batchRemove(ids);
+		enrollRemarkService.batchRemove(ids);
 		return R.ok();
-	}
-
-	@GetMapping("/addRemark/{id}")
-	//@RequiresPermissions("edu:enrollInfo:edit")
-	String addRemark(@PathVariable("id") Long id,Model model){
-		EnrollInfoDO enrollInfo = enrollInfoService.get(id);
-		model.addAttribute("enrollInfo", enrollInfo);
-		return "edu/enrollRemark/add";
 	}
 	
 }

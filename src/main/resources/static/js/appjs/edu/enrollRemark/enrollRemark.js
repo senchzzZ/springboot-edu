@@ -1,5 +1,5 @@
 
-var prefix = "/edu/enrollInfo"
+var prefix = "/edu/enrollRemark"
 $(function() {
 	load();
 });
@@ -56,55 +56,45 @@ function load() {
 									title : '姓名' 
 								},
 																{
-									field : 'sex', 
-									title : '性别'
+									field : 'enrollId', 
+									title : '报名ID' 
 								},
 																{
-									field : 'idCard', 
-									title : '身份证号' 
-								},
-
-																{
-									field : 'school', 
-									title : '报考学校' 
+									field : 'enrollFee', 
+									title : '报名费用' 
 								},
 																{
-									field : 'specialty', 
-									title : '报考专业' 
+									field : 'firstFee', 
+									title : '第一学年学费' 
 								},
 																{
-									field : 'enrollType', 
-									title : '报考形式' 
+									field : 'secondFee', 
+									title : '第二学年学费' 
 								},
 																{
-									field : 'qualification', 
-									title : '目前学历' 
+									field : 'thirdFee', 
+									title : '第三学年学费' 
 								},
 																{
-									field : 'phone', 
-									title : '电话' 
-								},
-																{
-									field : 'email', 
-									title : '邮箱' 
-								},
-																{
-									field : 'wechat', 
-									title : '微信' 
-								},
-																{
-									field : 'ifDelivery', 
-									title : '是否快递'
-								},
-																{
-									field : 'ifPay', 
-									title : '是否付款'
+									field : 'serviceItem', 
+									title : '服务项目' 
 								},
 																{
 									field : 'remark', 
 									title : '备注' 
 								},
-
+																{
+									field : 'status', 
+									title : '状态' 
+								},
+																{
+									field : 'createTime', 
+									title : '创建时间' 
+								},
+																{
+									field : 'updateTime', 
+									title : '修改时间' 
+								},
 																{
 									title : '操作',
 									field : 'id',
@@ -116,10 +106,10 @@ function load() {
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.id
 												+ '\')"><i class="fa fa-remove"></i></a> ';
-										var f = '<a class="btn btn-success btn-sm" href="#" title="添加备注"  mce_href="#" onclick="addRemark(\''
+										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
 												+ row.id
-												+ '\')"><i class="fa fa-plus"></i></a> ';
-										return e + d + f;
+												+ '\')"><i class="fa fa-key"></i></a> ';
+										return e + d ;
 									}
 								} ]
 					});
@@ -145,16 +135,6 @@ function edit(id) {
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
 		content : prefix + '/edit/' + id // iframe的url
-	});
-}
-function addRemark(id) {
-	layer.open({
-		type : 2,
-		title : '添加备注',
-		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
-		area : [ '800px', '520px' ],
-		content : prefix + '/addRemark/' + id // iframe的url
 	});
 }
 function remove(id) {
