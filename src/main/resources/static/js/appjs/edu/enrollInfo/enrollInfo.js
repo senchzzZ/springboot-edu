@@ -1,5 +1,6 @@
 
 var prefix = "/edu/enrollInfo"
+var prefixRemark = "/edu/enrollRemark"
 $(function() {
 	load();
 });
@@ -12,7 +13,7 @@ function load() {
 						url : prefix + "/list", // 服务器数据的加载地址
 					//	showRefresh : true,
 					//	showToggle : true,
-					//	showColumns : true,
+						showColumns : true,
 						iconSize : 'outline',
 						toolbar : '#exampleToolbar',
 						striped : true, // 设置为true会有隔行变色效果
@@ -26,15 +27,15 @@ function load() {
 						pageSize : 10, // 如果设置了分页，每页数据条数
 						pageNumber : 1, // 如果设置了分布，首页页码
 						//search : true, // 是否显示搜索框
-						showColumns : false, // 是否显示内容下拉框（选择显示的列）
+						//showColumns : false, // 是否显示内容下拉框（选择显示的列）
 						sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
 						queryParams : function(params) {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 								limit: params.limit,
-								offset:params.offset
-					           // name:$('#searchName').val(),
-					           // username:$('#searchName').val()
+								offset:params.offset,
+                                searchKeyword:$('#searchKeyword').val(),
+								type:$('#searchType').val()
 							};
 						},
 						// //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
@@ -57,13 +58,28 @@ function load() {
 								},
 																{
 									field : 'sex', 
-									title : '性别'
+									title : '性别',
+									formatter : function(value, row, index){
+										if(value==0){
+											return '女';
+										}else if(value==1){
+											return '男';
+										}
+									}
 								},
-																{
-									field : 'idCard', 
-									title : '身份证号' 
+								{
+									field : 'type',
+									title : '报名类型',
+                                    formatter : function(value, row, index){
+                                        if(value==0){
+                                            return '成教';
+                                        }else if(value==1){
+                                            return '网教';
+                                        }else if(value==2){
+                                            return '证书';
+                                        }
+                                    }
 								},
-
 																{
 									field : 'school', 
 									title : '报考学校' 
@@ -73,12 +89,12 @@ function load() {
 									title : '报考专业' 
 								},
 																{
-									field : 'enrollType', 
-									title : '报考形式' 
+									field : 'createTime',
+									title : '报名时间'
 								},
 																{
-									field : 'qualification', 
-									title : '目前学历' 
+									field : 'address',
+									title : '所在地'
 								},
 																{
 									field : 'phone', 
@@ -94,11 +110,25 @@ function load() {
 								},
 																{
 									field : 'ifDelivery', 
-									title : '是否快递'
+									title : '是否快递',
+									formatter : function(value, row, index){
+										if(value==0){
+											return '<span class="label label-danger">未发</span>';
+										}else if(value==1){
+											return '<span class="label label-primary">已发</span>';
+										}
+									}
 								},
 																{
 									field : 'ifPay', 
-									title : '是否付款'
+									title : '是否付款',
+									formatter : function(value, row, index){
+										if(value==0){
+											return '<span class="label label-danger">未付</span>';
+										}else if(value==1){
+											return '<span class="label label-primary">已付</span>';
+										}
+									}
 								},
 																{
 									field : 'remark', 
@@ -119,7 +149,10 @@ function load() {
 										var f = '<a class="btn btn-success btn-sm" href="#" title="添加备注"  mce_href="#" onclick="addRemark(\''
 												+ row.id
 												+ '\')"><i class="fa fa-plus"></i></a> ';
-										return e + d + f;
+                                        var g = '<a class="btn btn-success btn-sm" href="#" title="查看备注"  mce_href="#" onclick="viewRemark(\''
+                                            + row.id
+                                            + '\')"><i class="fa fa-book"></i></a> ';
+										return e + d + g + f;
 									}
 								} ]
 					});
@@ -127,6 +160,9 @@ function load() {
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
+$("#searchType").change(function(){
+    $('#exampleTable').bootstrapTable('refresh');
+});
 function add() {
 	layer.open({
 		type : 2,
@@ -147,14 +183,24 @@ function edit(id) {
 		content : prefix + '/edit/' + id // iframe的url
 	});
 }
-function addRemark(id) {
+function addRemark(enrollId) {
 	layer.open({
 		type : 2,
 		title : '添加备注',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/addRemark/' + id // iframe的url
+		content : prefix + '/addRemark/' + enrollId // iframe的url
+	});
+}
+function viewRemark(enrollId) {
+	layer.open({
+		type : 2,
+		title : '查看备注',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefixRemark + '/viewRemarks/' + enrollId // iframe的url
 	});
 }
 function remove(id) {

@@ -17,13 +17,40 @@
 								<i class="fa fa-trash" aria-hidden="true"></i>删除
 							</button>
 						</div>
-						<div class="columns pull-right">
+
+						<div class="columns pull-right" role="group">
+							<button class="btn btn-success" onclick="reLoad()">
+								<i class="fa fa-search" aria-hidden="true"></i>查询
+							</button>
+						</div>
+						<div class="pull-right search col-md-2">
+							<input id="searchKeyword" type="text" class="form-control"
+								   placeholder="关键字">
+						</div>
+						<div class="pull-right search col-md-2 nopadding">
+							<!--<input id="searchUsername" type="text" class="form-control"
+								   placeholder="用户">-->
+							<select data-placeholder="报名类型" name="searchType" id="searchType"
+									class="form-control chosen-select" tabindex="2" required>
+								<option value="">全部</option>
+								<option value="0">成教报名</option>
+								<option value="1">网教报名</option>
+								<option value="2">证书报名</option>
+							</select>
+						</div>
+
+						<!--<div class="columns pull-right">
 							<button class="btn btn-success" onclick="reLoad()">查询</button>
 						</div>
 						<div class="columns pull-right col-md-2 nopadding">
-							<input id="searchName" type="text" class="form-control"
-								placeholder="">
+							<input id="searchKeyword" type="text" class="form-control"
+								placeholder="请输入关键字">
+
 						</div>
+						<div class="columns pull-right col-md-2 nopadding">
+
+
+						</div>-->
 					</div>
 					<table id="exampleTable" data-mobile-responsive="true">
 					</table>

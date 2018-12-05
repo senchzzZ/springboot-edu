@@ -10,7 +10,7 @@ import java.util.Date;
  * 
  * @author zhaoshengqi
  * @email sench.zhao@gmail.com
- * @date 2018-12-01 18:06:58
+ * @date 2018-12-03 19:03:34
  */
 public class EnrollRemarkDO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +22,7 @@ public class EnrollRemarkDO implements Serializable {
 	//报名ID
 	private Long enrollId;
 	//报名费用
-	private String enrollFee;
+	private Double enrollFee;
 	//第一学年学费
 	private Double firstFee;
 	//第二学年学费
@@ -79,13 +79,13 @@ public class EnrollRemarkDO implements Serializable {
 	/**
 	 * 设置：报名费用
 	 */
-	public void setEnrollFee(String enrollFee) {
+	public void setEnrollFee(Double enrollFee) {
 		this.enrollFee = enrollFee;
 	}
 	/**
 	 * 获取：报名费用
 	 */
-	public String getEnrollFee() {
+	public Double getEnrollFee() {
 		return enrollFee;
 	}
 	/**

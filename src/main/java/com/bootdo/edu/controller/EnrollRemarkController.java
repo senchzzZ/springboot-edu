@@ -1,5 +1,6 @@
 package com.bootdo.edu.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +53,21 @@ public class EnrollRemarkController {
 		PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
 		return pageUtils;
 	}
-	
+
+	//@ResponseBody
+	@GetMapping("/viewRemarks/{enrollId}")
+	String viewRemarks(@PathVariable("enrollId") Long enrollId,Model model){
+		//查询列表数据
+		Map<String, Object> params = new HashMap<>();
+		params.put("enrollId",enrollId);
+		//Query query = new Query(params);
+		List<EnrollRemarkDO> enrollRemarkList = enrollRemarkService.list(params);
+		//int total = enrollRemarkService.count(query);
+		//PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
+		model.addAttribute("enrollRemarkList",enrollRemarkList);
+		return "edu/enrollRemark/enrollRemarkFrame";
+	}
+
 	@GetMapping("/add")
 	@RequiresPermissions("edu:enrollRemark:add")
 	String add(){
@@ -72,7 +87,7 @@ public class EnrollRemarkController {
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	@RequiresPermissions("edu:enrollRemark:add")
+	//@RequiresPermissions("edu:enrollRemark:add")
 	public R save( EnrollRemarkDO enrollRemark){
 		if(enrollRemarkService.save(enrollRemark)>0){
 			return R.ok();
@@ -95,7 +110,6 @@ public class EnrollRemarkController {
 	 */
 	@PostMapping( "/remove")
 	@ResponseBody
-	@RequiresPermissions("edu:enrollRemark:remove")
 	public R remove( Long id){
 		if(enrollRemarkService.remove(id)>0){
 		return R.ok();

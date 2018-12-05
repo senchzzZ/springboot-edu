@@ -16,11 +16,13 @@ $.validator.setDefaults({
 	}
 });
 function save() {
+    var address = $("#a_province").val() + $("#a_city").val() + $("#a_address").val()
+
 	$.ajax({
 		cache : true,
 		type : "POST",
 		url : "/edu/enrollInfo/save",
-		data : $('#signupForm').serialize(),// 你的formid
+		data : $('#signupForm').serialize() + "&address=" + address,// 你的formid
 		async : false,
 		error : function(request) {
 			parent.layer.alert("Connection error");
@@ -113,6 +115,31 @@ function loadType(){
             });
             //点击事件
             $('#enrollType').on('change', function(e, params) {
+                var opt = {
+                    query : {
+                        type : params.selected,
+                    }
+                }
+                $('#exampleTable').bootstrapTable('refresh', opt);
+            });
+        }
+    });
+
+    //报名类型
+    $.ajax({
+        url : '/common/dict/list/edu_type',
+        success : function(data) {
+            var html = "";
+            //加载数据
+            for (var i = 0; i < data.length; i++) {
+                html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+            }
+            $("#type").append(html);
+            $("#type").chosen({
+                maxHeight : 200
+            });
+            //点击事件
+            $('#type').on('change', function(e, params) {
                 var opt = {
                     query : {
                         type : params.selected,

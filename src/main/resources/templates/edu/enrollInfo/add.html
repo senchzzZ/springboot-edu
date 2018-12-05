@@ -42,6 +42,17 @@
                         </div>
                         <div class="gg-formGroup">
                             <div class="gg-formTitle">
+                                <span>报考形式:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <select data-placeholder="请选择" name="type" id="type"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
                                 <span>政治面貌:</span>
                             </div>
                             <div class="gg-formDetail">
@@ -71,12 +82,31 @@
                         </div>
 
                         <div class="gg-formGroup">
+
                             <div class="gg-formTitle">
+                                <em class="gg-star">*</em>
+                                <span>居住地:</span>
+                            </div>
+                            <div class="gg-formDetail gg-font0" data-toggle="distpicker" >
+                                <div class="gg-area">
+                                    <select class="form-control" id="a_province">
+                                    </select>
+                                </div>
+                                <div class="gg-area">
+                                    <select class="form-control" id="a_city">
+                                    </select>
+                                </div>
+                                <div class="gg-area">
+                                    <input type="text" class="form-control" id="a_address"/>
+                                </div>
+                            </div>
+
+                            <!--<div class="gg-formTitle">
                                 <span>目前所在地:</span>
                             </div>
                             <div class="gg-formDetail">
                                 <input type="text" class="form-control" id="address" name="address"/>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="gg-formGroup">
                             <div class="gg-formTitle">
@@ -264,7 +294,14 @@
                                 <span>是否付款:</span>
                             </div>
                             <div class="gg-formDetail">
-                                <input type="text" class="form-control" id="ifPay" name="ifPay"/>
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ifPay" checked value="0"/> 未付款
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ifPay" value="1"/> 已付款
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="gg-formGroup">

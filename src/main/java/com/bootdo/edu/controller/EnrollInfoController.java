@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.bootdo.common.controller.BaseController;
+import com.bootdo.common.domain.DictDO;
+import com.bootdo.common.service.DictService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -35,6 +37,9 @@ import com.bootdo.common.utils.R;
 public class EnrollInfoController extends BaseController {
 	@Autowired
 	private EnrollInfoService enrollInfoService;
+
+	@Autowired
+	private DictService dictService;
 	
 	@GetMapping()
 	@RequiresPermissions("edu:enrollInfo:enrollInfo")
@@ -64,6 +69,20 @@ public class EnrollInfoController extends BaseController {
 	@RequiresPermissions("edu:enrollInfo:edit")
 	String edit(@PathVariable("id") Long id,Model model){
 		EnrollInfoDO enrollInfo = enrollInfoService.get(id);
+
+		List<DictDO> qualifications = dictService.listByType("edu_qualification");//学历
+		List<DictDO> enrollTypes = dictService.listByType("edu_enroll_type");//报考形式
+		List<DictDO> politicals = dictService.listByType("edu_political");//政治面貌
+		List<DictDO> occupationTypes = dictService.listByType("edu_occupation_type");//职业类别
+		List<DictDO> privilegeTypes = dictService.listByType("edu_privilege_type");//照顾对象
+		List<DictDO> types = dictService.listByType("edu_type");//照顾对象
+
+		model.addAttribute("qualifications", qualifications);
+		model.addAttribute("enrollTypes", enrollTypes);
+		model.addAttribute("politicals", politicals);
+		model.addAttribute("occupationTypes", occupationTypes);
+		model.addAttribute("privilegeTypes", privilegeTypes);
+		model.addAttribute("types", types);
 		model.addAttribute("enrollInfo", enrollInfo);
 	    return "edu/enrollInfo/edit";
 	}
@@ -115,10 +134,10 @@ public class EnrollInfoController extends BaseController {
 		return R.ok();
 	}
 
-	@GetMapping("/addRemark/{id}")
+	@GetMapping("/addRemark/{enrollId}")
 	//@RequiresPermissions("edu:enrollInfo:edit")
-	String addRemark(@PathVariable("id") Long id,Model model){
-		EnrollInfoDO enrollInfo = enrollInfoService.get(id);
+	String addRemark(@PathVariable("enrollId") Long enrollId,Model model){
+		EnrollInfoDO enrollInfo = enrollInfoService.get(enrollId);
 		model.addAttribute("enrollInfo", enrollInfo);
 		return "edu/enrollRemark/add";
 	}

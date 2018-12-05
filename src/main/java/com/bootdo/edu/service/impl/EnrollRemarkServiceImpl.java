@@ -3,6 +3,7 @@ package com.bootdo.edu.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,11 +35,14 @@ public class EnrollRemarkServiceImpl implements EnrollRemarkService {
 	
 	@Override
 	public int save(EnrollRemarkDO enrollRemark){
+		enrollRemark.setCreateTime(new Date());
+		enrollRemark.setUpdateTime(new Date());
 		return enrollRemarkDao.save(enrollRemark);
 	}
 	
 	@Override
 	public int update(EnrollRemarkDO enrollRemark){
+		enrollRemark.setUpdateTime(new Date());
 		return enrollRemarkDao.update(enrollRemark);
 	}
 	
