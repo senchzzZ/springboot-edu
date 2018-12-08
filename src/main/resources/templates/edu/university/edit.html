@@ -95,6 +95,20 @@
                         </div>
                         <div class="form-group">
 
+                            <span class="col-sm-1 control-label">banner图:</span>
+                            <div class="col-sm-7">
+                                <div class="layui-upload-drag" id="banner_button">
+                                    <i class="layui-icon"></i>
+                                    <p>点击上传，或将文件拖拽到此处</p>
+                                </div>
+                                <img th:src="${university.banner}" width="120px" height="120px" class="layui-upload-img" style="position: absolute;margin-left: 10px;" id="banner_img">
+
+                                <input id="banner" name="banner" th:value="${university.banner}" class="form-control" type="hidden">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
                             <span class="col-sm-1 control-label">备注:</span>
                             <div class="col-sm-9">
                                 <input id="remark" name="remark" th:value="${university.remark}" class="form-control" type="text">

@@ -11,6 +11,7 @@ $().ready(function() {
 	validateRule();
 });
 
+
 $.validator.setDefaults({
 	submitHandler : function() {
 		save();
@@ -56,8 +57,8 @@ layui.use('upload', function(){
         url: '/common/sysFile/upload', //上传接口
         accept: 'images',
         size: 2048,
-        auto: false,
-        bindAction: '#submit',
+        //auto: false,
+        //bindAction: '#submit',
         choose: function(obj){
             //预读本地文件示例，不支持ie8
             obj.preview(function(index, file, result){
