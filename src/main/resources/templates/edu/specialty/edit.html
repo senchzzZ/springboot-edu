@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" th:value="${specialty.id}" type="hidden">
+                        <input type="hidden" id="universityId" name="universityId" th:value="${specialty.universityId}"/>
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>专业名称:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="name" name="name"
+                                       th:value="${specialty.name}"/>
+                            </div>
+                        </div>
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>学历:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <select data-placeholder="请选择" name="qualification" id="qualification"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                    <option th:each="qualification : ${qualifications}" th:value="${qualification.name}" th:text="${qualification.name}"
+                                            th:selected="${specialty.qualification eq qualification.name}"></option>
+
+                                </select>
+
+                                <!--<input type="text" class="form-control" id="qualification" name="qualification"
+                                       th:value="${specialty.qualification}"/>-->
+                            </div>
+                        </div>
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>学制:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="academicYear" name="academicYear"
+                                       th:value="${specialty.academicYear}"/>
+                            </div>
+                        </div>
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>专业类型:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <select data-placeholder="请选择" name="type" id="type"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                    <option th:each="specialtyType : ${specialtyTypes}" th:value="${specialtyType.name}" th:text="${specialtyType.name}"
+                                            th:selected="${specialty.type eq specialtyType.name}"></option>
+
+                                </select>
+
+                                <!--<input type="text" class="form-control" id="type" name="type"
+                                       th:value="${specialty.type}"/>-->
+                            </div>
+                        </div>
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>专业介绍:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="introduction" name="introduction"
+                                       th:value="${specialty.introduction}"/>
+                            </div>
+                        </div>
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>备注:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="remark" name="remark"
+                                       th:value="${specialty.remark}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/edu/specialty/edit.js">
+</script>
+</body>
+</html>

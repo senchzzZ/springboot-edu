@@ -9,7 +9,8 @@
 
 	<select id="list" resultType="com.bootdo.edu.domain.EnrollRemarkDO">
 		select `id`,`name`,`enroll_id`,`enroll_fee`,`first_fee`,`second_fee`,`third_fee`,`service_item`,`remark`,`status`,`create_time`,`update_time` from edu_enroll_remark
-        <where>  
+        <where>
+			status = 1
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
 		  		  <if test="name != null and name != ''"> and name = #{name} </if>
 		  		  <if test="enrollId != null and enrollId != ''"> and enroll_id = #{enrollId} </if>
@@ -38,7 +39,8 @@
 	
  	<select id="count" resultType="int">
 		select count(*) from edu_enroll_remark
-		 <where>  
+		 <where>
+			 status = 1
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
 		  		  <if test="name != null and name != ''"> and name = #{name} </if>
 		  		  <if test="enrollId != null and enrollId != ''"> and enroll_id = #{enrollId} </if>
@@ -65,7 +67,7 @@
 			`third_fee`, 
 			`service_item`, 
 			`remark`, 
-			`status`, 
+
 			`create_time`, 
 			`update_time`
 		)
@@ -79,7 +81,7 @@
 			#{thirdFee}, 
 			#{serviceItem}, 
 			#{remark}, 
-			#{status}, 
+
 			#{createTime}, 
 			#{updateTime}
 		)
@@ -103,15 +105,15 @@
 		where id = #{id}
 	</update>
 	
-	<delete id="remove">
-		delete from edu_enroll_remark where id = #{value}
-	</delete>
+	<update id="remove">
+		update edu_enroll_remark set status = -1 where id = #{value}
+	</update>
 	
-	<delete id="batchRemove">
-		delete from edu_enroll_remark where id in 
+	<update id="batchRemove">
+		update edu_enroll_remark set status = -1 where id in
 		<foreach item="id" collection="array" open="(" separator="," close=")">
 			#{id}
 		</foreach>
-	</delete>
+	</update>
 
 </mapper>

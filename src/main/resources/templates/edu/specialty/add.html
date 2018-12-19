@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+
+                        <input id="universityId" name="universityId" th:value="${university.id}" type="hidden">
+
+                        <!--<div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>学校ID:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="universityId" name="universityId"/>
+                            </div>
+                        </div>-->
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>专业名称:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="name" name="name"/>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>学历:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <select data-placeholder="请选择" name="qualification" id="qualification"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>学制:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="academicYear" name="academicYear"/>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>专业类型:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <select data-placeholder="请选择" name="type" id="type"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="type" name="type"/>-->
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>专业介绍:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="introduction" name="introduction"/>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>备注:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="remark" name="remark"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/edu/specialty/add.js">
+</script>
+</body>
+</html>

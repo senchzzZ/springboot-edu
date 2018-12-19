@@ -9,7 +9,8 @@
 
 	<select id="list" resultType="com.bootdo.edu.domain.EnrollInfoDO">
 		select `id`,`name`,`sex`,`id_card`,`political`,`province`,`city`,`address`,`school`,`specialty`,`enroll_type`,`qualification`,`graduation_school`,`graduati_specialty`,`occupation_type`,`student_type`,`privilege_type`,`nation`,`phone`,`qq`,`email`,`wechat`,`if_delivery`,`delivery_name`,`delivery_time`,`delivery_num`,`if_pay`,`remark`,`status`,`type`,`create_time`,`update_time` from edu_enroll_info
-        <where>  
+        <where>
+			status = 1
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
 		  		  <if test="name != null and name != ''"> and name = #{name} </if>
 		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
@@ -66,40 +67,49 @@
 	
  	<select id="count" resultType="int">
 		select count(*) from edu_enroll_info
-		 <where>  
-		  		  <if test="id != null and id != ''"> and id = #{id} </if>
-		  		  <if test="name != null and name != ''"> and name = #{name} </if>
-		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
-		  		  <if test="idCard != null and idCard != ''"> and id_card = #{idCard} </if>
-		  		  <if test="political != null and political != ''"> and political = #{political} </if>
-		  		  <if test="province != null and province != ''"> and province = #{province} </if>
-		  		  <if test="city != null and city != ''"> and city = #{city} </if>
-		  		  <if test="address != null and address != ''"> and address = #{address} </if>
-		  		  <if test="school != null and school != ''"> and school = #{school} </if>
-		  		  <if test="specialty != null and specialty != ''"> and specialty = #{specialty} </if>
-		  		  <if test="enrollType != null and enrollType != ''"> and enroll_type = #{enrollType} </if>
-		  		  <if test="qualification != null and qualification != ''"> and qualification = #{qualification} </if>
-		  		  <if test="graduationSchool != null and graduationSchool != ''"> and graduation_school = #{graduationSchool} </if>
-		  		  <if test="graduatiSpecialty != null and graduatiSpecialty != ''"> and graduati_specialty = #{graduatiSpecialty} </if>
-		  		  <if test="occupationType != null and occupationType != ''"> and occupation_type = #{occupationType} </if>
-		  		  <if test="studentType != null and studentType != ''"> and student_type = #{studentType} </if>
-		  		  <if test="privilegeType != null and privilegeType != ''"> and privilege_type = #{privilegeType} </if>
-		  		  <if test="nation != null and nation != ''"> and nation = #{nation} </if>
-		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
-		  		  <if test="qq != null and qq != ''"> and qq = #{qq} </if>
-		  		  <if test="email != null and email != ''"> and email = #{email} </if>
-		  		  <if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
-		  		  <if test="ifDelivery != null and ifDelivery != ''"> and if_delivery = #{ifDelivery} </if>
-		  		  <if test="deliveryName != null and deliveryName != ''"> and delivery_name = #{deliveryName} </if>
-		  		  <if test="deliveryTime != null and deliveryTime != ''"> and delivery_time = #{deliveryTime} </if>
-		  		  <if test="deliveryNum != null and deliveryNum != ''"> and delivery_num = #{deliveryNum} </if>
-		  		  <if test="ifPay != null and ifPay != ''"> and if_pay = #{ifPay} </if>
-		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
-		  		  <if test="status != null and status != ''"> and status = #{status} </if>
-		  		  <if test="type != null and type != ''"> and type = #{type} </if>
-		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
-		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
-		  		</where>
+		<where>
+			status = 1
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="name != null and name != ''"> and name = #{name} </if>
+			<if test="sex != null and sex != ''"> and sex = #{sex} </if>
+			<if test="idCard != null and idCard != ''"> and id_card = #{idCard} </if>
+			<if test="political != null and political != ''"> and political = #{political} </if>
+			<if test="province != null and province != ''"> and province = #{province} </if>
+			<if test="city != null and city != ''"> and city = #{city} </if>
+			<if test="address != null and address != ''"> and address = #{address} </if>
+			<if test="school != null and school != ''"> and school = #{school} </if>
+			<if test="specialty != null and specialty != ''"> and specialty = #{specialty} </if>
+			<if test="enrollType != null and enrollType != ''"> and enroll_type = #{enrollType} </if>
+			<if test="qualification != null and qualification != ''"> and qualification = #{qualification} </if>
+			<if test="graduationSchool != null and graduationSchool != ''"> and graduation_school = #{graduationSchool} </if>
+			<if test="graduatiSpecialty != null and graduatiSpecialty != ''"> and graduati_specialty = #{graduatiSpecialty} </if>
+			<if test="occupationType != null and occupationType != ''"> and occupation_type = #{occupationType} </if>
+			<if test="studentType != null and studentType != ''"> and student_type = #{studentType} </if>
+			<if test="privilegeType != null and privilegeType != ''"> and privilege_type = #{privilegeType} </if>
+			<if test="nation != null and nation != ''"> and nation = #{nation} </if>
+			<if test="phone != null and phone != ''"> and phone = #{phone} </if>
+			<if test="qq != null and qq != ''"> and qq = #{qq} </if>
+			<if test="email != null and email != ''"> and email = #{email} </if>
+			<if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
+			<if test="ifDelivery != null and ifDelivery != ''"> and if_delivery = #{ifDelivery} </if>
+			<if test="deliveryName != null and deliveryName != ''"> and delivery_name = #{deliveryName} </if>
+			<if test="deliveryTime != null and deliveryTime != ''"> and delivery_time = #{deliveryTime} </if>
+			<if test="deliveryNum != null and deliveryNum != ''"> and delivery_num = #{deliveryNum} </if>
+			<if test="ifPay != null and ifPay != ''"> and if_pay = #{ifPay} </if>
+			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			<if test="status != null and status != ''"> and status = #{status} </if>
+			<if test="type != null and type != ''"> and type = #{type} </if>
+			<if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+			<if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+
+			<if test="searchKeyword != null and searchKeyword != ''">
+				and
+				(name like concat(concat('%',#{searchKeyword,jdbcType=VARCHAR}),'%')
+				or school like concat(concat('%',#{searchKeyword,jdbcType=VARCHAR}),'%')
+				or specialty like concat(concat('%',#{searchKeyword,jdbcType=VARCHAR}),'%')
+				)
+			</if>
+		</where>
 	</select>
 	 
 	<insert id="save" parameterType="com.bootdo.edu.domain.EnrollInfoDO" useGeneratedKeys="true" keyProperty="id">
@@ -132,8 +142,8 @@
 			`delivery_num`, 
 			`if_pay`, 
 			`remark`, 
-			`status`, 
-			`type`, 
+
+			`type`,
 			`create_time`, 
 			`update_time`
 		)
@@ -166,7 +176,7 @@
 			#{deliveryNum}, 
 			#{ifPay}, 
 			#{remark}, 
-			#{status}, 
+
 			#{type}, 
 			#{createTime}, 
 			#{updateTime}
@@ -211,15 +221,15 @@
 		where id = #{id}
 	</update>
 	
-	<delete id="remove">
-		delete from edu_enroll_info where id = #{value}
-	</delete>
+	<update id="remove">
+		update edu_enroll_info set status = -1 where id = #{value}
+	</update>
 	
-	<delete id="batchRemove">
-		delete from edu_enroll_info where id in 
+	<update id="batchRemove">
+		update edu_enroll_info set status = -1 where id in
 		<foreach item="id" collection="array" open="(" separator="," close=")">
 			#{id}
 		</foreach>
-	</delete>
+	</update>
 
 </mapper>

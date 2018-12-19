@@ -47,14 +47,15 @@
 
     <div class="gg-formGroup">
         <div class="gg-formTitle">
-            <span>报考形式:</span>
+            <span>报名类型:</span>
         </div>
         <div class="gg-formDetail">
             <select data-placeholder="请选择" name="type" id="type"
                     class="form-control chosen-select" tabindex="2" required>
                 <option value="">请选择</option>
-                <option th:each="type : ${types}" th:value="${type.value}" th:text="${type.name}"
-                        th:selected="${enrollInfo.type eq type.value}"></option>
+
+                <option th:each="edutype : ${types}" th:value="${edutype.value}" th:text="${edutype.name}"
+                        th:selected="${enrollInfo.type} == ${edutype.value}"></option>
 
             </select>
         </div>

@@ -57,7 +57,11 @@ public class UserServiceImpl implements UserService {
     public UserDO get(Long id) {
         List<Long> roleIds = userRoleMapper.listRoleId(id);
         UserDO user = userMapper.get(id);
-        user.setDeptName(deptMapper.get(user.getDeptId()).getName());
+        if (user.getDeptId() != null){
+            String deptName = deptMapper.get(user.getDeptId()).getName();
+            if (StringUtils.isNotBlank(deptName))
+                user.setDeptName(deptName);
+        }
         user.setRoleIds(roleIds);
         return user;
     }
@@ -256,14 +260,6 @@ public class UserServiceImpl implements UserService {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) throws IOException {
-        System.out.println(System.getProperty("user.dir"));
-        System.out.println(new File("").getCanonicalPath());
-        System.out.println(UserServiceImpl.class.getClassLoader().getResource("").getPath());
-        //System.out.println(UserServiceImpl.class.getClassLoader().getResource("/").getPath());
-        System.out.println(UserServiceImpl.class.getClassLoader().getResource(".").getPath());
     }
 
 }

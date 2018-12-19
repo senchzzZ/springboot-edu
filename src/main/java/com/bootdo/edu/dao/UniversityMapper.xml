@@ -9,7 +9,8 @@
 
 	<select id="list" resultType="com.bootdo.edu.domain.UniversityDO">
 		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time` from edu_university
-        <where>  
+        <where>
+			status = 1
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
 		  		  <if test="name != null and name != ''">
 					  and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
@@ -50,30 +51,33 @@
 	
  	<select id="count" resultType="int">
 		select count(*) from edu_university
-		 <where>  
-		  		  <if test="id != null and id != ''"> and id = #{id} </if>
-		  		  <if test="name != null and name != ''"> and name = #{name} </if>
-		  		  <if test="title != null and title != ''"> and title = #{title} </if>
-		  		  <if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
-		  		  <if test="description != null and description != ''"> and description = #{description} </if>
-		  		  <if test="ifProposal != null and ifProposal != ''"> and if_proposal = #{ifProposal} </if>
-		  		  <if test="teacher != null and teacher != ''"> and teacher = #{teacher} </if>
-		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
-		  		  <if test="qq != null and qq != ''"> and qq = #{qq} </if>
-		  		  <if test="email != null and email != ''"> and email = #{email} </if>
-		  		  <if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
-		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
-		  		  <if test="status != null and status != ''"> and status = #{status} </if>
-		  		  <if test="type != null and type != ''"> and type = #{type} </if>
-		  		  <if test="address != null and address != ''"> and address = #{address} </if>
-		  		  <if test="area != null and area != ''"> and area = #{area} </if>
-		  		  <if test="logo != null and logo != ''"> and logo = #{logo} </if>
-		  		  <if test="banner != null and banner != ''"> and banner = #{banner} </if>
-		  		  <if test="introduction != null and introduction != ''"> and introduction = #{introduction} </if>
-		  		  <if test="condition != null and condition != ''"> and condition = #{condition} </if>
-		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
-		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
-		  		</where>
+		<where>
+			status = 1
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="name != null and name != ''">
+				and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="title != null and title != ''"> and title = #{title} </if>
+			<if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
+			<if test="description != null and description != ''"> and description = #{description} </if>
+			<if test="ifProposal != null and ifProposal != ''"> and if_proposal = #{ifProposal} </if>
+			<if test="teacher != null and teacher != ''"> and teacher = #{teacher} </if>
+			<if test="phone != null and phone != ''"> and phone = #{phone} </if>
+			<if test="qq != null and qq != ''"> and qq = #{qq} </if>
+			<if test="email != null and email != ''"> and email = #{email} </if>
+			<if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
+			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			<if test="status != null and status != ''"> and status = #{status} </if>
+			<if test="type != null and type != ''"> and type = #{type} </if>
+			<if test="address != null and address != ''"> and address = #{address} </if>
+			<if test="area != null and area != ''"> and area = #{area} </if>
+			<if test="logo != null and logo != ''"> and logo = #{logo} </if>
+			<if test="banner != null and banner != ''"> and banner = #{banner} </if>
+			<if test="introduction != null and introduction != ''"> and introduction = #{introduction} </if>
+			<if test="condition != null and condition != ''"> and condition = #{condition} </if>
+			<if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+			<if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		</where>
 	</select>
 	 
 	<insert id="save" parameterType="com.bootdo.edu.domain.UniversityDO" useGeneratedKeys="true" keyProperty="id">
@@ -90,7 +94,7 @@
 			`email`, 
 			`wechat`, 
 			`remark`, 
-			`status`, 
+
 			`type`, 
 			`address`, 
 			`area`, 
@@ -114,7 +118,7 @@
 			#{email}, 
 			#{wechat}, 
 			#{remark}, 
-			#{status}, 
+
 			#{type}, 
 			#{address}, 
 			#{area}, 
@@ -155,15 +159,15 @@
 		where id = #{id}
 	</update>
 	
-	<delete id="remove">
-		delete from edu_university where id = #{value}
-	</delete>
+	<update id="remove">
+		update edu_university set status = -1 where id = #{value}
+	</update>
 	
-	<delete id="batchRemove">
-		delete from edu_university where id in 
+	<update id="batchRemove">
+		update edu_university set status = -1 where id in
 		<foreach item="id" collection="array" open="(" separator="," close=")">
 			#{id}
 		</foreach>
-	</delete>
+	</update>
 
 </mapper>

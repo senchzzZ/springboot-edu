@@ -3,6 +3,8 @@ package com.bootdo.edu.controller;
 import java.util.List;
 import java.util.Map;
 import com.bootdo.common.controller.BaseController;
+import com.bootdo.edu.domain.EnrollInfoDO;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
@@ -30,7 +32,7 @@ import com.bootdo.common.utils.R;
  * @email sench.zhao@gmail.com
  * @date 2018-12-05 16:25:20
  */
- 
+
 @Controller
 @RequestMapping("/edu/university")
 public class UniversityController extends BaseController {
@@ -130,6 +132,13 @@ public class UniversityController extends BaseController {
 			logger.warn(ExceptionUtils.getFullStackTrace(e));
 		}
 		return R.ok("失败");
+	}
+
+	@GetMapping("/addSpecialty/{universityId}")
+	String addSpecialty(@PathVariable("universityId") Long universityId,Model model){
+		UniversityDO university = universityService.get(universityId);
+		model.addAttribute("university", university);
+		return "edu/specialty/add";
 	}
 	
 }
