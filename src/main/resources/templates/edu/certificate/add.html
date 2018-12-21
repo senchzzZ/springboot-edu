@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="utf-8">
-
 <head th:include="include :: header"></head>
 <body class="gray-bg">
-
 <div class="wrapper wrapper-content ">
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-
                     <form class="form-horizontal m-t" id="signupForm">
+
+
                         <div class="form-group">
 
-                            <span class="col-sm-1 control-label">学校名称:</span>
+                            <span class="col-sm-1 control-label">证书名称:</span>
                             <div class="col-sm-4">
                                 <input id="name" name="name" class="form-control" type="text">
                             </div>
@@ -24,8 +23,8 @@
                             </div>
 
                         </div>
-                        <div class="form-group">
 
+                        <div class="form-group">
                             <span class="col-sm-1 control-label">关键词:</span>
                             <div class="col-sm-4">
                                 <input id="keyword" name="keyword" class="form-control" type="text">
@@ -48,55 +47,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-
-                            <span class="col-sm-1 control-label">老师:</span>
-                            <div class="col-sm-4">
-                                <input id="teacher" name="teacher" class="form-control" type="text">
-                            </div>
-                            <span class="col-sm-1 control-label">电话:</span>
-                            <div class="col-sm-4">
-                                <input id="phone" name="phone" class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <span class="col-sm-1 control-label">QQ:</span>
-                            <div class="col-sm-4">
-                                <input id="qq" name="qq" class="form-control" type="text">
-                            </div>
-                            <span class="col-sm-1 control-label">邮箱:</span>
-                            <div class="col-sm-4">
-                                <input id="email" name="email" class="form-control" type="text">
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-
-                            <span class="col-sm-1 control-label">微信:</span>
-                            <div class="col-sm-4">
-                                <input id="wechat" name="wechat" class="form-control" type="text">
-                            </div>
-                            <span class="col-sm-1 control-label">学校类型:</span>
-                            <div class="col-sm-4">
-                                <div class="gg-formDetail">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="type" checked value="0" />成教
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="type" value="1" />网教
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <span class="col-sm-1 control-label">详细地址:</span>
-                            <div class="col-sm-4">
-                                <input id="address" name="address" class="form-control" type="text">
-                            </div>
                             <span class="col-sm-1 control-label">地区:</span>
                             <div class="col-sm-4">
                                 <div class="gg-formDetail gg-font0" data-toggle="distpicker">
@@ -105,12 +56,91 @@
                                         </select>
                                     </div>
                                 </div>
-                                <!--<input id="area" name="area" class="form-control" type="text">-->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">学费:</span>
+                            <div class="col-sm-4">
+                                <input id="certificateFee" name="certificateFee" class="form-control" type="text">
+                            </div>
+                            <span class="col-sm-1 control-label">优惠学费:</span>
+                            <div class="col-sm-4">
+                                <input id="preferentialFee" name="preferentialFee" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">开学时间:</span>
+                            <div class="col-sm-4">
+                                <input id="termBeginTime" name="termBeginTime" class="form-control" type="text">
+                            </div>
+                            <span class="col-sm-1 control-label">学时:</span>
+                            <div class="col-sm-4">
+                                <input id="termTime" name="termTime" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">举办机构:</span>
+                            <div class="col-sm-4">
+                                <input id="organizer" name="organizer" class="form-control" type="text">
+                            </div>
+                            <span class="col-sm-1 control-label">举办地点:</span>
+                            <div class="col-sm-4">
+                                <input id="organizeAddress" name="organizeAddress" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">证书类别:</span>
+                            <div class="col-sm-4">
+
+                                <select data-placeholder="请选择" name="certificateType" id="certificateType"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+
+                                <!--<input id="certificateType" name="certificateType" class="form-control" type="text">-->
+                            </div>
+                            <span class="col-sm-1 control-label">老师:</span>
+                            <div class="col-sm-4">
+                                <input id="teacher" name="teacher" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">电话:</span>
+                            <div class="col-sm-4">
+                                <input id="phone" name="phone" class="form-control" type="text">
+                            </div>
+                            <span class="col-sm-1 control-label">QQ:</span>
+                            <div class="col-sm-4">
+                                <input id="qq" name="qq" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">邮箱:</span>
+                            <div class="col-sm-4">
+                                <input id="email" name="email" class="form-control" type="text">
+                            </div>
+                            <span class="col-sm-1 control-label">微信:</span>
+                            <div class="col-sm-4">
+                                <input id="wechat" name="wechat" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <span class="col-sm-1 control-label">备注:</span>
+                            <div class="col-sm-9">
+                                <input id="remark" name="remark" class="form-control" type="text">
                             </div>
 
                         </div>
-                        <div class="form-group">
 
+                        <div class="form-group">
                             <span class="col-sm-1 control-label">封面:</span>
                             <div class="col-sm-7">
                                 <div class="layui-upload-drag" id="banner_button">
@@ -121,18 +151,22 @@
 
                                 <input id="banner" name="banner" class="form-control" type="hidden">
                             </div>
-
                         </div>
-                        <div class="form-group">
 
-                            <span class="col-sm-1 control-label">备注:</span>
-                            <div class="col-sm-9">
-                                <input id="remark" name="remark" class="form-control" type="text">
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">相关文件:</span>
+                            <div class="col-sm-7">
+                                <div class="layui-upload-drag" id="file_button">
+                                    <i class="layui-icon"></i>
+                                    <p>点击上传，或将文件拖拽到此处</p>
+                                </div>
+                                <input id="file" name="file" class="form-control" type="hidden">
                             </div>
-
                         </div>
+
+
                         <div class="form-group">
-                            <span class="col-sm-1 control-label">学校介绍:</span>
+                            <span class="col-sm-1 control-label">详细介绍:</span>
                             <div class="col-sm-11">
                                 <input id="introduction" name="introduction" type="hidden">
 
@@ -142,21 +176,15 @@
                             </div>
 
                         </div>
-                        <div class="form-group">
-
-                            <span class="col-sm-1 control-label">报名条件:</span>
-                            <div class="col-sm-11">
-                                <input id="condition" name="condition" type="hidden">
-
-                                <div class="ibox-content no-padding">
-                                    <div id="condition_sn" class="summernote"></div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="text-right form-group" style="margin-right:0">
                             <button class="btn btn-primary waves-effect waves-light" id="submit" type="submit">保存</button>
                         </div>
+
+                        <!--<div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>-->
                     </form>
                 </div>
             </div>
@@ -165,7 +193,7 @@
 
 </div>
 <div th:include="include::footer"></div>
-<script type="text/javascript" src="/js/appjs/edu/university/add.js">
+<script type="text/javascript" src="/js/appjs/edu/certificate/add.js">
 </script>
 </body>
 </html>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.edu.dao.CertificateDao">
+
+	<select id="get" resultType="com.bootdo.edu.domain.CertificateDO">
+		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`certificate_fee`,`preferential_fee`,`term_begin_time`,`term_time`,`organizer`,`organize_address`,`certificate_type`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`area`,`file`,`banner`,`introduction`,`create_time`,`update_time` from edu_certificate where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.edu.domain.CertificateDO">
+		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`certificate_fee`,`preferential_fee`,`term_begin_time`,`term_time`,`organizer`,`organize_address`,`certificate_type`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`area`,`file`,`banner`,`introduction`,`create_time`,`update_time` from edu_certificate
+        <where>
+			status = 1
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
+		  		  <if test="description != null and description != ''"> and description = #{description} </if>
+		  		  <if test="ifProposal != null and ifProposal != ''"> and if_proposal = #{ifProposal} </if>
+		  		  <if test="certificateFee != null and certificateFee != ''"> and certificate_fee = #{certificateFee} </if>
+		  		  <if test="preferentialFee != null and preferentialFee != ''"> and preferential_fee = #{preferentialFee} </if>
+		  		  <if test="termBeginTime != null and termBeginTime != ''"> and term_begin_time = #{termBeginTime} </if>
+		  		  <if test="termTime != null and termTime != ''"> and term_time = #{termTime} </if>
+		  		  <if test="organizer != null and organizer != ''"> and organizer = #{organizer} </if>
+		  		  <if test="organizeAddress != null and organizeAddress != ''"> and organize_address = #{organizeAddress} </if>
+		  		  <if test="certificateType != null and certificateType != ''"> and certificate_type = #{certificateType} </if>
+		  		  <if test="teacher != null and teacher != ''"> and teacher = #{teacher} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="qq != null and qq != ''"> and qq = #{qq} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="area != null and area != ''"> and area = #{area} </if>
+		  		  <if test="file != null and file != ''"> and file = #{file} </if>
+		  		  <if test="banner != null and banner != ''"> and banner = #{banner} </if>
+		  		  <if test="introduction != null and introduction != ''"> and introduction = #{introduction} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from edu_certificate
+		 <where>
+			 status = 1
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
+		  		  <if test="description != null and description != ''"> and description = #{description} </if>
+		  		  <if test="ifProposal != null and ifProposal != ''"> and if_proposal = #{ifProposal} </if>
+		  		  <if test="certificateFee != null and certificateFee != ''"> and certificate_fee = #{certificateFee} </if>
+		  		  <if test="preferentialFee != null and preferentialFee != ''"> and preferential_fee = #{preferentialFee} </if>
+		  		  <if test="termBeginTime != null and termBeginTime != ''"> and term_begin_time = #{termBeginTime} </if>
+		  		  <if test="termTime != null and termTime != ''"> and term_time = #{termTime} </if>
+		  		  <if test="organizer != null and organizer != ''"> and organizer = #{organizer} </if>
+		  		  <if test="organizeAddress != null and organizeAddress != ''"> and organize_address = #{organizeAddress} </if>
+		  		  <if test="certificateType != null and certificateType != ''"> and certificate_type = #{certificateType} </if>
+		  		  <if test="teacher != null and teacher != ''"> and teacher = #{teacher} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="qq != null and qq != ''"> and qq = #{qq} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="area != null and area != ''"> and area = #{area} </if>
+		  		  <if test="file != null and file != ''"> and file = #{file} </if>
+		  		  <if test="banner != null and banner != ''"> and banner = #{banner} </if>
+		  		  <if test="introduction != null and introduction != ''"> and introduction = #{introduction} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.edu.domain.CertificateDO" useGeneratedKeys="true" keyProperty="id">
+		insert into edu_certificate
+		(
+			`name`, 
+			`title`, 
+			`keyword`, 
+			`description`, 
+			`if_proposal`, 
+			`certificate_fee`, 
+			`preferential_fee`, 
+			`term_begin_time`, 
+			`term_time`, 
+			`organizer`, 
+			`organize_address`, 
+			`certificate_type`, 
+			`teacher`, 
+			`phone`, 
+			`qq`, 
+			`email`, 
+			`wechat`, 
+			`remark`, 
+
+			`area`, 
+			`file`, 
+			`banner`, 
+			`introduction`, 
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{name}, 
+			#{title}, 
+			#{keyword}, 
+			#{description}, 
+			#{ifProposal}, 
+			#{certificateFee}, 
+			#{preferentialFee}, 
+			#{termBeginTime}, 
+			#{termTime}, 
+			#{organizer}, 
+			#{organizeAddress}, 
+			#{certificateType}, 
+			#{teacher}, 
+			#{phone}, 
+			#{qq}, 
+			#{email}, 
+			#{wechat}, 
+			#{remark}, 
+
+			#{area}, 
+			#{file}, 
+			#{banner}, 
+			#{introduction}, 
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.edu.domain.CertificateDO">
+		update edu_certificate 
+		<set>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="keyword != null">`keyword` = #{keyword}, </if>
+			<if test="description != null">`description` = #{description}, </if>
+			<if test="ifProposal != null">`if_proposal` = #{ifProposal}, </if>
+			<if test="certificateFee != null">`certificate_fee` = #{certificateFee}, </if>
+			<if test="preferentialFee != null">`preferential_fee` = #{preferentialFee}, </if>
+			<if test="termBeginTime != null">`term_begin_time` = #{termBeginTime}, </if>
+			<if test="termTime != null">`term_time` = #{termTime}, </if>
+			<if test="organizer != null">`organizer` = #{organizer}, </if>
+			<if test="organizeAddress != null">`organize_address` = #{organizeAddress}, </if>
+			<if test="certificateType != null">`certificate_type` = #{certificateType}, </if>
+			<if test="teacher != null">`teacher` = #{teacher}, </if>
+			<if test="phone != null">`phone` = #{phone}, </if>
+			<if test="qq != null">`qq` = #{qq}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="wechat != null">`wechat` = #{wechat}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="area != null">`area` = #{area}, </if>
+			<if test="file != null">`file` = #{file}, </if>
+			<if test="banner != null">`banner` = #{banner}, </if>
+			<if test="introduction != null">`introduction` = #{introduction}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<update id="remove">
+		update edu_certificate set status = -1 where id = #{value}
+	</update>
+	
+	<update id="batchRemove">
+		update edu_certificate set status = -1 where id in
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+
+</mapper>

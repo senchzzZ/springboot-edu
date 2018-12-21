@@ -8,25 +8,25 @@ $().ready(function() {
             }
         }
     });
+    var introduction = $("#introduction").val();
+    $('#introduction_sn').summernote('code', introduction);
+
 	validateRule();
 });
 
-
 $.validator.setDefaults({
 	submitHandler : function() {
-		save();
+		update();
 	}
 });
-function save() {
+function update() {
     var introduction_sn = $("#introduction_sn").summernote('code');
     $("#introduction").val(introduction_sn);
 
-    var condition_sn = $("#condition_sn").summernote('code');
-    $("#condition").val(condition_sn);
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/edu/university/save",
+		url : "/edu/certificate/update",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -51,9 +51,9 @@ function save() {
 layui.use('upload', function(){
     var upload = layui.upload;
 
-    //执行实例
-    var uploadInst = upload.render({
-		elem: '#banner_button', //绑定元素
+    //封面注册
+    upload.render({
+        elem: '#banner_button', //绑定元素
         url: '/common/sysFile/upload', //上传接口
         accept: 'images',
         size: 2048,
@@ -67,7 +67,25 @@ layui.use('upload', function(){
         },
         done: function(res){
             //上传完毕回调
-			$("#banner").val(res.fileName);
+            $("#banner").val(res.fileName);
+            layer.msg(res.msg);
+        }
+        ,error: function(){
+            //请求异常回调
+            layer.alert("上传失败");
+        }
+    });
+    //文件注册
+    upload.render({
+        elem: '#file_button', //绑定元素
+        url: '/common/sysFile/upload', //上传接口
+        accept: 'file',
+        size: 2048,
+        //auto: false,
+        //bindAction: '#submit',
+        done: function(res){
+            //上传完毕回调
+            $("#file").val(res.fileName);
             layer.msg(res.msg);
         }
         ,error: function(){
@@ -87,7 +105,7 @@ function validateRule() {
 		},
 		messages : {
 			name : {
-				required : icon + "请输入学校名称"
+				required : icon + "请输入证书名称"
 			}
 		}
 	})

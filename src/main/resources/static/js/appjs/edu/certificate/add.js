@@ -8,9 +8,9 @@ $().ready(function() {
             }
         }
     });
-	validateRule();
+    loadType();
+    validateRule();
 });
-
 
 $.validator.setDefaults({
 	submitHandler : function() {
@@ -21,12 +21,10 @@ function save() {
     var introduction_sn = $("#introduction_sn").summernote('code');
     $("#introduction").val(introduction_sn);
 
-    var condition_sn = $("#condition_sn").summernote('code');
-    $("#condition").val(condition_sn);
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/edu/university/save",
+		url : "/edu/certificate/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -48,12 +46,13 @@ function save() {
 
 }
 
+
 layui.use('upload', function(){
     var upload = layui.upload;
 
-    //执行实例
-    var uploadInst = upload.render({
-		elem: '#banner_button', //绑定元素
+    //封面注册
+    upload.render({
+        elem: '#banner_button', //绑定元素
         url: '/common/sysFile/upload', //上传接口
         accept: 'images',
         size: 2048,
@@ -67,7 +66,25 @@ layui.use('upload', function(){
         },
         done: function(res){
             //上传完毕回调
-			$("#banner").val(res.fileName);
+            $("#banner").val(res.fileName);
+            layer.msg(res.msg);
+        }
+        ,error: function(){
+            //请求异常回调
+            layer.alert("上传失败");
+        }
+    });
+    //文件注册
+    upload.render({
+        elem: '#file_button', //绑定元素
+        url: '/common/sysFile/upload', //上传接口
+        accept: 'file',
+        size: 2048,
+        //auto: false,
+        //bindAction: '#submit',
+        done: function(res){
+            //上传完毕回调
+            $("#file").val(res.fileName);
             layer.msg(res.msg);
         }
         ,error: function(){
@@ -76,6 +93,33 @@ layui.use('upload', function(){
         }
     });
 });
+
+function loadType(){
+    //证书类型
+    $.ajax({
+        url : '/common/dict/list/edu_certificate_type',
+        success : function(data) {
+            var html = "";
+            //加载数据
+            for (var i = 0; i < data.length; i++) {
+                html += '<option value="' + data[i].name + '">' + data[i].name + '</option>'
+            }
+            $("#certificateType").append(html);
+            $("#certificateType").chosen({
+                maxHeight : 200
+            });
+            //点击事件
+            $('#certificateType').on('change', function(e, params) {
+                var opt = {
+                    query : {
+                        type : params.selected,
+                    }
+                }
+                $('#exampleTable').bootstrapTable('refresh', opt);
+            });
+        }
+    });
+}
 
 function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
@@ -87,7 +131,7 @@ function validateRule() {
 		},
 		messages : {
 			name : {
-				required : icon + "请输入学校名称"
+				required : icon + "请输入姓名"
 			}
 		}
 	})
