@@ -29,5 +29,5 @@ public interface SpecialtyService {
 	
 	int batchRemove(Long[] ids);
 
-    boolean batchImport(String fileName, MultipartFile file, Long universityId) throws Exception;
+    String batchImport(String fileName, MultipartFile file, Long universityId) throws Exception;
 }

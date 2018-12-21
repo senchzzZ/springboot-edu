@@ -1,8 +1,9 @@
 
-var prefix = "/edu/university"
-var prefixSpecialty = "/edu/specialty"
+var prefix = "/edu/university";
+var prefixSpecialty = "/edu/specialty";
 $(function() {
 	load();
+
 });
 
 function load() {
@@ -50,35 +51,35 @@ function load() {
 									checkbox : true
 								},
 																{
-									field : 'id', 
-									title : 'ID' 
+									field : 'id',
+									title : 'ID'
 								},
 																{
-									field : 'name', 
-									title : '学校名称' 
+									field : 'name',
+									title : '学校名称'
 								},
 																{
-									field : 'teacher', 
-									title : '老师' 
+									field : 'teacher',
+									title : '老师'
 								},
 																{
-									field : 'phone', 
-									title : '电话' 
+									field : 'phone',
+									title : '电话'
 								},
 																/*{
-									field : 'qq', 
-									title : 'QQ' 
+									field : 'qq',
+									title : 'QQ'
 								},*/
 																{
-									field : 'email', 
-									title : '邮箱' 
+									field : 'email',
+									title : '邮箱'
 								},
 																{
-									field : 'wechat', 
-									title : '微信' 
+									field : 'wechat',
+									title : '微信'
 								},
 																{
-									field : 'type', 
+									field : 'type',
 									title : '学校类型' ,
 									formatter : function(value, row, index){
 										if(value==0){
@@ -91,8 +92,8 @@ function load() {
 									}
 								},
 																{
-									field : 'area', 
-									title : '地区' 
+									field : 'area',
+									title : '地区'
 								},
 																{
 									field : 'ifProposal',
@@ -113,8 +114,8 @@ function load() {
 									}
 								},
 																{
-									field : 'createTime', 
-									title : '创建时间' 
+									field : 'createTime',
+									title : '创建时间'
 								},
 																{
 									field : 'remark',
@@ -137,12 +138,76 @@ function load() {
                                         var g = '<a class="btn btn-success btn-sm" href="#" title="查看专业"  mce_href="#" onclick="viewSpecialty(\''
                                             + row.id
                                             + '\')"><i class="fa fa-book"></i></a> ';
-
-										return e + d + f + g ;
+                                        /*var h = //'<input type="file" style="display: none" id="choseFile"> ' +
+											'<a class="btn btn-success btn-sm batch-import" href="#" title="导入专业" lay-data="{url: \'/edu/specialty/batchImport\'}" mce_href="#" onclick="importSpecialty(\''
+                                            + row.id
+                                            + '\')"> <i class="fa fa-cloud-upload"></i></a> ';*/
+                                        var h = '<a class="btn btn-success btn-sm batch-import" href="#" title="导入专业" ' +
+											'lay-data="{url: \'/edu/specialty/batchImport?universityId='+row.id+'\'}" mce_href="#"><i class="fa fa-cloud-upload"></i></a> ';
+                                        return e + d + f + g + h ;
 									}
-								} ]
+								} ],
+                        onLoadSuccess: function (number, size) {
+                            layui.use('upload', function(){
+
+                                var upload = layui.upload;
+
+								upload.render({
+									elem: '.batch-import',
+                                    //url: '/edu/specialty/batchImport', //上传接口
+									accept: 'file',
+									size: 2048,
+									//data: data,
+									before: function(){
+										layer.tips('接口地址：'+ this.url, this.item, {tips: 1});
+									},
+									done: function(res, index, upload){
+										var item = this.item;
+										console.log(item); //获取当前触发上传的元素，layui 2.1.0 新增
+										layer.msg(res.msg);
+									}
+								});
+
+                            });
+                        }
+
 					});
+
 }
+
+
+//导入专业
+/*function importSpecialty(id) {
+    var data = {};
+    data.universityId = id;
+
+    layui.use('upload', function(){
+
+        var upload = layui.upload;
+
+        batchImport();
+        function batchImport() {
+            upload.render({
+                elem: '.batch-import',
+                accept: 'file',
+                size: 2048,
+				data: data,
+                before: function(){
+                    layer.tips('接口地址：'+ this.url, this.item, {tips: 1});
+                },
+                done: function(res, index, upload){
+                    var item = this.item;
+                    console.log(item); //获取当前触发上传的元素，layui 2.1.0 新增
+                    layer.msg(res.msg);
+                }
+            });
+        }
+
+    });
+}*/
+
+
+
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }

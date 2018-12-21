@@ -76,7 +76,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 	}
 
 	@Override
-	public boolean batchImport(String fileName, MultipartFile file, Long universityId) throws Exception {
+	public String batchImport(String fileName, MultipartFile file, Long universityId) throws Exception {
 		log.info("开始导入~~~~~~~");
 		boolean notNull = false;
 		List<SpecialtyDO> specialtyList = new ArrayList<>();
@@ -97,14 +97,17 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 			notNull = true;
 		}
 		SpecialtyDO specialty;
+		int successNum = 0;
+		String result = "";
+		//忽略第一行title
 		for (int r = 1; r <= sheet.getLastRowNum(); r++) {
 			Row row = sheet.getRow(r);
-			if (row == null) {
+
+			//空行判断
+			if (StringUtils.isBlank(row.getCell(0).getStringCellValue()))
 				continue;
-			}
 
 			specialty = new SpecialtyDO();
-
 			//名称
 			if (row.getCell(0).getCellType() != Cell.CELL_TYPE_STRING) {
 				throw new Exception("导入失败(第" + (r + 1) + "行,名称请设为文本格式)");
@@ -122,8 +125,8 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 			}
 
 			//学年
-			String academicYear = row.getCell(2).getStringCellValue();
-			if (StringUtils.isBlank(academicYear)) {
+			Double academicYear = row.getCell(2).getNumericCellValue();
+			if (academicYear == null) {
 				throw new Exception("导入失败(第" + (r + 1) + "行,学年未填写)");
 			}
 
@@ -134,22 +137,15 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 			}
 
 			//介绍
-			String introduction = row.getCell(34).getStringCellValue();
+			String introduction = row.getCell(4).getStringCellValue();
 			if (StringUtils.isBlank(introduction)) {
-				throw new Exception("导入失败(第" + (r + 1) + "行,介绍未填写)");
+				throw new Exception("导入失败(第" + (r + 1) + "行,专业介绍未填写)");
 			}
-
-			/*Date date;
-			if (row.getCell(3).getCellType() != 0) {
-				throw new Exception("导入失败(第" + (r + 1) + "行,入职日期格式不正确或未填写)");
-			} else {
-				date = row.getCell(3).getDateCellValue();
-			}*/
 
 			specialty.setUniversityId(universityId);
 			specialty.setName(name);
 			specialty.setQualification(qualification);
-			specialty.setAcademicYear(academicYear);
+			specialty.setAcademicYear(String.valueOf(academicYear));
 			specialty.setIntroduction(introduction);
 			specialty.setType(type);
 
@@ -157,11 +153,13 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 			specialty.setUpdateTime(new Date());
 
 			specialtyList.add(specialty);
+			successNum++;
 		}
 		for (SpecialtyDO s : specialtyList) {
 			specialtyDao.save(s);
 		}
-		return notNull;
+		result = "导入结束,成功条数: " + successNum;
+		log.info(result);
+		return result;
 	}
-
 }

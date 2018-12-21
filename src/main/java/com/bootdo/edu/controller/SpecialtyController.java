@@ -153,15 +153,16 @@ public class SpecialtyController {
 	@ResponseBody
 	@PostMapping("/batchImport")
 	public R batchImport( @RequestParam ("file") MultipartFile file, Long universityId) {
-
+		if (universityId == null )
+			return R.error("未指定学校");
 		String fileName = file.getOriginalFilename();
 		if (!fileName.matches("^.+\\.(?i)(xls)$") && !fileName.matches("^.+\\.(?i)(xlsx)$")) {
-			R.error("文件格式不正确");
+			return R.error("文件格式不正确");
 		}
 
 		try {
-			specialtyService.batchImport(fileName, file, universityId);
-			return R.ok();
+			String result = specialtyService.batchImport(fileName, file, universityId);
+			return R.ok(result);
 		} catch (Exception e) {
 			log.error(ExceptionUtils.getFullStackTrace(e));
 			return R.error(e.getMessage());
