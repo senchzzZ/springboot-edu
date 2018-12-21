@@ -159,11 +159,11 @@ function load() {
 									size: 2048,
 									//data: data,
 									before: function(){
-										layer.tips('接口地址：'+ this.url, this.item, {tips: 1});
+										//layer.tips('接口地址：'+ this.url, this.item, {tips: 1});
 									},
 									done: function(res, index, upload){
-										var item = this.item;
-										console.log(item); //获取当前触发上传的元素，layui 2.1.0 新增
+										//var item = this.item;
+										//console.log(item); //获取当前触发上传的元素，layui 2.1.0 新增
 										layer.msg(res.msg);
 									}
 								});
@@ -174,39 +174,6 @@ function load() {
 					});
 
 }
-
-
-//导入专业
-/*function importSpecialty(id) {
-    var data = {};
-    data.universityId = id;
-
-    layui.use('upload', function(){
-
-        var upload = layui.upload;
-
-        batchImport();
-        function batchImport() {
-            upload.render({
-                elem: '.batch-import',
-                accept: 'file',
-                size: 2048,
-				data: data,
-                before: function(){
-                    layer.tips('接口地址：'+ this.url, this.item, {tips: 1});
-                },
-                done: function(res, index, upload){
-                    var item = this.item;
-                    console.log(item); //获取当前触发上传的元素，layui 2.1.0 新增
-                    layer.msg(res.msg);
-                }
-            });
-        }
-
-    });
-}*/
-
-
 
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
