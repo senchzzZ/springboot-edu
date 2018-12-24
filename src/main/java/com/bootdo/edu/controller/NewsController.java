@@ -19,66 +19,66 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bootdo.edu.domain.CertificateDO;
-import com.bootdo.edu.service.CertificateService;
+import com.bootdo.edu.domain.NewsDO;
+import com.bootdo.edu.service.NewsService;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
 
 /**
- * 证书管理
+ * 新闻管理
  * 
  * @author zhaoshengqi
  * @email sench.zhao@gmail.com
- * @date 2018-12-21 16:17:26
+ * @date 2018-12-24 11:53:57
  */
 
 @Slf4j
 @Controller
-@RequestMapping("/edu/certificate")
-public class CertificateController {
+@RequestMapping("/edu/news")
+public class NewsController {
 	@Autowired
-	private CertificateService certificateService;
+	private NewsService newsService;
 
 	@Autowired
 	private DictService dictService;
 	
 	@GetMapping()
-	@RequiresPermissions("edu:certificate:certificate")
-	String Certificate(Model model){
-		List<DictDO> certificateTypes = dictService.listByType("edu_certificate_type");//类别
-		model.addAttribute("certificateTypes", certificateTypes);
+	@RequiresPermissions("edu:news:news")
+	String News(Model model){
+		List<DictDO> newsTypes = dictService.listByType("edu_news_type");//证书类别
 
-		return "edu/certificate/certificate";
+		model.addAttribute("newsTypes", newsTypes);
+		return "edu/news/news";
 	}
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("edu:certificate:certificate")
+	@RequiresPermissions("edu:news:news")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<CertificateDO> certificateList = certificateService.list(query);
-		int total = certificateService.count(query);
-		PageUtils pageUtils = new PageUtils(certificateList, total);
+		List<NewsDO> newsList = newsService.list(query);
+		int total = newsService.count(query);
+		PageUtils pageUtils = new PageUtils(newsList, total);
 		return pageUtils;
 	}
 	
 	@GetMapping("/add")
-	@RequiresPermissions("edu:certificate:add")
+	@RequiresPermissions("edu:news:add")
 	String add(){
-	    return "edu/certificate/add";
+	    return "edu/news/add";
 	}
 
 	@GetMapping("/edit/{id}")
-	@RequiresPermissions("edu:certificate:edit")
+	@RequiresPermissions("edu:news:edit")
 	String edit(@PathVariable("id") Long id,Model model){
-		List<DictDO> certificateTypes = dictService.listByType("edu_certificate_type");//证书类别
+		List<DictDO> newsTypes = dictService.listByType("edu_news_type");//证书类别
 
-		CertificateDO certificate = certificateService.get(id);
-		model.addAttribute("certificate", certificate);
-		model.addAttribute("certificateTypes", certificateTypes);
-	    return "edu/certificate/edit";
+		NewsDO news = newsService.get(id);
+		model.addAttribute("news", news);
+		model.addAttribute("newsTypes", newsTypes);
+	    return "edu/news/edit";
 	}
 	
 	/**
@@ -86,9 +86,9 @@ public class CertificateController {
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	@RequiresPermissions("edu:certificate:add")
-	public R save( CertificateDO certificate){
-		if(certificateService.save(certificate)>0){
+	@RequiresPermissions("edu:news:add")
+	public R save( NewsDO news){
+		if(newsService.save(news)>0){
 			return R.ok();
 		}
 		return R.error();
@@ -98,9 +98,9 @@ public class CertificateController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions("edu:certificate:edit")
-	public R update( CertificateDO certificate){
-		certificateService.update(certificate);
+	@RequiresPermissions("edu:news:edit")
+	public R update( NewsDO news){
+		newsService.update(news);
 		return R.ok();
 	}
 	
@@ -109,12 +109,23 @@ public class CertificateController {
 	 */
 	@PostMapping( "/remove")
 	@ResponseBody
-	@RequiresPermissions("edu:certificate:remove")
+	@RequiresPermissions("edu:news:remove")
 	public R remove( Long id){
-		if(certificateService.remove(id)>0){
+		if(newsService.remove(id)>0){
 		return R.ok();
 		}
 		return R.error();
+	}
+	
+	/**
+	 * 删除
+	 */
+	@PostMapping( "/batchRemove")
+	@ResponseBody
+	@RequiresPermissions("edu:news:batchRemove")
+	public R remove(@RequestParam("ids[]") Long[] ids){
+		newsService.batchRemove(ids);
+		return R.ok();
 	}
 
 	/**
@@ -127,23 +138,12 @@ public class CertificateController {
 	@ResponseBody
 	public R changeProposal(Long id,int ifProposal) {
 		try {
-			certificateService.changeProposal(id, ifProposal);
+			newsService.changeProposal(id, ifProposal);
 			return R.ok("成功");
 		} catch (Exception e) {
 			log.warn(ExceptionUtils.getFullStackTrace(e));
 		}
 		return R.ok("失败");
-	}
-	
-	/**
-	 * 删除
-	 */
-	@PostMapping( "/batchRemove")
-	@ResponseBody
-	@RequiresPermissions("edu:certificate:batchRemove")
-	public R remove(@RequestParam("ids[]") Long[] ids){
-		certificateService.batchRemove(ids);
-		return R.ok();
 	}
 	
 }

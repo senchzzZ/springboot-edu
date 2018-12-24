@@ -1,0 +1,12 @@
+.layui-select-title .layui-input::-webkit-input-placeholder{
+    color:#999;
+}
+.layui-select-title .layui-input:-moz-placeholder{
+    color:#999;
+}
+.layui-select-title .layui-input::-moz-placeholder{
+    color:#999;
+}
+.layui-select-title .layui-input:-ms-input-placeholder{
+    color:#999;
+}

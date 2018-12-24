@@ -1,9 +1,7 @@
 
-var prefix = "/edu/university";
-var prefixSpecialty = "/edu/specialty";
+var prefix = "/edu/news"
 $(function() {
 	load();
-
 });
 
 function load() {
@@ -14,7 +12,7 @@ function load() {
 						url : prefix + "/list", // 服务器数据的加载地址
 					//	showRefresh : true,
 					//	showToggle : true,
-						showColumns : true,
+					//	showColumns : true,
 						iconSize : 'outline',
 						toolbar : '#exampleToolbar',
 						striped : true, // 设置为true会有隔行变色效果
@@ -28,16 +26,16 @@ function load() {
 						pageSize : 10, // 如果设置了分页，每页数据条数
 						pageNumber : 1, // 如果设置了分布，首页页码
 						//search : true, // 是否显示搜索框
-						//showColumns : false, // 是否显示内容下拉框（选择显示的列）
+						showColumns : false, // 是否显示内容下拉框（选择显示的列）
 						sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
 						queryParams : function(params) {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 								limit: params.limit,
 								offset:params.offset,
-					            name:$('#searchName').val(),
-					            area:$('#searchArea').val(),
-					            type:$('#searchType').val()
+                                title:$('#searchName').val(),
+                                area:$('#searchArea').val(),
+                                newsType:$('#searchType').val()
 							};
 						},
 						// //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
@@ -51,51 +49,30 @@ function load() {
 									checkbox : true
 								},
 																{
-									field : 'id',
-									title : 'ID'
+									field : 'id', 
+									title : 'ID' 
 								},
 																{
-									field : 'name',
-									title : '学校名称'
+									field : 'title', 
+									title : '标题' 
 								},
 																{
-									field : 'teacher',
-									title : '老师'
+									field : 'keyword', 
+									title : '关键词' 
 								},
 																{
-									field : 'phone',
-									title : '电话'
+									field : 'newsType', 
+									title : '新闻类别'
+								},
+																{
+									field : 'area', 
+									title : '地区' 
 								},
 																/*{
-									field : 'qq',
-									title : 'QQ'
+									field : 'banner',
+									title : '缩略图'
 								},*/
-																{
-									field : 'email',
-									title : '邮箱'
-								},
-																{
-									field : 'wechat',
-									title : '微信'
-								},
-																{
-									field : 'type',
-									title : '学校类型' ,
-									formatter : function(value, row, index){
-										if(value==0){
-											return '<span class="label label-primary">成教</span>';
-										}else if(value==1){
-											return '<span class="label label-success">网教</span>';
-										}else{
-											return '<span class="label label-danger">未指定</span>';
-										}
-									}
-								},
-																{
-									field : 'area',
-									title : '地区'
-								},
-																{
+								{
 									field : 'ifProposal',
 									title : '是否推荐',
 									formatter: function (value, row, index) {
@@ -114,12 +91,12 @@ function load() {
 									}
 								},
 																{
-									field : 'createTime',
-									title : '创建时间'
+									field : 'remark', 
+									title : '备注' 
 								},
 																{
-									field : 'remark',
-									title : '备注'
+									field : 'createTime', 
+									title : '创建时间' 
 								},
 																{
 									title : '操作',
@@ -132,49 +109,14 @@ function load() {
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.id
 												+ '\')"><i class="fa fa-remove"></i></a> ';
-                                        var f = '<a class="btn btn-success btn-sm" href="#" title="添加专业"  mce_href="#" onclick="addSpecialty(\''
-                                            + row.id
-                                            + '\')"><i class="fa fa-plus"></i></a> ';
-                                        var g = '<a class="btn btn-success btn-sm" href="#" title="查看专业"  mce_href="#" onclick="viewSpecialty(\''
-                                            + row.id
-                                            + '\')"><i class="fa fa-book"></i></a> ';
-                                        /*var h = //'<input type="file" style="display: none" id="choseFile"> ' +
-											'<a class="btn btn-success btn-sm batch-import" href="#" title="导入专业" lay-data="{url: \'/edu/specialty/batchImport\'}" mce_href="#" onclick="importSpecialty(\''
-                                            + row.id
-                                            + '\')"> <i class="fa fa-cloud-upload"></i></a> ';*/
-                                        var h = '<a class="btn btn-success btn-sm batch-import" href="#" title="导入专业" ' +
-											'lay-data="{url: \'/edu/specialty/batchImport?universityId='+row.id+'\'}" mce_href="#"><i class="fa fa-cloud-upload"></i></a> ';
-                                        return e + d + f + g + h ;
+										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
+												+ row.id
+												+ '\')"><i class="fa fa-key"></i></a> ';
+										return e + d ;
 									}
-								} ],
-                        onLoadSuccess: function (number, size) {
-                            layui.use('upload', function(){
-
-                                var upload = layui.upload;
-
-								upload.render({
-									elem: '.batch-import',
-                                    //url: '/edu/specialty/batchImport', //上传接口
-									accept: 'file',
-									size: 2048,
-									//data: data,
-									before: function(){
-										//layer.tips('接口地址：'+ this.url, this.item, {tips: 1});
-									},
-									done: function(res, index, upload){
-										//var item = this.item;
-										//console.log(item); //获取当前触发上传的元素，layui 2.1.0 新增
-										layer.msg(res.msg);
-									}
-								});
-
-                            });
-                        }
-
+								} ]
 					});
-
 }
-
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
@@ -223,10 +165,10 @@ function changeProposal(id, status) {
 }
 
 function add() {
-    var addPage = layer.open({
+	var addPage = layer.open({
 		type : 2,
-		title : '添加学校',
-		maxmin : false,
+		title : '增加',
+		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
 		content : prefix + '/add' // iframe的url
@@ -237,37 +179,14 @@ function edit(id) {
 	var editPage = layer.open({
 		type : 2,
 		title : '编辑',
-		maxmin : false,
+		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
 		content : prefix + '/edit/' + id // iframe的url
 	});
     layer.full(editPage);
-}
 
-//添加专业
-function addSpecialty(universityId) {
-    layer.open({
-        type : 2,
-        title : '添加专业',
-        maxmin : true,
-        shadeClose : false, // 点击遮罩关闭层
-        area : [ '800px', '520px' ],
-        content : prefix + '/addSpecialty/' + universityId // iframe的url
-    });
 }
-//查看专业
-function viewSpecialty(universityId) {
-    layer.open({
-        type : 2,
-        title : '查看专业',
-        maxmin : true,
-        shadeClose : false, // 点击遮罩关闭层
-        area : [ '800px', '520px' ],
-        content : prefixSpecialty + '/viewSpecialties/' + universityId // iframe的url
-    });
-}
-
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {
 		btn : [ '确定', '取消' ]

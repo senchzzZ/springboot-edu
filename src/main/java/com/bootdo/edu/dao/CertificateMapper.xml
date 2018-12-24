@@ -12,7 +12,9 @@
         <where>
 			status = 1
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
-		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="name != null and name != ''">
+					  and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+				  </if>
 		  		  <if test="title != null and title != ''"> and title = #{title} </if>
 		  		  <if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
 		  		  <if test="description != null and description != ''"> and description = #{description} </if>
@@ -56,7 +58,9 @@
 		 <where>
 			 status = 1
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
-		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="name != null and name != ''">
+					  and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+				  </if>
 		  		  <if test="title != null and title != ''"> and title = #{title} </if>
 		  		  <if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
 		  		  <if test="description != null and description != ''"> and description = #{description} </if>

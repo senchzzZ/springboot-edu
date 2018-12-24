@@ -111,6 +111,14 @@ function reLoad() {
 $(".chosen-select").change(function(){
     $('#exampleTable').bootstrapTable('refresh');
 });
+
+layui.use('form', function(){
+    var form = layui.form;
+    form.on('select', function(data){
+        $('#exampleTable').bootstrapTable('refresh');
+    })
+});
+
 function add() {
 	layer.open({
 		type : 2,
