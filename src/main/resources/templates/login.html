@@ -8,6 +8,8 @@
     <title>EDU</title>
     <meta name="keywords" content="edu管理系统">
     <meta name="description" content="edu管理系统">
+    <link rel="shortcut icon" href="/logo-icon.ico">
+
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
@@ -121,14 +123,14 @@
     function login() {
         $.ajax({
             type: "POST",
-            url: ctx+"login",
+            url: ctx+"admin/login",
             data: $('#signupForm').serialize(),
             success: function (r) {
                  if (r.code == 0) {
                     var index = layer.load(1, {
                         shade: [0.1,'#fff'] //0.1透明度的白色背景
                     });
-                    parent.location.href = '/index';
+                    parent.location.href = '/admin/index';
                 } else {
                     layer.msg(r.msg);
                 }

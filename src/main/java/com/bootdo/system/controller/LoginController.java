@@ -45,11 +45,11 @@ public class LoginController extends BaseController {
     @GetMapping({"/", ""})
     String welcome(Model model) {
 
-        return "redirect:/login";
+        return "redirect:/admin/login";
     }
 
     @Log("请求访问主页")
-    @GetMapping({"/index"})
+    @GetMapping({"/admin/index"})
     String index(Model model) {
         List<Tree<MenuDO>> menus = menuService.listMenuTree(getUserId());
         model.addAttribute("menus", menus);
@@ -68,15 +68,15 @@ public class LoginController extends BaseController {
         return "index_v1";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/admin/login")
     String login(Model model) {
-        model.addAttribute("username", bootdoConfig.getUsername());
-        model.addAttribute("password", bootdoConfig.getPassword());
+        //model.addAttribute("username", bootdoConfig.getUsername());
+        //model.addAttribute("password", bootdoConfig.getPassword());
         return "login";
     }
 
     @Log("登录")
-    @PostMapping("/login")
+    @PostMapping("/admin/login")
     @ResponseBody
     R ajaxLogin(String username, String password) {
 
@@ -94,7 +94,7 @@ public class LoginController extends BaseController {
     @GetMapping("/logout")
     String logout() {
         ShiroUtils.logout();
-        return "redirect:/login";
+        return "redirect:/admin/login";
     }
 
     @GetMapping("/main")
