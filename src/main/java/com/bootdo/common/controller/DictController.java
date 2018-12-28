@@ -32,7 +32,7 @@ public class DictController extends BaseController {
 	@GetMapping()
 	@RequiresPermissions("common:dict:dict")
 	String dict() {
-		return "common/dict/dict";
+		return "admin/common/dict/dict";
 	}
 
 	@ResponseBody
@@ -50,7 +50,7 @@ public class DictController extends BaseController {
 	@GetMapping("/add")
 	@RequiresPermissions("common:dict:add")
 	String add() {
-		return "common/dict/add";
+		return "admin/common/dict/add";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -58,7 +58,7 @@ public class DictController extends BaseController {
 	String edit(@PathVariable("id") Long id, Model model) {
 		DictDO dict = dictService.get(id);
 		model.addAttribute("dict", dict);
-		return "common/dict/edit";
+		return "admin/common/dict/edit";
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class DictController extends BaseController {
 	String addD(Model model, @PathVariable("type") String type, @PathVariable("description") String description) {
 		model.addAttribute("type", type);
 		model.addAttribute("description", description);
-		return "common/dict/add";
+		return "admin/common/dict/add";
 	}
 
 	@ResponseBody

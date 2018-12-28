@@ -37,6 +37,7 @@ import com.bootdo.common.utils.R;
 @Controller
 @RequestMapping("/edu/certificate")
 public class CertificateController {
+	private static final String prefix = "admin/edu/certificate/";
 	@Autowired
 	private CertificateService certificateService;
 
@@ -49,7 +50,7 @@ public class CertificateController {
 		List<DictDO> certificateTypes = dictService.listByType("edu_certificate_type");//类别
 		model.addAttribute("certificateTypes", certificateTypes);
 
-		return "edu/certificate/certificate";
+		return prefix + "certificate";
 	}
 	
 	@ResponseBody
@@ -67,7 +68,7 @@ public class CertificateController {
 	@GetMapping("/add")
 	@RequiresPermissions("edu:certificate:add")
 	String add(){
-	    return "edu/certificate/add";
+	    return prefix + "add";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -78,7 +79,7 @@ public class CertificateController {
 		CertificateDO certificate = certificateService.get(id);
 		model.addAttribute("certificate", certificate);
 		model.addAttribute("certificateTypes", certificateTypes);
-	    return "edu/certificate/edit";
+	    return prefix + "edit";
 	}
 	
 	/**

@@ -32,13 +32,11 @@ import com.bootdo.common.utils.R;
  * @email sench.zhao@gmail.com
  * @date 2018-12-05 16:25:20
  */
-
+@Slf4j
 @Controller
 @RequestMapping("/edu/university")
 public class UniversityController extends BaseController {
-
-	private static final Logger logger = LoggerFactory.getLogger(UniversityController.class);
-
+	private static final String prefix = "admin/edu/university/";
 
 	@Autowired
 	private UniversityService universityService;
@@ -46,7 +44,7 @@ public class UniversityController extends BaseController {
 	@GetMapping()
 	@RequiresPermissions("edu:university:university")
 	String University(){
-	    return "edu/university/university";
+	    return prefix + "university";
 	}
 	
 	@ResponseBody
@@ -64,7 +62,7 @@ public class UniversityController extends BaseController {
 	@GetMapping("/add")
 	@RequiresPermissions("edu:university:add")
 	String add(){
-	    return "edu/university/add";
+	    return prefix + "add";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -72,7 +70,7 @@ public class UniversityController extends BaseController {
 	String edit(@PathVariable("id") Long id,Model model){
 		UniversityDO university = universityService.get(id);
 		model.addAttribute("university", university);
-	    return "edu/university/edit";
+	    return prefix + "edit";
 	}
 	
 	/**
@@ -129,7 +127,7 @@ public class UniversityController extends BaseController {
 			universityService.changeProposal(id, ifProposal);
 			return R.ok("成功");
 		} catch (Exception e) {
-			logger.warn(ExceptionUtils.getFullStackTrace(e));
+			log.warn(ExceptionUtils.getFullStackTrace(e));
 		}
 		return R.ok("失败");
 	}
@@ -138,7 +136,7 @@ public class UniversityController extends BaseController {
 	String addSpecialty(@PathVariable("universityId") Long universityId,Model model){
 		UniversityDO university = universityService.get(universityId);
 		model.addAttribute("university", university);
-		return "edu/specialty/add";
+		return "admin/edu/specialty/add";
 	}
 	
 }

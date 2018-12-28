@@ -33,7 +33,7 @@ import java.util.Map;
 @RequestMapping("/sys/user")
 @Controller
 public class UserController extends BaseController {
-	private String prefix="system/user"  ;
+	private String prefix="admin/system/user"  ;
 	@Autowired
 	UserService userService;
 	@Autowired

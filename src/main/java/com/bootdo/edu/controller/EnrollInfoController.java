@@ -35,6 +35,8 @@ import com.bootdo.common.utils.R;
 @Controller
 @RequestMapping("/edu/enrollInfo")
 public class EnrollInfoController extends BaseController {
+	private static final String prefix = "admin/edu/enrollInfo/";
+
 	@Autowired
 	private EnrollInfoService enrollInfoService;
 
@@ -44,7 +46,7 @@ public class EnrollInfoController extends BaseController {
 	@GetMapping()
 	@RequiresPermissions("edu:enrollInfo:enrollInfo")
 	String EnrollInfo(){
-	    return "edu/enrollInfo/enrollInfo";
+	    return prefix + "enrollInfo";
 	}
 	
 	@ResponseBody
@@ -62,7 +64,7 @@ public class EnrollInfoController extends BaseController {
 	@GetMapping("/add")
 	@RequiresPermissions("edu:enrollInfo:add")
 	String add(){
-	    return "edu/enrollInfo/add";
+	    return prefix + "add";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -84,7 +86,7 @@ public class EnrollInfoController extends BaseController {
 		model.addAttribute("privilegeTypes", privilegeTypes);
 		model.addAttribute("types", types);
 		model.addAttribute("enrollInfo", enrollInfo);
-	    return "edu/enrollInfo/edit";
+	    return prefix + "edit";
 	}
 	
 	/**
@@ -139,7 +141,7 @@ public class EnrollInfoController extends BaseController {
 	String addRemark(@PathVariable("enrollId") Long enrollId,Model model){
 		EnrollInfoDO enrollInfo = enrollInfoService.get(enrollId);
 		model.addAttribute("enrollInfo", enrollInfo);
-		return "edu/enrollRemark/add";
+		return "admin/edu/enrollRemark/add";
 	}
 	
 }

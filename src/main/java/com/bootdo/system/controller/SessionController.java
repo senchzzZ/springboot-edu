@@ -25,7 +25,7 @@ public class SessionController {
 
 	@GetMapping()
 	public String online() {
-		return "system/online/online";
+		return "admin/system/online/online";
 	}
 
 	@ResponseBody

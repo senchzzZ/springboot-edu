@@ -33,13 +33,15 @@ import com.bootdo.common.utils.R;
 @Controller
 @RequestMapping("/edu/enrollRemark")
 public class EnrollRemarkController {
+	private static final String prefix = "admin/edu/enrollRemark/";
+
 	@Autowired
 	private EnrollRemarkService enrollRemarkService;
 	
 	@GetMapping()
 	@RequiresPermissions("edu:enrollRemark:enrollRemark")
 	String EnrollRemark(){
-	    return "edu/enrollRemark/enrollRemark";
+	    return prefix + "enrollRemark";
 	}
 	
 	@ResponseBody
@@ -65,13 +67,13 @@ public class EnrollRemarkController {
 		//int total = enrollRemarkService.count(query);
 		//PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
 		model.addAttribute("enrollRemarkList",enrollRemarkList);
-		return "edu/enrollRemark/enrollRemarkFrame";
+		return prefix + "enrollRemarkFrame";
 	}
 
 	@GetMapping("/add")
 	@RequiresPermissions("edu:enrollRemark:add")
 	String add(){
-	    return "edu/enrollRemark/add";
+	    return prefix + "add";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -79,7 +81,7 @@ public class EnrollRemarkController {
 	String edit(@PathVariable("id") Long id,Model model){
 		EnrollRemarkDO enrollRemark = enrollRemarkService.get(id);
 		model.addAttribute("enrollRemark", enrollRemark);
-	    return "edu/enrollRemark/edit";
+	    return prefix + "edit";
 	}
 	
 	/**

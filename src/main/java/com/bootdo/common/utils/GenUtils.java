@@ -29,19 +29,19 @@ public class GenUtils {
 
     public static List<String> getTemplates() {
         List<String> templates = new ArrayList<String>();
-        templates.add("templates/common/generator/domain.java.vm");
-        templates.add("templates/common/generator/Dao.java.vm");
+        templates.add("templates/admin/common/generator/domain.java.vm");
+        templates.add("templates/admin/common/generator/Dao.java.vm");
         //templates.add("templates/common/generator/Mapper.java.vm");
-        templates.add("templates/common/generator/Mapper.xml.vm");
-        templates.add("templates/common/generator/Service.java.vm");
-        templates.add("templates/common/generator/ServiceImpl.java.vm");
-        templates.add("templates/common/generator/Controller.java.vm");
-        templates.add("templates/common/generator/list.html.vm");
-        templates.add("templates/common/generator/add.html.vm");
-        templates.add("templates/common/generator/edit.html.vm");
-        templates.add("templates/common/generator/list.js.vm");
-        templates.add("templates/common/generator/add.js.vm");
-        templates.add("templates/common/generator/edit.js.vm");
+        templates.add("templates/admin/common/generator/Mapper.xml.vm");
+        templates.add("templates/admin/common/generator/Service.java.vm");
+        templates.add("templates/admin/common/generator/ServiceImpl.java.vm");
+        templates.add("templates/admin/common/generator/Controller.java.vm");
+        templates.add("templates/admin/common/generator/list.html.vm");
+        templates.add("templates/admin/common/generator/add.html.vm");
+        templates.add("templates/admin/common/generator/edit.html.vm");
+        templates.add("templates/admin/common/generator/list.js.vm");
+        templates.add("templates/admin/common/generator/add.js.vm");
+        templates.add("templates/admin/common/generator/edit.js.vm");
         //templates.add("templates/common/generator/menu.sql.vm");
         return templates;
     }

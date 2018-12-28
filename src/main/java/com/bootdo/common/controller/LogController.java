@@ -25,7 +25,7 @@ import com.bootdo.common.utils.R;
 public class LogController {
 	@Autowired
 	LogService logService;
-	String prefix = "common/log";
+	String prefix = "admin/common/log";
 
 	@GetMapping()
 	String log() {

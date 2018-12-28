@@ -65,14 +65,14 @@ public class LoginController extends BaseController {
             model.addAttribute("picUrl", "/img/photo_s.jpg");
         }
         model.addAttribute("username", getUser().getUsername());
-        return "index_v1";
+        return "admin/index_v1";
     }
 
     @GetMapping("/admin/login")
     String login(Model model) {
         //model.addAttribute("username", bootdoConfig.getUsername());
         //model.addAttribute("password", bootdoConfig.getPassword());
-        return "login";
+        return "admin/login";
     }
 
     @Log("登录")
@@ -102,7 +102,7 @@ public class LoginController extends BaseController {
         UserDO userDO  = userService.get(getUserId());
         model.addAttribute("user",userDO);
 
-        return "main";
+        return "admin/main";
     }
 
 }

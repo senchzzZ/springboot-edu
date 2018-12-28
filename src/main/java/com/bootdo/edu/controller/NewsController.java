@@ -37,6 +37,8 @@ import com.bootdo.common.utils.R;
 @Controller
 @RequestMapping("/edu/news")
 public class NewsController {
+	private static final String prefix = "admin/edu/news/";
+
 	@Autowired
 	private NewsService newsService;
 
@@ -49,7 +51,7 @@ public class NewsController {
 		List<DictDO> newsTypes = dictService.listByType("edu_news_type");//证书类别
 
 		model.addAttribute("newsTypes", newsTypes);
-		return "edu/news/news";
+		return prefix + "news";
 	}
 	
 	@ResponseBody
@@ -67,7 +69,7 @@ public class NewsController {
 	@GetMapping("/add")
 	@RequiresPermissions("edu:news:add")
 	String add(){
-	    return "edu/news/add";
+	    return prefix + "add";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -78,7 +80,7 @@ public class NewsController {
 		NewsDO news = newsService.get(id);
 		model.addAttribute("news", news);
 		model.addAttribute("newsTypes", newsTypes);
-	    return "edu/news/edit";
+	    return prefix + "edit";
 	}
 	
 	/**

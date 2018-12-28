@@ -38,7 +38,7 @@ public class FileController extends BaseController {
 	@RequiresPermissions("common:sysFile:sysFile")
 	String sysFile(Model model) {
 		Map<String, Object> params = new HashMap<>(16);
-		return "common/file/file";
+		return "admin/common/file/file";
 	}
 
 	@ResponseBody
@@ -64,7 +64,7 @@ public class FileController extends BaseController {
 	String edit(Long id, Model model) {
 		FileDO sysFile = sysFileService.get(id);
 		model.addAttribute("sysFile", sysFile);
-		return "common/sysFile/edit";
+		return "admin/common/sysFile/edit";
 	}
 
 	/**

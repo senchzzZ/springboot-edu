@@ -36,7 +36,7 @@ public class MainsiteErrorController implements ErrorController {
         } else if (403 == code) {
             return new ModelAndView("error/403");
         } else if (401 == code) {
-            return new ModelAndView("login");
+            return new ModelAndView("admin/login");
         } else {
             return new ModelAndView("error/500");
         }

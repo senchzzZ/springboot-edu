@@ -41,6 +41,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/edu/specialty")
 public class SpecialtyController {
+	private static final String prefix = "admin/edu/specialty/";
+
 	@Autowired
 	private SpecialtyService specialtyService;
 
@@ -55,7 +57,7 @@ public class SpecialtyController {
 
 		model.addAttribute("qualifications", qualifications);
 		model.addAttribute("specialtyTypes", specialtyTypes);
-		return "edu/specialty/specialty";
+		return prefix + "specialty";
 	}
 	
 	@ResponseBody
@@ -80,13 +82,13 @@ public class SpecialtyController {
 		//int total = enrollRemarkService.count(query);
 		//PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
 		model.addAttribute("specialtyList",specialtyList);
-		return "edu/specialty/specialtyFrame";
+		return prefix + "specialtyFrame";
 	}
 
 	@GetMapping("/add")
 	@RequiresPermissions("edu:specialty:add")
 	String add(){
-	    return "edu/specialty/add";
+	    return prefix + "add";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -99,7 +101,7 @@ public class SpecialtyController {
 		model.addAttribute("specialty", specialty);
 		model.addAttribute("qualifications", qualifications);
 		model.addAttribute("specialtyTypes", specialtyTypes);
-	    return "edu/specialty/edit";
+	    return prefix + "edit";
 	}
 	
 	/**
