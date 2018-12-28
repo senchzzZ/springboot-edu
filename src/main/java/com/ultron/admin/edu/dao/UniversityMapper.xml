@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ultron.admin.edu.dao.UniversityDao">
+
+	<select id="get" resultType="com.ultron.admin.edu.domain.UniversityDO">
+		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time` from edu_university where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.ultron.admin.edu.domain.UniversityDO">
+		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time` from edu_university
+        <where>
+			status = 1
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="name != null and name != ''">
+					  and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+				  </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
+		  		  <if test="description != null and description != ''"> and description = #{description} </if>
+		  		  <if test="ifProposal != null and ifProposal != ''"> and if_proposal = #{ifProposal} </if>
+		  		  <if test="teacher != null and teacher != ''"> and teacher = #{teacher} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="qq != null and qq != ''"> and qq = #{qq} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="area != null and area != ''"> and area = #{area} </if>
+		  		  <if test="logo != null and logo != ''"> and logo = #{logo} </if>
+		  		  <if test="banner != null and banner != ''"> and banner = #{banner} </if>
+		  		  <if test="introduction != null and introduction != ''"> and introduction = #{introduction} </if>
+		  		  <if test="condition != null and condition != ''"> and condition = #{condition} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from edu_university
+		<where>
+			status = 1
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="name != null and name != ''">
+				and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="title != null and title != ''"> and title = #{title} </if>
+			<if test="keyword != null and keyword != ''"> and keyword = #{keyword} </if>
+			<if test="description != null and description != ''"> and description = #{description} </if>
+			<if test="ifProposal != null and ifProposal != ''"> and if_proposal = #{ifProposal} </if>
+			<if test="teacher != null and teacher != ''"> and teacher = #{teacher} </if>
+			<if test="phone != null and phone != ''"> and phone = #{phone} </if>
+			<if test="qq != null and qq != ''"> and qq = #{qq} </if>
+			<if test="email != null and email != ''"> and email = #{email} </if>
+			<if test="wechat != null and wechat != ''"> and wechat = #{wechat} </if>
+			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			<if test="status != null and status != ''"> and status = #{status} </if>
+			<if test="type != null and type != ''"> and type = #{type} </if>
+			<if test="address != null and address != ''"> and address = #{address} </if>
+			<if test="area != null and area != ''"> and area = #{area} </if>
+			<if test="logo != null and logo != ''"> and logo = #{logo} </if>
+			<if test="banner != null and banner != ''"> and banner = #{banner} </if>
+			<if test="introduction != null and introduction != ''"> and introduction = #{introduction} </if>
+			<if test="condition != null and condition != ''"> and condition = #{condition} </if>
+			<if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+			<if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.UniversityDO" useGeneratedKeys="true" keyProperty="id">
+		insert into edu_university
+		(
+			`name`, 
+			`title`, 
+			`keyword`, 
+			`description`, 
+			`if_proposal`, 
+			`teacher`, 
+			`phone`, 
+			`qq`, 
+			`email`, 
+			`wechat`, 
+			`remark`, 
+
+			`type`, 
+			`address`, 
+			`area`, 
+			`logo`, 
+			`banner`, 
+			`introduction`, 
+			`condition`, 
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{name}, 
+			#{title}, 
+			#{keyword}, 
+			#{description}, 
+			#{ifProposal}, 
+			#{teacher}, 
+			#{phone}, 
+			#{qq}, 
+			#{email}, 
+			#{wechat}, 
+			#{remark}, 
+
+			#{type}, 
+			#{address}, 
+			#{area}, 
+			#{logo}, 
+			#{banner}, 
+			#{introduction}, 
+			#{condition}, 
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.ultron.admin.edu.domain.UniversityDO">
+		update edu_university 
+		<set>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="keyword != null">`keyword` = #{keyword}, </if>
+			<if test="description != null">`description` = #{description}, </if>
+			<if test="ifProposal != null">`if_proposal` = #{ifProposal}, </if>
+			<if test="teacher != null">`teacher` = #{teacher}, </if>
+			<if test="phone != null">`phone` = #{phone}, </if>
+			<if test="qq != null">`qq` = #{qq}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="wechat != null">`wechat` = #{wechat}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="area != null">`area` = #{area}, </if>
+			<if test="logo != null">`logo` = #{logo}, </if>
+			<if test="banner != null">`banner` = #{banner}, </if>
+			<if test="introduction != null">`introduction` = #{introduction}, </if>
+			<if test="condition != null">`condition` = #{condition}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<update id="remove">
+		update edu_university set status = -1 where id = #{value}
+	</update>
+	
+	<update id="batchRemove">
+		update edu_university set status = -1 where id in
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+
+</mapper>

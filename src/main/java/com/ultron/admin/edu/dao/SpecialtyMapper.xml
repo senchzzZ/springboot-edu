@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ultron.admin.edu.dao.SpecialtyDao">
+
+	<select id="get" resultType="com.ultron.admin.edu.domain.SpecialtyDO">
+		select `id`,`university_id`,`name`,`qualification`,`academic_year`,`type`,`introduction`,`remark`,`status`,`create_time`,`update_time` from edu_specialty where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.ultron.admin.edu.domain.SpecialtyDO">
+		select es.id,es.university_id,eu.name as universityName, es.name,es.qualification,es.academic_year,
+		es.type,es.introduction,es.remark,es.status,es.create_time,es.update_time
+		from edu_specialty es
+		INNER JOIN edu_university eu ON eu.id=es.university_id
+		<where>
+			es.status = 1
+		  		  <if test="id != null and id != ''"> and es.id = #{id} </if>
+		  		  <if test="universityId != null and universityId != ''"> and es.university_id = #{universityId} </if>
+					<if test="name != null and name != ''">
+						and
+						(es.name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+						or eu.name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+						)
+					</if>
+		  		  <if test="qualification != null and qualification != ''"> and es.qualification = #{qualification} </if>
+		  		  <if test="academicYear != null and academicYear != ''"> and es.academic_year = #{academicYear} </if>
+		  		  <if test="type != null and type != ''"> and es.type = #{type} </if>
+				<if test="area != null and area != ''"> and eu.area = #{area} </if>
+
+					<if test="introduction != null and introduction != ''"> and es.introduction = #{introduction} </if>
+		  		  <if test="remark != null and remark != ''"> and es.remark = #{remark} </if>
+		  		  <if test="status != null and status != ''"> and es.status = #{status} </if>
+		  		  <if test="createTime != null and createTime != ''"> and es.create_time = #{createTime} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and es.update_time = #{updateTime} </if>
+		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by es.id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(es.id)
+		from edu_specialty es
+		INNER JOIN edu_university eu ON eu.id=es.university_id
+		<where>
+			es.status = 1
+			<if test="id != null and id != ''"> and es.id = #{id} </if>
+			<if test="universityId != null and universityId != ''"> and es.university_id = #{universityId} </if>
+			<if test="name != null and name != ''">
+				and
+				(es.name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+				or eu.name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+				)
+			</if>
+			<if test="qualification != null and qualification != ''"> and es.qualification = #{qualification} </if>
+			<if test="academicYear != null and academicYear != ''"> and es.academic_year = #{academicYear} </if>
+			<if test="type != null and type != ''"> and es.type = #{type} </if>
+			<if test="area != null and area != ''"> and eu.area = #{area} </if>
+
+			<if test="introduction != null and introduction != ''"> and es.introduction = #{introduction} </if>
+			<if test="remark != null and remark != ''"> and es.remark = #{remark} </if>
+			<if test="status != null and status != ''"> and es.status = #{status} </if>
+			<if test="createTime != null and createTime != ''"> and es.create_time = #{createTime} </if>
+			<if test="updateTime != null and updateTime != ''"> and es.update_time = #{updateTime} </if>
+		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.SpecialtyDO" useGeneratedKeys="true" keyProperty="id">
+		insert into edu_specialty
+		(
+			`university_id`, 
+			`name`, 
+			`qualification`, 
+			`academic_year`, 
+			`type`, 
+			`introduction`, 
+			`remark`, 
+			`create_time`,
+			`update_time`
+		)
+		values
+		(
+			#{universityId}, 
+			#{name}, 
+			#{qualification}, 
+			#{academicYear}, 
+			#{type}, 
+			#{introduction}, 
+			#{remark}, 
+			#{createTime},
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.ultron.admin.edu.domain.SpecialtyDO">
+		update edu_specialty 
+		<set>
+			<if test="universityId != null">`university_id` = #{universityId}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="qualification != null">`qualification` = #{qualification}, </if>
+			<if test="academicYear != null">`academic_year` = #{academicYear}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="introduction != null">`introduction` = #{introduction}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<update id="remove">
+		update edu_specialty set status = -1 where id = #{value}
+	</update>
+	
+	<update id="batchRemove">
+		update edu_specialty set status = -1 where id in
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+
+</mapper>

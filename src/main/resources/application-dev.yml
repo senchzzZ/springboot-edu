@@ -6,7 +6,7 @@ bootdo:
 logging:
   level:
     root: info
-    com.bootdo: debug
+    com.ultron: debug
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
