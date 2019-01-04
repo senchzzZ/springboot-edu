@@ -17,6 +17,11 @@ public class IndexController {
         return "frontsite/index";
     }
 
+    @GetMapping("/1")
+    String index1() {
+        return "frontsite/index-1";
+    }
+
     @GetMapping("/4")
     String index4() {
         return "frontsite/index-4";

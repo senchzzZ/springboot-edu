@@ -1288,10 +1288,10 @@ Common Style CSS
 .category-heading {
 	position: relative;
 	cursor: pointer;
-	background: #ff6a00;
+	background: #0087ff;
 	height: 55px;
 	border-radius: 3px 3px 0 0;
-	border-bottom: 3px solid #e96405;
+	border-bottom: 3px solid #0087ff;
 }
 .category-heading > h2 {
 	margin: 0;
@@ -1318,7 +1318,7 @@ Common Style CSS
 }
 .category-heading > h2:after {
 	content: "";
-	background: url(img/icon/bg-vemenu.png) no-repeat 0 100%;
+	/*background: url(img/icon/bg-vemenu.png) no-repeat 0 100%;*/
 	width: 16px;
 	height: 10px;
 	position: absolute;
@@ -1326,8 +1326,8 @@ Common Style CSS
 	right: 15px;
 }
 .category-heading > h2 > i {
-	float: ;
-	text-align: ;
+	/* float: ;
+	text-align: ;*/
 	float: right;
 	padding-right: 20px;
 	font-size: 12px;
@@ -1486,7 +1486,7 @@ li.right-menu .cat-mega-menu > li {
     opacity: 1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     visibility: visible;
-} 
+}
 .header-top-search {
 	position: relative;
 }
@@ -1929,7 +1929,7 @@ li.right-menu .cat-mega-menu > li {
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	min-height: 620px;
+	min-height: 500px;
 }
 .hero-slider {
 	margin-top: 18px;
@@ -2210,6 +2210,10 @@ li.right-menu .cat-mega-menu > li {
 	border-bottom: 3px solid #442674;
 }
 /*Banner Css*/
+.img-w-20{
+    max-width: 18%;
+}
+.img-circle{border-radius:50%;}
 .banner-inner {
 	overflow: hidden;
 	position: relative;
@@ -2220,7 +2224,7 @@ li.right-menu .cat-mega-menu > li {
 	border: 1px solid #e7e7e7;
 }
 .banner-inner img {
-	max-width: 100%;
+	/*max-width: 100%;*/
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: all 0.3s ease-in-out;
@@ -2258,6 +2262,7 @@ li.right-menu .cat-mega-menu > li {
 .banner-content {
 	margin-top: 20px;
 	text-align: center;
+    /*border-right: 1px solid #ededed;*/
 }
 .banner-items .banner-content > span.name {
 	font-size: 14px;
@@ -2379,7 +2384,7 @@ li.right-menu .cat-mega-menu > li {
 	position: absolute;
 	top: 10px;
 	left: 0;
-	background: #ff6a00;
+	background: red;
 	color: #fff;
 	padding: 3px 11px;
 	border-radius: 3px;
@@ -4921,7 +4926,6 @@ thead {
 	padding: 8px 20px;
 	cursor: pointer;
 	margin: 20px 0;
-	text-align: ;
 	text-align: center;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
@@ -5355,8 +5359,8 @@ h2.entry-title > a:hover {
 	position: absolute;
 	top: 50%;
 	left: 40px;
-	-webkit-transition: ;
-	transition: ;
+	/*-webkit-transition: ;
+	transition: ;*/
 	-webkit-transform: translateY(-50%);
 	        transform: translateY(-50%);
 	width: 40px;
@@ -5791,3 +5795,16 @@ h2.entry-title > a:hover {
 .error-button a:hover{
     background: #333;
 }
+
+@media only screen and (max-width: 500px) {
+    .search-banner-border{
+        border-bottom: 1px solid #ededed;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    .search-banner-border{
+        border-right: 1px solid #ededed;
+    }
+}
+

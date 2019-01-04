@@ -18,9 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 @Service
 public class NotifyServiceImpl implements NotifyService {
@@ -36,6 +34,8 @@ public class NotifyServiceImpl implements NotifyService {
     private SessionService sessionService;
     @Autowired
     private SimpMessagingTemplate template;
+
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Override
     public NotifyDO get(Long id) {
@@ -76,20 +76,15 @@ public class NotifyServiceImpl implements NotifyService {
         }
         recordDao.batchSave(records);
         //给在线用户发送通知
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,0, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                for (UserDO userDO : sessionService.listOnlineUser()) {
-                    for (Long userId : userIds) {
-                        if (userId.equals(userDO.getUserId())) {
-                            template.convertAndSendToUser(userDO.toString(), "/queue/notifications", "新消息：" + notify.getTitle());
-                        }
+        executor.execute(() -> {
+            for (UserDO userDO : sessionService.listOnlineUser()) {
+                for (Long userId : userIds) {
+                    if (userId.equals(userDO.getUserId())) {
+                        template.convertAndSendToUser(userDO.toString(), "/queue/notifications", "新消息：" + notify.getTitle());
                     }
                 }
             }
         });
-        executor.shutdown();
         return r;
     }
 
