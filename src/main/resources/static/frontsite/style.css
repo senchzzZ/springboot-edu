@@ -875,6 +875,15 @@ Common Style CSS
 .header-middle-area.header-style-4 {
 	padding: 30px 0;
 }
+
+.header-middle-area .logo {
+    margin-top: -10px;
+}
+
+.header-middle-area .logo img {
+    height: 60px;
+}
+
 .header-menu-area {
 	display: inline-block;
 }

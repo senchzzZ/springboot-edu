@@ -1,0 +1,552 @@
+<head th:fragment="header_link" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo-icon.ico">
+    <!--All Css Here-->
+
+    <!-- Ionicons Font CSS-->
+    <link rel="stylesheet" href="/frontsite/css/ionicons.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/frontsite/css/font-awesome.min.css">
+
+    <!-- Animate CSS-->
+    <link rel="stylesheet" href="/frontsite/css/animate.css">
+    <!-- Owl Carousel CSS-->
+    <link rel="stylesheet" href="/frontsite/css/owl.carousel.min.css">
+    <!-- Nice Select CSS-->
+    <link rel="stylesheet" href="/frontsite/css/nice-select.css">
+    <!-- Slick CSS-->
+    <link rel="stylesheet" href="/frontsite/css/slick.css">
+    <!-- Meanmenu CSS-->
+    <link rel="stylesheet" href="/frontsite/css/meanmenu.min.css">
+    <!-- Venobox CSS-->
+    <link rel="stylesheet" href="/frontsite/css/venobox.css">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/frontsite/css/bootstrap.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/frontsite/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/frontsite/css/responsive.css">
+    <!-- Modernizr Js -->
+    <script src="/frontsite/js/vendor/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<div th:fragment="header">
+    <header>
+        <!--Header Top Area Start-->
+        <!--<div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        &lt;!&ndash;Header Top Left Start&ndash;&gt;
+                        <div class="header-top-left">
+                            <a href="#">国内知名继续教育咨询服务机构</a>
+                        </div>
+                        &lt;!&ndash;Header Top Left End&ndash;&gt;
+                    </div>
+                    <div class="col-md-6">
+                        &lt;!&ndash;Header Top Right Start&ndash;&gt;
+                        <div class="header-top-right text-center text-md-right">
+                            <ul class="header-top-menu">
+                                <li><a href="my-account.html">My account</a></li>
+                                <li class="drodown-show"><a href="#">USD $ <i class="ion-ios-arrow-down"></i></a>
+                                    &lt;!&ndash;Header Top Dropdown Start&ndash;&gt;
+                                    <ul class="ht-dropdown">
+                                        <li><a href="#">EUR €</a></li>
+                                        <li><a href="#">USD $</a></li>
+                                    </ul>
+                                    &lt;!&ndash;Header Top Dropdown End&ndash;&gt;
+                                </li>
+                                <li class="drodown-show"><a href="#">English <i class="ion-ios-arrow-down"></i></a>
+                                    &lt;!&ndash;Header Top Dropdown Start&ndash;&gt;
+                                    <ul class="ht-dropdown">
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Français</a></li>
+                                    </ul>
+                                    &lt;!&ndash;Header Top Dropdown End&ndash;&gt;
+                                </li>
+                            </ul>
+                        </div>
+                        &lt;!&ndash;Header Top Right End&ndash;&gt;
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!--Header Top Area End-->
+        <!--Header Middle Area Start-->
+        <div class="header-middle-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!--Logo Start-->
+                        <div class="logo">
+                            <a href="/index">
+                                <img src="/frontsite/img/logo/logo-4.jpg" alt="">
+                            </a>
+                        </div>
+                        <!--Logo End-->
+                    </div>
+                    <div class="col-md-9">
+                        <!--Header Menu Start-->
+                        <div class="header-menu-area">
+                            <nav>
+                                <ul class="main-menu">
+                                    <li class="active"><a href="index.html">首页</a>
+                                        <!--Dropdown Menu Start-->
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">Home Shop 1</a></li>
+                                            <li><a href="index-2.html">Home Shop 2</a></li>
+                                            <li><a href="index-3.html">Home Shop 3</a></li>
+                                            <li><a href="index-4.html">Home Shop 4</a></li>
+                                        </ul>
+                                        <!--Dropdown Menu End-->
+                                    </li>
+                                    <li><a href="shop.html">选院校</a></li>
+                                    <li><a href="shop.html">选专业</a></li>
+                                    <li><a href="about.html">关于我们</a></li>
+                                    <li><a href="index.html">Pages</a>
+                                        <!--Dropdown Menu Start-->
+                                        <ul class="dropdown">
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="shop.html">Shop</a></li>
+                                            <li><a href="single-product.html">Single Product</a></li>
+                                            <li><a href="my-account.html">My Account</a></li>
+                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="register.html">Register</a></li>
+                                            <li><a href="faq.html">Frequently Questions</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><a href="404.html">Error 404</a></li>
+                                        </ul>
+                                        <!--Dropdown Menu End-->
+                                    </li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="#">Features</a>
+                                        <!--Mega Menu Start-->
+                                        <ul class="mega-menu">
+                                            <li><a href="#" class="item-link">Pages</a>
+                                                <ul>
+                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="cart.html">Shopping cart</a></li>
+                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                    <li><a href="faq.html">Frequently Questions</a></li>
+                                                    <li><a href="404.html">Error 404</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" class="item-link">Blog</a>
+                                                <ul>
+                                                    <li><a href="blog-nosidebar.html">None Sidebar</a></li>
+                                                    <li><a href="blog-left-sidebar.html">Sidebar Left</a></li>
+                                                    <li><a href="single-blog.html">Gallery Format</a></li>
+                                                    <li><a href="single-blog.html">Audio Format</a></li>
+                                                    <li><a href="single-blog.html">Video Format</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" class="item-link">Shop</a>
+                                                <ul>
+                                                    <li><a href="shop-full-width.html">Full Width</a></li>
+                                                    <li><a href="shop-right-sidebar.html">Sidebar Right</a></li>
+                                                    <li><a href="shop-list.html">List View</a></li>
+                                                    <li><a href="single-product.html">Single Product</a></li>
+                                                    <li><a href="single-product.html">Variable Product</a></li>
+                                                    <li><a href="single-product.html">Simple Product</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <!--Mega Menu End-->
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--Header Menu End-->
+                        <div class="header-phone">
+                            <p>Call us: <br><span>(999) 1234 56789</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <!--Mobile Menu Area Start-->
+                        <div class="mobile-menu d-lg-none"></div>
+                        <!--Mobile Menu Area End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Header Middle Area End-->
+        <!--Header Bottom Area Start-->
+        <div class="header-bottom-area pb-15">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-3 order-lg-1 order-3">
+                        <!--Category Menu Start-->
+                        <div class="category-menu">
+                            <div class="category-heading">
+                                <h2 class="categories-toggle"><span>categories</span><i class="ion-ios-arrow-down"></i></h2>
+                            </div>
+                            <div id="cate-toggle" class="category-menu-list">
+                                <ul>
+                                    <li class="right-menu"><a href="shop.html">计算机类/通讯类</a>
+                                        <ul class="cat-mega-menu">
+                                            <li class="right-menu cat-mega-title">
+                                                <a href="shop.html">计算机类</a>
+                                                <ul>
+                                                    <li><a href="shop.html">LCD TV</a></li>
+                                                    <li><a href="shop.html">LED TV</a></li>
+                                                    <li><a href="shop.html">Curved TV</a></li>
+                                                    <li><a href="shop.html">Plasma TV</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="right-menu cat-mega-title">
+                                                <a href="shop.html">通讯类</a>
+                                                <ul>
+                                                    <li><a href="shop.html">Brand1</a></li>
+                                                    <li><a href="shop.html">Brand2</a></li>
+                                                    <li><a href="shop.html">Brand3</a></li>
+                                                    <li><a href="shop.html">Brand4</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="right-menu cat-mega-title">
+                                                <a href="shop.html">Air conditioners</a>
+                                                <ul>
+                                                    <li><a href="shop.html">Brand2</a></li>
+                                                    <li><a href="shop.html">Brand4</a></li>
+                                                    <li><a href="shop.html">Brand6</a></li>
+                                                    <li><a href="shop.html">Brand3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="right-menu cat-mega-title">
+                                                <a href="shop.html">Fashion</a>
+                                                <ul>
+                                                    <li><a href="shop.html">Brand1</a></li>
+                                                    <li><a href="shop.html">Brand2</a></li>
+                                                    <li><a href="shop.html">Brand3</a></li>
+                                                    <li><a href="shop.html">Brand4</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Fashion &amp; Beauty</a></li>
+                                    <li class="right-menu"><a href="shop.html">Camera &amp; Photo</a>
+                                        <!--Category Dropdown Menu Start-->
+                                        <ul class="cat-dropdown">
+                                            <li><a href="shop.html">Brand6</a></li>
+                                            <li><a href="shop.html">Brand2</a></li>
+                                            <li><a href="shop.html">Brand1</a></li>
+                                            <li><a href="shop.html">Brand7</a></li>
+                                        </ul>
+                                        <!--Category Dropdown Menu Start-->
+                                    </li>
+                                    <li class="right-menu"><a href="#">Smart Phone &amp; Tablet</a>
+                                        <!--Category Dropdown Menu Start-->
+                                        <ul class="cat-dropdown">
+                                            <li><a href="shop.html">Brand6</a></li>
+                                            <li><a href="shop.html">Brand2</a></li>
+                                            <li><a href="shop.html">Brand1</a></li>
+                                            <li><a href="shop.html">Brand7</a></li>
+                                        </ul>
+                                        <!--Category Dropdown Menu Start-->
+                                    </li>
+                                    <li><a href="shop.html">Sport &amp; Outdoor</a></li>
+                                    <li><a href="shop.html">Automotive &amp; Morocycle</a></li>
+                                    <li><a href="shop.html">Washing machine</a></li>
+                                    <li><a href="shop.html">Brand3</a></li>
+                                    <li><a href="shop.html">Brand2</a></li>
+                                    <li class="rx-child"><a href="shop.html">Sanyo</a></li>
+                                    <li class="rx-child"><a href="shop.html">Brand1</a></li>
+                                    <li class="rx-child"><a href="shop.html">Jewelry &amp; Watches</a></li>
+                                    <li class="rx-child"><a href="shop.html">Holiday Supplies &amp; Gifts</a></li>
+                                    <li class="rx-child"><a href="shop.html">Toys &amp; Hobbies</a></li>
+                                    <li class="rx-parent">
+                                        <a class="rx-default"><span class="cat-thumb  fa fa-plus"></span>More</a>
+                                        <a class="rx-show"><span class="cat-thumb  fa fa-minus"></span>Less</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Category Menu End-->
+                    </div>
+                    <div class="col-md-9 col-lg-6 order-lg-2 order-1">
+                        <!--Header Top Search Start-->
+                        <div class="header-top-search">
+                            <div class="search-categories">
+                                <form action="#">
+                                    <div class="search-form-input">
+                                        <select id="select" name="select" class="nice-select">
+                                            <option value="">查院校</option>
+                                            <option value="12">查专业</option>
+                                            <option value="22">查证书</option>
+                                            <option value="26">Accessories</option>
+                                            <option value="27">Cap HDMI</option>
+                                            <option value="28">Headphone</option>
+                                            <option value="29">Keyboard</option>
+                                            <option value="23">Mouse</option>
+                                            <option value="30">Laptops & Tablets</option>
+                                            <option value="31">Laptop</option>
+                                            <option value="31">Macbook</option>
+                                            <option value="31">Smartphone</option>
+                                            <option value="31">Tablets</option>
+                                            <option value="32">Tvs & Audios</option>
+                                            <option value="33">Amply</option>
+                                            <option value="24">Smart TV</option>
+                                            <option value="34">Speaker</option>
+                                            <option value="35">TV</option>
+                                            <option value="36">Fashion & Jewelry</option>
+                                            <option value="37">Accessories</option>
+                                            <option value="25">Rings</option>
+                                            <option value="38">Watches</option>
+                                        </select>
+                                        <input type="text" placeholder="院校、专业...">
+                                        <button class="top-search-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--Header Top Search End-->
+                    </div>
+                    <div class="col-md-3 col-lg-3 order-lg-3 order-2">
+                        <!--Mini Cart Start-->
+                        <div class="mini-cart">
+                            <a href="#">
+                                    <span class="cart-info">
+		                                <span class="cart-total">2</span>
+		                                <span class="text">My Cart</span>
+		                            </span>
+                            </a>
+                            <!--Cart Dropdown Start-->
+                            <div class="header-cart">
+                                <ul class="cart-items">
+                                    <li class="single-cart-item">
+                                        <div class="cart-img">
+                                            <a href="cart.html"><img src="img/cart/cart1.jpg" alt=""></a>
+                                            <span class="cart-sticker">1x</span>
+                                        </div>
+                                        <div class="cart-content">
+                                            <h5 class="product-name"><a href="single-product.html">Lipstick Ultra Violet</a></h5>
+                                            <span class="product-price">$16.40</span>
+                                            <span class="product-size"><span>Size</span>: S</span>
+                                            <span class="product-color"><span>Color</span>: Yellow</span>
+                                        </div>
+                                        <div class="cart-item-remove">
+                                            <a title="Remove" href="#"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </li>
+                                    <li class="single-cart-item">
+                                        <div class="cart-img">
+                                            <a href="cart.html"><img src="img/cart/cart2.jpg" alt=""></a>
+                                            <span class="cart-sticker">1x</span>
+                                        </div>
+                                        <div class="cart-content">
+                                            <h5 class="product-name"><a href="single-product.html">Columbia Men's Ascender</a></h5>
+                                            <span class="product-price">$23.39</span>
+                                            <span class="product-size"><span>Size</span>: S</span>
+                                            <span class="product-color"><span>Color</span>: Orange</span>
+                                        </div>
+                                        <div class="cart-item-remove">
+                                            <a title="Remove" href="#"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="cart-total">
+                                    <h5>Subtotal <span class="float-right">$39.79</span></h5>
+                                    <h5>Shipping <span class="float-right">$7.00</span></h5>
+                                    <h5>Taxes <span class="float-right">$0.00</span></h5>
+                                    <h5>Total <span class="float-right">$46.79</span></h5>
+                                </div>
+                                <div class="checkout">
+                                    <a  href="checkout.html">checkout</a>
+                                </div>
+                            </div>
+                            <!--Cart Dropdown End-->
+                        </div>
+                        <!--Mini Cart End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Header Bottom Area End-->
+    </header>
+</div>
+
+
+<div th:fragment="footer">
+    <footer>
+        <div class="footer-container">
+            <!--Footer Top Area Start-->
+            <div class="footer-top-area pt-20 pb-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!--Single Footer Wiedget Start-->
+                            <div class="single-footer-wiedget mb-30">
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="/frontsite/img/logo/logo-4.jpg" alt=""></a>
+                                </div>
+                                <div class="desc-footer footer-link-title"><h2>为您提供一站式继续教育咨询服务,欢迎垂询</h2></div>
+                                <div class="address-footer">
+                                    <p class="address"><span>河南省商丘市</span></p>
+                                    <p class="phone"><span>+86 15903819066 杨老师</span></p>
+                                    <p class="mail"><span>support@ultron.com</span></p>
+                                </div>
+                            </div>
+                            <!--Single Footer Wiedget End-->
+                        </div>
+                        <div class="col-lg-8 col-md-6 col-12">
+                            <!--Single Footer Wiedget Start-->
+                            <div class="single-footer-wiedget mb-30 ml-50 mt-30">
+                                <div class="footer-title">
+                                    <h3>友情链接</h3>
+                                </div>
+                                <div class="tag-content">
+                                    <h4>Electronics:</h4>
+                                    <ul class="tag-link">
+                                        <li><a href="#">Headsets</a></li>
+                                        <li><a href="#">Headphones</a></li>
+                                        <li><a href="#">Digital Cameras </a></li>
+                                    </ul>
+                                </div>
+                                <div class="tag-content">
+                                    <h4>Fashion:</h4>
+                                    <ul class="tag-link">
+                                        <li><a href="#">lougewear</a></li>
+                                        <li><a href="#">Digital Cameras</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tag-content">
+                                    <h4>Electronics:</h4>
+                                    <ul class="tag-link">
+                                        <li><a href="#">Headsets</a></li>
+                                        <li><a href="#">Headphones</a></li>
+                                        <li><a href="#">Digital Cameras </a></li>
+                                    </ul>
+                                </div>
+                                <div class="tag-content">
+                                    <h4>Fashion:</h4>
+                                    <ul class="tag-link">
+                                        <li><a href="#">lougewear</a></li>
+                                        <li><a href="#">Digital Cameras</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tag-content">
+                                    <h4>Electronics:</h4>
+                                    <ul class="tag-link">
+                                        <li><a href="#">Headsets</a></li>
+                                        <li><a href="#">Headphones</a></li>
+                                        <li><a href="#">Digital Cameras </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Single Footer Wiedget End-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--Footer Top Area End-->
+            <!--Footer Middle Area Start-->
+            <div class="footer-middle-area">
+                <div class="container">
+                    <div class="footer-link pt-50 pb-30 newsletter-social-block-content">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer-link-title">
+                                    <h2>友情链接</h2>
+                                </div>
+                                <!--Single Tag Content Start-->
+                                <div class="tag-content">
+                                    <h4>Electronics:</h4>
+                                    <ul class="tag-link">
+                                        <li><a href="#">Headsets</a></li>
+                                        <li><a href="#">Headphones</a></li>
+                                        <li><a href="#">Digital Cameras </a></li>
+                                    </ul>
+                                </div>
+                                <!--Single Tag Content End-->
+                                <!--Single Tag Content Start-->
+                                <div class="tag-content">
+                                    <h4>Fashion:</h4>
+                                    <ul class="tag-link">
+                                        <li><a href="#">lougewear</a></li>
+                                        <li><a href="#">Digital Cameras</a></li>
+                                    </ul>
+                                </div>
+                                <!--Single Tag Content End-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Footer Middle Area End-->
+            <!--Footer Bottom Area Start-->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!--Footer Copyright Start-->
+                            <div class="footer-copyright">
+                                <p>Copyright &copy; 2019. Ultron education All rights reserved.</p>
+                            </div>
+                            <!--Footer Copyright End-->
+                        </div>
+                        <!--<div class="col-md-6">
+                            &lt;!&ndash;Footer Payment Start&ndash;&gt;
+                            <div class="footer-payments-image text-center text-md-right">
+                                <img src="/frontsite/img/payment/payment.png" alt="">
+                            </div>
+                            &lt;!&ndash;Footer Payment End&ndash;&gt;
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <!--Footer Bottom Area End-->
+        </div>
+    </footer>
+
+
+    <!--All Js Here-->
+
+    <!--Jquery 1.12.4-->
+    <script src="/frontsite/js/vendor/jquery-1.12.4.min.js"></script>
+    <!--Imagesloaded-->
+    <script src="/frontsite/js/imagesloaded.pkgd.min.js"></script>
+    <!--Isotope-->
+    <script src="/frontsite/js/isotope.pkgd.min.js"></script>
+    <!--Waypoints-->
+    <script src="/frontsite/js/waypoints.min.js"></script>
+    <!--Counterup-->
+    <script src="/frontsite/js/jquery.counterup.min.js"></script>
+    <!--Countdown-->
+    <script src="/frontsite/js/jquery.countdown.min.js"></script>
+    <!--Carousel-->
+    <script src="/frontsite/js/owl.carousel.min.js"></script>
+    <!--Slick-->
+    <script src="/frontsite/js/slick.min.js"></script>
+    <!--Meanmenu-->
+    <script src="/frontsite/js/jquery.meanmenu.min.js"></script>
+    <!--Instafeed-->
+    <!--<script src="/frontsite/js/instafeed.min.js"></script>-->
+    <!--Nice Select-->
+    <script src="/frontsite/js/jquery.nice-select.min.js"></script>
+    <!--ScrollUp-->
+    <script src="/frontsite/js/jquery.scrollUp.min.js"></script>
+    <!--Wow-->
+    <script src="/frontsite/js/wow.min.js"></script>
+    <!--Venobox-->
+    <script src="/frontsite/js/venobox.min.js"></script>
+    <!--Popper-->
+    <script src="/frontsite/js/popper.min.js"></script>
+    <!--Bootstrap-->
+    <script src="/frontsite/js/bootstrap.min.js"></script>
+    <!--Plugins-->
+    <script src="/frontsite/js/plugins.js"></script>
+    <!--Main Js-->
+    <script src="/frontsite/js/main.js"></script>
+
+    <!-- app js  -->
+    <script src="/frontsite/appjs/index.js"></script>
+</div>
