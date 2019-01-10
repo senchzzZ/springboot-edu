@@ -3378,7 +3378,7 @@ li.right-menu .cat-mega-menu > li {
 	max-width: 100%;
 }
 .modal-header {
-	border: none;
+	/*border: none;*/
 }
 .modal-header .close {
 	padding: 0;
@@ -3403,6 +3403,17 @@ li.right-menu .cat-mega-menu > li {
 	border-top: 0;
 	padding-top: 0;
 }
+#myModal .modal-dialog {
+    margin: 5% auto;
+    min-height: 300px;
+    padding: 20px;
+    width: 600px;
+    max-width: 100%;
+}
+.modal-body .login-form {
+    margin: auto 15px 15px 15px;
+}
+
 /*------------------------
     12. Breadcrumb Area CSS
 -------------------------*/
@@ -5808,3 +5819,6 @@ h2.entry-title > a:hover {
     }
 }
 
+.footer-logo img {
+    height: 70px;
+}
