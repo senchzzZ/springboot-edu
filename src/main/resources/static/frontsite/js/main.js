@@ -485,7 +485,6 @@ $('.cate-slider-nav .nav-prev').on('click', function(){
 $('.cate-slider-nav .nav-next').on('click', function(){
     $(this).parents('.row').next('.cate-product-wrapper').find('.cate-product-slide').trigger('next.owl.carousel');
 })
-    
 
     
 /*--------

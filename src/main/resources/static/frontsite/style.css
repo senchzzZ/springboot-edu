@@ -203,6 +203,7 @@ label {
 	padding: 13px 30px;
 	margin: 0;
 }
+
 .section-title.bg-color-2 {
 	margin-bottom: 30px;
 	border-bottom: 1px solid #ededed;
@@ -5830,4 +5831,75 @@ h2.entry-title > a:hover {
 
 .footer-logo img {
     height: 70px;
+}
+
+.section-right-title > h2 {
+    min-width: 150px;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: #ff6a00;
+    border-bottom: 3px solid #e96405;
+    display: inline-block;
+    padding: 13px 30px;
+    margin: 0;
+}
+
+.block-news {
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+}
+.block-news > ul > li {
+    list-style: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.block-news-item {
+    padding: 8px;
+}
+.block-news-item > img {
+    width: 25px;
+    margin-right: 10px;
+}
+.block-news-item span {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.product-news {
+    height: 100%;
+    padding: 15px;
+    position: relative;
+}
+
+.product-news:before {
+    content: "";
+    background: #ededed;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.dec-and-review-menu-news {
+    padding: 11px 0;
+    text-align: center;
+    background: #f3f3f3;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.dec-and-review-menu-news > li > a {
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: 40px;
+    color: #333333;
+}
+.dec-and-review-menu-news > li > a.active,
+.dec-and-review-menu-news > li > a:hover{
+    color: #ff6a00;
 }
