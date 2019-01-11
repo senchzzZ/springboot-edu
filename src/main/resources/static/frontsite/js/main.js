@@ -164,7 +164,8 @@ $('.hero-slider').owlCarousel({
     loop: true,
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
-    autoplay: false,
+    autoplay: true,
+    autoplayHoverPause:true,
     navText: ['prev', 'next'],
     responsive: {
         0: {
@@ -178,7 +179,43 @@ $('.hero-slider').owlCarousel({
             items: 1
         }
     }
+});
+
+/*----------
+     news Slider Active
+------------------------------*/
+$('.news-slider').owlCarousel({
+    smartSpeed: 1000,
+    nav: false,
+    dots: false,
+    loop: true,
+    autoplay: true,
+    autoplayHoverPause:true,
+    //autoplayTimeout:4000,
+    responsive: {
+        0: {
+            items: 1
+        },
+        450: {
+            items: 1
+        },
+        600: {
+            items: 1
+        },
+        1000: {
+            items: 1
+        }
+    }
+});
+
+$('#news-nav-prev').on('click', function(){
+    //alert($(this).parents('.row').next('.cate-product-wrapper').find('.news-slider').attr("class"));
+    $(this).parents('.row').next('.cate-product-wrapper').find('.news-slider').trigger('prev.owl.carousel');
 })
+$('#news-nav-next').on('click', function(){
+    $(this).parents('.row').next('.cate-product-wrapper').find('.news-slider').trigger('next.owl.carousel');
+})
+
 /*-------- 
      Testimonial Active 
 ----------------------------------*/
