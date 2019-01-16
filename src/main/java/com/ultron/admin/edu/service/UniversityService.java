@@ -29,4 +29,6 @@ public interface UniversityService {
 	int batchRemove(Long[] ids);
 
 	int changeProposal(Long id, int ifProposal);
+
+	List<UniversityDO> getIndexUniversities();
 }

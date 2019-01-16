@@ -98,7 +98,7 @@
 		                                       <a href="shop.html">证书</a>
 		                                    </div>
 		                                    <div class="view-more">
-		                                        <a href="#">Buy Now</a>
+		                                        <a href="#">立即报名</a>
 		                                    </div>
 		                                </div>
 		                                <div class="thumb-category">
@@ -113,7 +113,7 @@
 		                                       <a href="shop.html">专业</a>
 		                                    </div>
 		                                    <div class="view-more">
-		                                        <a href="#">Buy Now</a>
+		                                        <a href="#">立即报名</a>
 		                                    </div>
 		                                </div>
 		                                <div class="thumb-category">
@@ -128,7 +128,7 @@
 		                                       <a href="shop.html">院校</a>
 		                                    </div>
 		                                    <div class="view-more">
-		                                        <a href="#">Buy Now</a>
+		                                        <a href="#">立即报名</a>
 		                                    </div>
 		                                </div>
 		                                <div class="thumb-category">
@@ -250,7 +250,7 @@
 		</div>
 		<!--Banner Area End-->
 		<!--Product Area Start-->
-		<div class="product-area mt-30">
+		<div class="university-area mt-30 ">
 		    <div class="container">
 		        <div class="row">
 		            <div class="col-12">
@@ -264,12 +264,73 @@
 		        <div class="product-block-content">
 		            <div class="row">
                         <div class="bestsellerSlide pdr-0 owl-carousel">
+
+                            <div th:each="university,universityStat : ${universityList}" class="col-md-12">
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="title-img" th:src="${university.banner}" alt="">
+                                        </a>
+                                        <span class="sticker">Hot</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a th:text="${university.name}" href="single-product.html"></a></h4>
+                                        <span th:text="${university.keyword} + ' | '" class="blog-post-date"></span>
+                                        <!--<span class="post-separator">|</span>-->
+                                        <!--<span class="blog-post-date">3年 </span>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!--Product Area End-->
+
+        <!--Banner Area Start-->
+		<!--<div class="banner-area mt-30">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-12">
+		                <div class="banner-inner">
+                            <a href="#"><img src="/frontsite/img/banner/offer-banner1.jpg" alt=""></a>
+                        </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>-->
+		<!--Banner Area End-->
+
+		<!--Categorie Product Area Start-->
+        <div class="product-area mt-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!--Section Title Start-->
+                        <div class="section-title">
+                            <h2>职业资格证</h2>
+                        </div>
+                        <!--Section Title End-->
+                    </div>
+                </div>
+                <div class="product-block-content">
+                    <div class="row">
+                        <div class="bestsellerSlide pdr-0 owl-carousel">
                             <div class="col-md-12">
                                 <!--Single Product Start-->
                                 <div class="single-product">
                                     <div class="product-img">
                                         <a href="single-product.html">
-                                            <img class="first-img" src="/frontsite/img/product/product1.jpg" alt="">
+                                            <img class="first-img" src="/img/product/product1.jpg" alt="">
                                             <!--<img class="hover-img" src="/frontsite/img/product/product2.jpg" alt="">-->
                                         </a>
                                         <span class="sticker">Hot</span>
@@ -521,681 +582,303 @@
                                 <!--Single Product End-->
                             </div>
                         </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<!--Product Area End-->
-		<!--Banner Area Start-->
-		<div class="banner-area mt-30">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-12">
-		                <div class="banner-inner">
-                            <a href="#"><img src="/frontsite/img/banner/offer-banner1.jpg" alt=""></a>
-                        </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<!--Banner Area End-->
-		<!--Categorie Product Area Start-->
-		<div class="categorie-product-area mt-30">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-12">
-		                <!--Section Title Start-->
-		                <div class="section-title float-left">
-		                    <h2>职业资格证</h2>
-		                </div>
-		                <!--Section Title End-->
-		                <!--Product Slider Nav-->
-		                <div class="cate-slider-nav float-right">
-		                    <button class="nav-prev"><i class="fa fa-angle-left"></i></button>
-		                    <button class="nav-next"><i class="fa fa-angle-right"></i></button>
-		                </div>
-		                <!--Product Slider Nav-->
-		            </div>
-		        </div>
-		        <div class="cate-product-wrapper">
-		           <div class="row">
-                        <div class="col-md-12 col-lg-3">
-                            <!--Product Categorie Start-->
-                            <div class="product-categorie">
-                                <!--Categorie Filter Toggle-->
-                                <button class="product-tab-filter-toggle">categories: <span>all</span><i class="ion-chevron-down"></i></button>
-                                <!--Categorie Filter Toggle-->
-                                <ul class="cate-filter">
-                                    <li><a href="shop.html">Fashion</a></li>
-                                    <li><a href="shop.html">Furniture</a></li>
-                                    <li><a href="shop.html">Electronics</a></li>
-                                    <li><a href="shop.html">Cosmetic</a></li>
-                                    <li><a href="shop.html">Computer & Laptop</a></li>
-                                    <li><a href="shop.html">Game Consoles</a></li>
-                                    <li><a href="shop.html">Cosmetic</a></li>
-                                    <li><a href="shop.html">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <!--Product Categorie Start-->
-                        </div>
-                        <div class="col-md-12 col-lg-9">
-                            <!--Product Banner Start-->
-                            <div class="banner-block-content">
-                                <div class="banner-inner">
-                                    <a href="#"><img src="img/banner/product-banner1.jpg" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="categorie-product-block-content">
-                        <div class="row">
-                            <div class="cate-product-slide owl-carousel">
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product8.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product1.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Versace Bright Crystal</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$260.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product13.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product8.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Vera Wang Princess</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$120.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product10.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product11.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">The North Face Men's</a></h4>
-                                            <div class="product-price">
-                                                <span class="regular-price">$60.00</span>
-                                                <span class="price">$54.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product15.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product16.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Merax Stylish Accent</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$90.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product17.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product18.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Makeup Brushes Set</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$320.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product3.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Lipstick Ultra Violet</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$180.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product13.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product14.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Enriched Nail Polish</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$300.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product6.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Dwar Men's Casual Long</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$350.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-		        </div>
-		    </div>
-		</div>
+                </div>
+            </div>
+        </div>
 		<!--Categorie Product Area End-->
 		<!--Categorie Product Area Start-->
-		<div class="categorie-product-area mt-30">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-12">
-		                <!--Section Title Start-->
-		                <div class="section-title float-left">
-		                    <h2>热门专业</h2>
-		                </div>
-		                <!--Section Title End-->
-		                <!--Product Slider Nav-->
-		                <div class="cate-slider-nav float-right">
-		                    <button class="nav-prev"><i class="fa fa-angle-left"></i></button>
-		                    <button class="nav-next"><i class="fa fa-angle-right"></i></button>
-		                </div>
-		                <!--Product Slider Nav-->
-		            </div>
-		        </div>
-		        <div class="cate-product-wrapper">
-		           <div class="row">
-                        <div class="col-md-12 col-lg-3">
-                            <!--Product Categorie Start-->
-                            <div class="product-categorie">
-                                <!--Categorie Filter Toggle-->
-                                <button class="product-tab-filter-toggle">categories: <span>all</span><i class="ion-chevron-down"></i></button>
-                                <!--Categorie Filter Toggle-->
-                                <ul class="cate-filter">
-                                    <li><a href="shop.html">Fashion</a></li>
-                                    <li><a href="shop.html">Furniture</a></li>
-                                    <li><a href="shop.html">Electronics</a></li>
-                                    <li><a href="shop.html">Cosmetic</a></li>
-                                    <li><a href="shop.html">Computer & Laptop</a></li>
-                                    <li><a href="shop.html">Game Consoles</a></li>
-                                    <li><a href="shop.html">Cosmetic</a></li>
-                                    <li><a href="shop.html">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <!--Product Categorie Start-->
+        <div class="product-area mt-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!--Section Title Start-->
+                        <div class="section-title">
+                            <h2>推荐专业</h2>
                         </div>
-                        <div class="col-md-12 col-lg-9">
-                            <!--Product Banner Start-->
-                            <div class="banner-block-content">
-                                <div class="banner-inner">
-                                    <a href="#"><img src="img/banner/product-banner2.jpg" alt=""></a>
+                        <!--Section Title End-->
+                    </div>
+                </div>
+                <div class="product-block-content">
+                    <div class="row">
+                        <div class="bestsellerSlide pdr-0 owl-carousel">
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="/img/product/product1.jpg" alt="">
+                                            <!--<img class="hover-img" src="/frontsite/img/product/product2.jpg" alt="">-->
+                                        </a>
+                                        <span class="sticker">Hot</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <span class="blog-post-date">1233 人报名 </span>
+                                        <span class="post-separator">|</span>
+                                        <span class="blog-post-date">3年 </span>
+                                    </div>
                                 </div>
+                                <!--Single Product End-->
+                            </div>
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="img/product/product3.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">New</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="single-product.html">Lipstick Ultra Violet</a></h4>
+                                        <div class="product-price">
+                                            <span class="price">$180.00</span>
+                                        </div>
+                                        <div class="product-reviews">
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Single Product End-->
+                            </div>
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="img/product/product4.jpg" alt="">
+                                            <img class="hover-img" src="img/product/product5.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">New</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="single-product.html">Bedding Jigsaw Quilted</a></h4>
+                                        <div class="product-price">
+                                            <span class="price">$250.00</span>
+                                        </div>
+                                        <div class="product-reviews">
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Single Product End-->
+                            </div>
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="img/product/product6.jpg" alt="">
+                                            <img class="hover-img" src="img/product/product7.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">New</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="single-product.html">Adams Men's Dunbar</a></h4>
+                                        <div class="product-price">
+                                            <span class="regular-price">$400.00</span>
+                                            <span class="price">$320.00</span>
+                                        </div>
+                                        <div class="product-reviews">
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Single Product End-->
+                            </div>
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="img/product/product6.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">New</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="single-product.html">The North Face Men's</a></h4>
+                                        <div class="product-price">
+                                            <span class="price">$350.00</span>
+                                        </div>
+                                        <div class="product-reviews">
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Single Product End-->
+                            </div>
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="img/product/product8.jpg" alt="">
+                                            <img class="hover-img" src="img/product/product9.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">New</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="single-product.html">Versace Bright Crystal</a></h4>
+                                        <div class="product-price">
+                                            <span class="price">$260.00</span>
+                                        </div>
+                                        <div class="product-reviews">
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Single Product End-->
+                            </div>
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="img/product/product10.jpg" alt="">
+                                            <img class="hover-img" src="img/product/product11.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">New</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="single-product.html">The North Face Men's</a></h4>
+                                        <div class="product-price">
+                                            <span class="regular-price">$60.00</span>
+                                            <span class="price">$54.00</span>
+                                        </div>
+                                        <div class="product-reviews">
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Single Product End-->
+                            </div>
+                            <div class="col-md-12">
+                                <!--Single Product Start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img" src="img/product/product11.jpg" alt="">
+                                            <img class="hover-img" src="img/product/product12.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">New</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="single-product.html">Columbia Men's Ascender</a></h4>
+                                        <div class="product-price">
+                                            <span class="price">$36.00</span>
+                                        </div>
+                                        <div class="product-reviews">
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                            <i class="ion-android-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Single Product End-->
                             </div>
                         </div>
                     </div>
-                    <div class="categorie-product-block-content">
-                        <div class="row">
-                            <div class="cate-product-slide owl-carousel">
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product8.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product1.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Versace Bright Crystal</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$260.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product13.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product8.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Vera Wang Princess</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$120.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product10.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product11.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">The North Face Men's</a></h4>
-                                            <div class="product-price">
-                                                <span class="regular-price">$60.00</span>
-                                                <span class="price">$54.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product15.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product16.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Merax Stylish Accent</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$90.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product17.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product18.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Makeup Brushes Set</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$320.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product3.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Lipstick Ultra Violet</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$180.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product13.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product14.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Enriched Nail Polish</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$300.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product6.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Dwar Men's Casual Long</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$350.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-		        </div>
-		    </div>
-		</div>
+                </div>
+            </div>
+        </div>
 		<!--Categorie Product Area End-->
 		<!--Categorie Product Area Start-->
-		<div class="categorie-product-area mt-30">
+		<div class="news-area mt-30">
 		    <div class="container">
 		        <div class="row">
 		            <div class="col-12">
 		                <!--Section Title Start-->
-		                <div class="section-title float-left">
+		                <div class="section-title float-left ">
 		                    <h2>奥创新闻</h2>
 		                </div>
 		                <!--Section Title End-->
 		                <!--Product Slider Nav-->
-		                <div class="cate-slider-nav float-right">
+		               <!-- <div class="cate-slider-nav float-right">
 		                    <button id="news-nav-prev" class="nav-prev"><i class="fa fa-angle-left"></i></button>
 		                    <button id="news-nav-next" class="nav-next"><i class="fa fa-angle-right"></i></button>
-		                </div>
+		                </div>-->
                         <!--<div class="section-right-title float-right">
                             <h2>学历提升资讯</h2>
                         </div>-->
@@ -1211,23 +894,23 @@
                                     <ul>
                                         <li>
                                             <div class="block-news-item">
-                                                <span><a href="#">Security policy (edit with Customer reassurance module)</a></span>
+                                                <span><a href="#">at least double rows!Security policy (edit with Customer reassurance module)</a></span>
                                                 <span class="blog-post-date float-right">2019-01-11 </span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="block-news-item">
-                                                <span><a href="#">Security policy (edit with Customer ...</a></span>
+                                                <span><a href="#">at least double rows!Security policy (edit with Customer ...</a></span>
                                                 <span class="blog-post-date float-right">2019-01-11 </span>
 
                                             </div>
                                         </li>
                                         <li>
                                             <div class="block-news-item">
-                                                <span><a href="#">Security policy (edit with Customer reassurance ...</a></span>
+                                                <span><a href="#">at least double rows!Security policy (edit with Customer reassurance ...</a></span>
                                                 <span class="blog-post-date float-right">2019-01-11 </span>
-
                                             </div>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -1243,6 +926,9 @@
                                         <div class="col-12 col-lg-8 ml-auto mr-auto">
                                             <!--Single Testimonial Start-->
                                             <div class="single-testimonial-style-2 text-center">
+
+                                                <h2 class="news-faq-title">FAQ1</h2>
+
                                                 <div class="news-content-2">
                                                     <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
                                                 </div>
@@ -1259,6 +945,8 @@
                                         <div class="col-12 col-lg-8 ml-auto mr-auto">
                                             <!--Single Testimonial Start-->
                                             <div class="single-testimonial-style-2 text-center">
+                                                <h2 class="news-faq-title">FAQ2</h2>
+
                                                 <div class="news-content-2">
                                                     <p>Dlaritas est etiam ponsuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
                                                 </div>
@@ -1273,6 +961,8 @@
                                             <!--Single Testimonial End-->
                                         </div>
                                         <div class="col-12 col-lg-8 ml-auto mr-auto">
+                                            <h2 class="news-faq-title">FAQ3</h2>
+
                                             <!--Single Testimonial Start-->
                                             <div class="single-testimonial-style-2 text-center">
                                                 <div class="news-content-2">
@@ -1292,385 +982,16 @@
                                 </div>
                             </div>
 
-                            <!--Product Banner Start-->
-                            <!--<div class="banner-block-content">
-                                <div class="banner-inner">
-
-                                    <ul class="nav nav-tabs dec-and-review-menu">
-                                        <li>
-                                            <a class="active" data-toggle="tab" href="#description">Description</a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tab" href="#product-details">Product Details</a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tab" href="#reviews">Reviews</a>
-                                        </li>
-                                    </ul>
-
-                                    &lt;!&ndash;Review And Description Tab Content Start&ndash;&gt;
-                                    <div class="tab-content product-review-content-tab mt-30" id="myTabContent-4">
-                                        <div class="tab-pane fade show active" id="description">
-                                            <div class="single-product-description">
-                                                <p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which has since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="product-details">
-                                            <div class="product-details">
-                                                <div class="product-manufacturer">
-                                                    <a href="#">
-                                                        <img src="img/logo/logo.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="product-reference">
-                                                    <label class="label">Reference </label> <span class="demo-list">demo_13</span>
-                                                </div>
-                                                <div class="product-quantities">
-                                                    <label class="label">In stock</label> <span class="item">300 Items</span>
-                                                </div>
-                                                <div class="product-out-of-stock"></div>
-                                                <div class="product-features">
-                                                    <h3>Data sheet</h3>
-                                                    <div class="table-responsive">
-                                                        <table class="table">
-                                                            <tr>
-                                                                <td>Compositions</td>
-                                                                <td>Cotton</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Styles</td>
-                                                                <td>Casual</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Properties</td>
-                                                                <td>Short Sleeve</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="reviews">
-                                            <div class="review-page-comment">
-                                                <div class="review-comment">
-                                                    <h2>Write your review</h2>
-                                                    <ul class="pro-comments-rating">
-                                                        <li>
-                                                            <label>Quality</label>
-                                                            <div class="single-product-reviews">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="review-form">
-                                                    <form action="#">
-                                                        <label>Title for your review<sup class="required">*</sup></label>
-                                                        <input type="text" placeholder="Title Here" name="title">
-                                                        <label>your review<sup class="required">*</sup></label>
-                                                        <textarea id="content" name="content"></textarea>
-                                                        <label>Your name<sup class="required">*</sup></label>
-                                                        <input type="text" placeholder="Your Name" name="title">
-                                                        <div class="send-your-review">
-                                                            <p class="required-fields"><sup>*</sup> Required fields</p>
-                                                            <div class="send-cancel-btn">
-                                                                <button class="send-btn">Send</button>
-                                                                or
-                                                                <button class="cancel-btn">Cancel</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    &lt;!&ndash;Review And Description Tab Content End&ndash;&gt;
-
-                                   &lt;!&ndash; <a href="#"><img src="img/banner/product-banner3.jpg" alt=""></a>&ndash;&gt;
-                                </div>
-                            </div>-->
                         </div>
                     </div>
-                    <div class="categorie-product-block-content">
-                        <div class="row">
-                            <div class="cate-product-slide owl-carousel">
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product8.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product1.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Versace Bright Crystal</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$260.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product13.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product8.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Vera Wang Princess</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$120.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product10.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product11.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">The North Face Men's</a></h4>
-                                            <div class="product-price">
-                                                <span class="regular-price">$60.00</span>
-                                                <span class="price">$54.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product15.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product16.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Merax Stylish Accent</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$90.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product17.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product18.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Makeup Brushes Set</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$320.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product3.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Lipstick Ultra Violet</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$180.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product13.jpg" alt="">
-                                                <img class="hover-img" src="img/product/product14.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Enriched Nail Polish</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$300.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                                <div class="col-md-12">
-                                    <!--Single Product Start-->
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img class="first-img" src="img/product/product6.jpg" alt="">
-                                            </a>
-                                            <span class="sticker">New</span>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="cart.html"><i class="ion-bag"></i></a></li>
-                                                    <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
-                                                    <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <h4><a href="single-product.html">Dwar Men's Casual Long</a></h4>
-                                            <div class="product-price">
-                                                <span class="price">$350.00</span>
-                                            </div>
-                                            <div class="product-reviews">
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                                <i class="ion-android-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Single Product End-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 		        </div>
 		    </div>
 		</div>
 		<!--Categorie Product Area End-->
 
 		<!-- Brand Area Start -->
-		<div class="brand-area mt-30">
+		<div class="brand-area mt-50">
 		    <div class="container">
                 <div class="brand-block-content">
                     <div class="row">

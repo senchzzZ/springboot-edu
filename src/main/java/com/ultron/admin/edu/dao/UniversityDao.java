@@ -30,4 +30,5 @@ public interface UniversityDao {
 	
 	int batchRemove(Long[] ids);
 
+	List<UniversityDO> getIndexUniversities();
 }

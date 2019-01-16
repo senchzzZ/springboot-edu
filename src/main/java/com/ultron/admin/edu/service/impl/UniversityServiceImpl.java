@@ -64,4 +64,9 @@ public class UniversityServiceImpl implements UniversityService {
 		return universityDao.update(universityDO);
 	}
 
+	@Override
+	public List<UniversityDO> getIndexUniversities() {
+		return universityDao.getIndexUniversities();
+	}
+
 }

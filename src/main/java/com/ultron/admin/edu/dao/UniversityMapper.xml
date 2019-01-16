@@ -3,6 +3,10 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.UniversityDao">
 
+	<sql id="Base_Column_List" >
+    `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time`
+  	</sql>
+
 	<select id="get" resultType="com.ultron.admin.edu.domain.UniversityDO">
 		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time` from edu_university where id = #{value}
 	</select>
@@ -169,5 +173,16 @@
 			#{id}
 		</foreach>
 	</update>
+	<select id="getIndexUniversities" resultType="com.ultron.admin.edu.domain.UniversityDO">
+		select
+		<include refid="Base_Column_List" />
+
+		from edu_university
+		where status = 1 and if_proposal = 1
+		order by update_time desc
+		limit 10
+
+	</select>
+
 
 </mapper>

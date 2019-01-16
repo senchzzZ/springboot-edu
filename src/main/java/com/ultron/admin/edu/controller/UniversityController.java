@@ -3,6 +3,7 @@ package com.ultron.admin.edu.controller;
 import java.util.List;
 import java.util.Map;
 import com.ultron.admin.common.controller.BaseController;
+import com.ultron.common.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -134,6 +135,22 @@ public class UniversityController extends BaseController {
 		UniversityDO university = universityService.get(universityId);
 		model.addAttribute("university", university);
 		return "admin/edu/specialty/add";
+	}
+
+
+	/**
+	 * 获取首页数据(前10条)
+	 * @return
+	 */
+	@PostMapping(value = "/getIndexUniversities")
+	@ResponseBody
+	public Response<List<UniversityDO>> getIndexUniversities() {
+		try {
+			return Response.success(universityService.getIndexUniversities());
+		} catch (Exception e) {
+			log.warn(ExceptionUtils.getFullStackTrace(e));
+			return Response.error(e.getMessage());
+		}
 	}
 	
 }

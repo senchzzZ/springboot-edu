@@ -2303,9 +2303,11 @@ li.right-menu .cat-mega-menu > li {
 .product-img {
 	position: relative;
 	overflow: hidden;
+    height: 180px;
 }
 .product-img > a {
 	display: block;
+    text-align: center;
 }
 .product-img > a > img {
 	width: 100%;
@@ -5852,6 +5854,7 @@ h2.entry-title > a:hover {
     background: #fff;
 }
 .block-news > ul > li {
+    overflow: auto;
     list-style: none;
     border-bottom: 1px solid rgba(0,0,0,.1);
 }
@@ -5863,7 +5866,7 @@ h2.entry-title > a:hover {
     margin-right: 10px;
 }
 .block-news-item span {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     text-transform: capitalize;
 }
@@ -5909,7 +5912,7 @@ h2.entry-title > a:hover {
     line-height: 24px;
     font-style: italic;
     padding: 0 30px;
-    padding-top: 80px;
+    padding-top: 20px;
     margin-bottom: 40px;
     position: relative;
 }
@@ -5934,7 +5937,7 @@ h2.entry-title > a:hover {
     cursor: pointer;
     position: relative;
     z-index: 8;
-    background: #0087ff;
+    background: #c5d0da;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
@@ -5942,4 +5945,17 @@ h2.entry-title > a:hover {
 .news-slider .owl-dot.active {
     background: #ff6a00;
     width: 30px;
+}
+
+.news-faq-title {
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    color: #252525;
+    margin-top: 30px;
+}
+
+.title-img {
+    display: inline-block !important;
+    width: 150px !important;
 }

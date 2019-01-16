@@ -187,7 +187,7 @@ $('.hero-slider').owlCarousel({
 $('.news-slider').owlCarousel({
     smartSpeed: 1000,
     nav: false,
-    dots: false,
+    dots: true,
     loop: true,
     autoplay: true,
     autoplayHoverPause:true,

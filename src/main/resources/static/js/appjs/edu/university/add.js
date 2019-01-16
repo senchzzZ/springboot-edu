@@ -53,7 +53,7 @@ layui.use('upload', function(){
 
     //执行实例
     var uploadInst = upload.render({
-		elem: '#banner_button', //绑定元素
+		elem: '#logo_button', //绑定元素
         url: '/common/sysFile/upload', //上传接口
         accept: 'images',
         size: 2048,
@@ -62,12 +62,12 @@ layui.use('upload', function(){
         choose: function(obj){
             //预读本地文件示例，不支持ie8
             obj.preview(function(index, file, result){
-                $('#banner_img').attr({'src': result,'width':"120px",'height':'120px'}); //图片链接（base64）
+                $('#logo_img').attr({'src': result,'width':"120px",'height':'120px'}); //图片链接（base64）
             });
         },
         done: function(res){
             //上传完毕回调
-			$("#banner").val(res.fileName);
+			$("#logo").val(res.fileName);
             layer.msg(res.msg);
         }
         ,error: function(){
