@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.service;
 
-import com.ultron.admin.edu.domain.SpecialtyDO;
+import com.ultron.admin.edu.domain.Specialty;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -15,15 +15,15 @@ import java.util.Map;
  */
 public interface SpecialtyService {
 	
-	SpecialtyDO get(Long id);
+	Specialty get(Long id);
 	
-	List<SpecialtyDO> list(Map<String, Object> map);
+	List<Specialty> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(SpecialtyDO specialty);
+	int save(Specialty specialty);
 	
-	int update(SpecialtyDO specialty);
+	int update(Specialty specialty);
 	
 	int remove(Long id);
 	

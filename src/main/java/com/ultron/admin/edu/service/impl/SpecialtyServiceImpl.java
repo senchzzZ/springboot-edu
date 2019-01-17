@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ultron.admin.edu.dao.SpecialtyDao;
-import com.ultron.admin.edu.domain.SpecialtyDO;
+import com.ultron.admin.edu.domain.Specialty;
 import com.ultron.admin.edu.service.SpecialtyService;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,14 +33,14 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 	private DictService dictService;
 	
 	@Override
-	public SpecialtyDO get(Long id){
+	public Specialty get(Long id){
 		return specialtyDao.get(id);
 	}
 	
 	@Override
-	public List<SpecialtyDO> list(Map<String, Object> map){
-		List<SpecialtyDO> specialties = specialtyDao.list(map);
-		/*for (SpecialtyDO specialtyDO : specialties) {
+	public List<Specialty> list(Map<String, Object> map){
+		List<Specialty> specialties = specialtyDao.list(map);
+		/*for (Specialty specialtyDO : specialties) {
 			specialtyDO.setType(dictService.getName("edu_specialty_type", String.valueOf(specialtyDO.getType())));
 			specialtyDO.setQualification(dictService.getName("edu_qualification", String.valueOf(specialtyDO.getQualification())));
 		}*/
@@ -53,14 +53,14 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 	}
 	
 	@Override
-	public int save(SpecialtyDO specialty){
+	public int save(Specialty specialty){
 		specialty.setCreateTime(new Date());
 		specialty.setUpdateTime(new Date());
 		return specialtyDao.save(specialty);
 	}
 	
 	@Override
-	public int update(SpecialtyDO specialty){
+	public int update(Specialty specialty){
 		specialty.setUpdateTime(new Date());
 		return specialtyDao.update(specialty);
 	}
@@ -79,7 +79,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 	public String batchImport(String fileName, MultipartFile file, Long universityId) throws Exception {
 		log.info("开始导入~~~~~~~");
 		boolean notNull = false;
-		List<SpecialtyDO> specialtyList = new ArrayList<>();
+		List<Specialty> specialtyList = new ArrayList<>();
 
 		boolean isExcel2003 = true;
 		if (fileName.matches("^.+\\.(?i)(xlsx)$")) {
@@ -96,7 +96,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 		if (sheet != null) {
 			notNull = true;
 		}
-		SpecialtyDO specialty;
+		Specialty specialty;
 		int successNum = 0;
 		String result = "";
 		//忽略第一行title
@@ -107,7 +107,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 			if (StringUtils.isBlank(row.getCell(0).getStringCellValue()))
 				continue;
 
-			specialty = new SpecialtyDO();
+			specialty = new Specialty();
 			//名称
 			if (row.getCell(0).getCellType() != Cell.CELL_TYPE_STRING) {
 				throw new Exception("导入失败(第" + (r + 1) + "行,名称请设为文本格式)");
@@ -155,7 +155,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 			specialtyList.add(specialty);
 			successNum++;
 		}
-		for (SpecialtyDO s : specialtyList) {
+		for (Specialty s : specialtyList) {
 			specialtyDao.save(s);
 		}
 		result = "导入结束,成功条数: " + successNum;

@@ -3,13 +3,13 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.SpecialtyDao">
 
-	<select id="get" resultType="com.ultron.admin.edu.domain.SpecialtyDO">
-		select `id`,`university_id`,`name`,`qualification`,`academic_year`,`type`,`introduction`,`remark`,`status`,`create_time`,`update_time` from edu_specialty where id = #{value}
+	<select id="get" resultType="com.ultron.admin.edu.domain.Specialty">
+		select `id`,`university_id`,`name`,proposal_weight,`qualification`,`academic_year`,`type`,`introduction`,`remark`,`status`,`create_time`,`update_time` from edu_specialty where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.ultron.admin.edu.domain.SpecialtyDO">
+	<select id="list" resultType="com.ultron.admin.edu.domain.Specialty">
 		select es.id,es.university_id,eu.name as universityName, es.name,es.qualification,es.academic_year,
-		es.type,es.introduction,es.remark,es.status,es.create_time,es.update_time
+		es.type,es.introduction,es.remark,es.status,es.create_time,es.update_time,es.proposal_weight
 		from edu_specialty es
 		INNER JOIN edu_university eu ON eu.id=es.university_id
 		<where>
@@ -73,7 +73,7 @@
 		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.ultron.admin.edu.domain.SpecialtyDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.Specialty" useGeneratedKeys="true" keyProperty="id">
 		insert into edu_specialty
 		(
 			`university_id`, 
@@ -81,7 +81,8 @@
 			`qualification`, 
 			`academic_year`, 
 			`type`, 
-			`introduction`, 
+			`proposal_weight`,
+			`introduction`,
 			`remark`, 
 			`create_time`,
 			`update_time`
@@ -93,14 +94,15 @@
 			#{qualification}, 
 			#{academicYear}, 
 			#{type}, 
-			#{introduction}, 
+			#{proposalWeight},
+			#{introduction},
 			#{remark}, 
 			#{createTime},
 			#{updateTime}
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.ultron.admin.edu.domain.SpecialtyDO">
+	<update id="update" parameterType="com.ultron.admin.edu.domain.Specialty">
 		update edu_specialty 
 		<set>
 			<if test="universityId != null">`university_id` = #{universityId}, </if>
@@ -108,6 +110,7 @@
 			<if test="qualification != null">`qualification` = #{qualification}, </if>
 			<if test="academicYear != null">`academic_year` = #{academicYear}, </if>
 			<if test="type != null">`type` = #{type}, </if>
+			<if test="proposalWeight != null">`proposal_weight` = #{proposalWeight}, </if>
 			<if test="introduction != null">`introduction` = #{introduction}, </if>
 			<if test="remark != null">`remark` = #{remark}, </if>
 			<if test="status != null">`status` = #{status}, </if>

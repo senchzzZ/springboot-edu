@@ -9,7 +9,7 @@ import com.ultron.admin.common.service.DictService;
 import com.ultron.admin.common.utils.PageUtils;
 import com.ultron.admin.common.utils.Query;
 import com.ultron.admin.common.utils.R;
-import com.ultron.admin.edu.domain.SpecialtyDO;
+import com.ultron.admin.edu.domain.Specialty;
 import com.ultron.admin.edu.service.SpecialtyService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -63,7 +63,7 @@ public class SpecialtyController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<SpecialtyDO> specialtyList = specialtyService.list(query);
+		List<Specialty> specialtyList = specialtyService.list(query);
 		int total = specialtyService.count(query);
 		PageUtils pageUtils = new PageUtils(specialtyList, total);
 		return pageUtils;
@@ -75,7 +75,7 @@ public class SpecialtyController {
 		Map<String, Object> params = new HashMap<>();
 		params.put("universityId",universityId);
 		//Query query = new Query(params);
-		List<SpecialtyDO> specialtyList = specialtyService.list(params);
+		List<Specialty> specialtyList = specialtyService.list(params);
 		//int total = enrollRemarkService.count(query);
 		//PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
 		model.addAttribute("specialtyList",specialtyList);
@@ -94,7 +94,7 @@ public class SpecialtyController {
 		List<DictDO> qualifications = dictService.listByType("edu_qualification");//学历
 		List<DictDO> specialtyTypes = dictService.listByType("edu_specialty_type");//专业类型
 
-		SpecialtyDO specialty = specialtyService.get(id);
+		Specialty specialty = specialtyService.get(id);
 		model.addAttribute("specialty", specialty);
 		model.addAttribute("qualifications", qualifications);
 		model.addAttribute("specialtyTypes", specialtyTypes);
@@ -107,7 +107,7 @@ public class SpecialtyController {
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("edu:specialty:add")
-	public R save(SpecialtyDO specialty){
+	public R save(Specialty specialty){
 		if(specialtyService.save(specialty)>0){
 			return R.ok();
 		}
@@ -119,7 +119,7 @@ public class SpecialtyController {
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("edu:specialty:edit")
-	public R update( SpecialtyDO specialty){
+	public R update( Specialty specialty){
 		specialtyService.update(specialty);
 		return R.ok();
 	}

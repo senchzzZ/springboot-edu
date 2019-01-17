@@ -15,7 +15,7 @@ import java.util.Date;
  * @date 2019-01-17 18:12:57
  */
 @Data
-public class SpecialtyDO implements Serializable {
+public class Specialty implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//ID
@@ -24,6 +24,8 @@ public class SpecialtyDO implements Serializable {
 	private Long universityId;
 	//专业名称
 	private String name;
+	//学校(冗余)
+	private String universityName;
 	//学历 edu_qualification
 	private String qualification;
 	//学制

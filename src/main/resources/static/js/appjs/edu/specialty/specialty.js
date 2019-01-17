@@ -70,6 +70,10 @@ function load() {
 									field : 'academicYear', 
 									title : '学制' 
 								},
+								{
+									field : 'proposalWeight',
+									title : '推荐权重'
+								},
 																{
 									field : 'type', 
 									title : '专业类型' 

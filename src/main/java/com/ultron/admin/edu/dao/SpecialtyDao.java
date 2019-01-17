@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.dao;
 
-import com.ultron.admin.edu.domain.SpecialtyDO;
+import com.ultron.admin.edu.domain.Specialty;
 
 import java.util.List;
 import java.util.Map;
@@ -16,15 +16,15 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SpecialtyDao {
 
-	SpecialtyDO get(Long id);
+	Specialty get(Long id);
 	
-	List<SpecialtyDO> list(Map<String, Object> map);
+	List<Specialty> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(SpecialtyDO specialty);
+	int save(Specialty specialty);
 	
-	int update(SpecialtyDO specialty);
+	int update(Specialty specialty);
 	
 	int remove(Long id);
 	
