@@ -1,6 +1,6 @@
 package ${package}.service;
 
-import ${package}.domain.${className}DO;
+import ${package}.domain.${className};
 
 import java.util.List;
 import java.util.Map;
@@ -14,15 +14,15 @@ import java.util.Map;
  */
 public interface ${className}Service {
 	
-	${className}DO get(${pk.attrType} ${pk.attrname});
+	${className} get(${pk.attrType} ${pk.attrname});
 	
-	List<${className}DO> list(Map<String, Object> map);
+	List<${className}> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(${className}DO ${classname});
+	int save(${className} ${classname});
 	
-	int update(${className}DO ${classname});
+	int update(${className} ${classname});
 	
 	int remove(${pk.attrType} ${pk.attrname});
 	
