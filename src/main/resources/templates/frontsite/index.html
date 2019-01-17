@@ -33,7 +33,7 @@
                             </div>
                             <!--Single Slider End-->
                             <!--Single Slider Start-->
-                            <div class="single-slider" style="background-image: url(/frontsite/img/slider/home1-slider-2.jpg)">
+                            <div class="single-slider" style="background-image: url(/frontsite/img/slider/home1-slider-7.jpg)">
                                 <div class="hero-slider-content">
                                     <h2 class="slow-animation1">各大院校火爆招生中</h2>
                                     <!--<h2 class="slow-animation2">wireless</h2>-->
@@ -63,7 +63,7 @@
                                 <div class="modal-body">
                                     <div class="login-form">
                                         <form action="#">
-                                            <label>您的称呼:</label>
+                                            <label>请问怎么称呼:</label>
                                             <div class="input-radio">
                                                 <span class="custom-radio"><input name="id_gender" value="1" type="radio"> 先生</span>
                                                 <span class="custom-radio"><input name="id_gender" value="1" type="radio"> 女士</span>
@@ -267,7 +267,7 @@
 
                             <div th:each="university,universityStat : ${universityList}" class="col-md-12">
                                 <div class="single-product">
-                                    <div class="product-img">
+                                    <div class="product-university-img">
                                         <a href="single-product.html">
                                             <img class="title-img" th:src="${university.banner}" alt="">
                                         </a>
@@ -607,10 +607,17 @@
                                 <div class="single-product">
                                     <div class="product-img">
                                         <a href="single-product.html">
-                                            <img class="first-img" src="/img/product/product1.jpg" alt="">
+                                            <img class="first-img blur" src="/frontsite/img/product/specialty4.jpg" alt="">
                                             <!--<img class="hover-img" src="/frontsite/img/product/product2.jpg" alt="">-->
                                         </a>
                                         <span class="sticker">Hot</span>
+                                        <div class="item-content">
+                                            <ul>
+                                                <li><h3>计算机科学与技术</h3></li>
+                                                <li><h4>清华大学 </h4></li>
+                                            </ul>
+                                        </div>
+
                                         <div class="product-action">
                                             <ul>
                                                 <li><a href="cart.html"><i class="ion-bag"></i></a></li>

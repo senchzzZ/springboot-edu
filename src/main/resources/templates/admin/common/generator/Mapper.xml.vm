@@ -69,12 +69,12 @@
 		where ${pk.columnName} = #{${pk.attrname}}
 	</update>
 	
-	<delete id="remove">
-		delete from ${tableName} where ${pk.columnName} = #{value}
-	</delete>
+	<update id="remove">
+		update ${tableName} set status = -1 where ${pk.columnName} = #{value}
+	</update>
 	
 	<delete id="batchRemove">
-		delete from ${tableName} where ${pk.columnName} in 
+        update ${tableName} set status = -1 where ${pk.columnName} in
 		<foreach item="${pk.attrname}" collection="array" open="(" separator="," close=")">
 			#{${pk.attrname}}
 		</foreach>
