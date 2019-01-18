@@ -26,11 +26,14 @@ function load() {
 						pageSize : 10, // 如果设置了分页，每页数据条数
 						pageNumber : 1, // 如果设置了分布，首页页码
 						//search : true, // 是否显示搜索框
+                        //sortable: true,
 						showColumns : false, // 是否显示内容下拉框（选择显示的列）
 						sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
 						queryParams : function(params) {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
+								sort: params.sort,
+                                order: params.order,
 								limit: params.limit,
 								offset:params.offset,
                                 name:$('#searchName').val(),
@@ -52,7 +55,9 @@ function load() {
 								},
 																{
 									field : 'id', 
-									title : 'ID' 
+									title : 'ID',
+									sortable:true
+
 								},
 								{
 									field : 'universityName',
@@ -72,7 +77,8 @@ function load() {
 								},
 								{
 									field : 'proposalWeight',
-									title : '推荐权重'
+									title : '推荐权重',
+                                    sortable:true
 								},
 																{
 									field : 'type', 
@@ -92,7 +98,6 @@ function load() {
 								},
 																{
 									title : '操作',
-									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
 										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
@@ -165,8 +170,6 @@ function remove(id) {
 	})
 }
 
-function resetPwd(id) {
-}
 function batchRemove() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
 	if (rows.length == 0) {

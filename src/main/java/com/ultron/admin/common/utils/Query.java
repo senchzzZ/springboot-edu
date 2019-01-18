@@ -1,5 +1,7 @@
 package com.ultron.admin.common.utils;
 
+import com.google.common.base.CaseFormat;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -21,6 +23,9 @@ public class Query extends LinkedHashMap<String, Object> {
 		this.put("offset", offset);
 		this.put("page", offset / limit + 1);
 		this.put("limit", limit);
+		//排序字段驼峰转下划线
+		if (params.get("sort") != null)
+			this.put("sort",CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, params.get("sort").toString()));
 	}
 
 	public int getOffset() {
