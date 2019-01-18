@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
+ * 首页
  * Created by zhaoshengqi on 2018/12/27.
  */
 @Slf4j
@@ -30,6 +31,11 @@ public class IndexController {
     private SpecialtyService specialtyService;
 
 
+    /**
+     * 首页
+     * @param model
+     * @return
+     */
     @GetMapping()
     String index(Model model) {
         try {
