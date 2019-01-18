@@ -29,4 +29,6 @@ public interface SpecialtyDao {
 	int remove(Long id);
 	
 	int batchRemove(Long[] ids);
+
+	List<Specialty> getIndexSpecialties();
 }

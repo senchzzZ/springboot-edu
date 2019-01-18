@@ -1,6 +1,8 @@
 package com.ultron.frontsite.controller;
 
-import com.ultron.admin.edu.domain.UniversityDO;
+import com.ultron.admin.edu.domain.Specialty;
+import com.ultron.admin.edu.domain.University;
+import com.ultron.admin.edu.service.SpecialtyService;
 import com.ultron.admin.edu.service.UniversityService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -24,12 +26,17 @@ public class IndexController {
     @Autowired
     private UniversityService universityService;
 
+    @Autowired
+    private SpecialtyService specialtyService;
+
 
     @GetMapping()
     String index(Model model) {
         try {
-            List<UniversityDO> universityList = universityService.getIndexUniversities();
+            List<University> universityList = universityService.getIndexUniversities();
+            List<Specialty> specialtyList = specialtyService.getIndexSpecialties();
             model.addAttribute("universityList",universityList);
+            model.addAttribute("specialtyList",specialtyList);
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));
         }

@@ -1,7 +1,7 @@
 package com.ultron.admin.edu.service.impl;
 
 import com.ultron.admin.edu.dao.CertificateDao;
-import com.ultron.admin.edu.domain.CertificateDO;
+import com.ultron.admin.edu.domain.Certificate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +19,12 @@ public class CertificateServiceImpl implements CertificateService {
 	private CertificateDao certificateDao;
 	
 	@Override
-	public CertificateDO get(Long id){
+	public Certificate get(Long id){
 		return certificateDao.get(id);
 	}
 	
 	@Override
-	public List<CertificateDO> list(Map<String, Object> map){
+	public List<Certificate> list(Map<String, Object> map){
 		return certificateDao.list(map);
 	}
 	
@@ -34,7 +34,7 @@ public class CertificateServiceImpl implements CertificateService {
 	}
 	
 	@Override
-	public int save(CertificateDO certificate){
+	public int save(Certificate certificate){
 		certificate.setCreateTime(new Date());
 		certificate.setUpdateTime(new Date());
 
@@ -42,7 +42,7 @@ public class CertificateServiceImpl implements CertificateService {
 	}
 	
 	@Override
-	public int update(CertificateDO certificate){
+	public int update(Certificate certificate){
 		certificate.setUpdateTime(new Date());
 
 		return certificateDao.update(certificate);
@@ -60,10 +60,10 @@ public class CertificateServiceImpl implements CertificateService {
 
 	@Override
 	public int changeProposal(Long id, int ifProposal) {
-		CertificateDO certificateDO = new CertificateDO();
-		certificateDO.setId(id);
-		certificateDO.setIfProposal(ifProposal);
-		return certificateDao.update(certificateDO);
+		Certificate certificate = new Certificate();
+		certificate.setId(id);
+		certificate.setIfProposal(ifProposal);
+		return certificateDao.update(certificate);
 	}
 
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ultron.admin.edu.dao.NewsDao;
-import com.ultron.admin.edu.domain.NewsDO;
+import com.ultron.admin.edu.domain.News;
 import com.ultron.admin.edu.service.NewsService;
 
 
@@ -19,12 +19,12 @@ public class NewsServiceImpl implements NewsService {
 	private NewsDao newsDao;
 	
 	@Override
-	public NewsDO get(Long id){
+	public News get(Long id){
 		return newsDao.get(id);
 	}
 	
 	@Override
-	public List<NewsDO> list(Map<String, Object> map){
+	public List<News> list(Map<String, Object> map){
 		return newsDao.list(map);
 	}
 	
@@ -34,14 +34,14 @@ public class NewsServiceImpl implements NewsService {
 	}
 	
 	@Override
-	public int save(NewsDO news){
+	public int save(News news){
 		news.setCreateTime(new Date());
 		news.setUpdateTime(new Date());
 		return newsDao.save(news);
 	}
 	
 	@Override
-	public int update(NewsDO news){
+	public int update(News news){
 		news.setUpdateTime(new Date());
 
 		return newsDao.update(news);
@@ -59,10 +59,10 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public int changeProposal(Long id, int ifProposal) {
-		NewsDO newsDO = new NewsDO();
-		newsDO.setId(id);
-		newsDO.setIfProposal(ifProposal);
-		return newsDao.update(newsDO);
+		News news = new News();
+		news.setId(id);
+		news.setIfProposal(ifProposal);
+		return newsDao.update(news);
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.service;
 
-import com.ultron.admin.edu.domain.UniversityDO;
+import com.ultron.admin.edu.domain.University;
 
 import java.util.List;
 import java.util.Map;
@@ -14,15 +14,15 @@ import java.util.Map;
  */
 public interface UniversityService {
 	
-	UniversityDO get(Long id);
+	University get(Long id);
 	
-	List<UniversityDO> list(Map<String, Object> map);
+	List<University> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(UniversityDO university);
+	int save(University university);
 	
-	int update(UniversityDO university);
+	int update(University university);
 	
 	int remove(Long id);
 	
@@ -30,5 +30,5 @@ public interface UniversityService {
 
 	int changeProposal(Long id, int ifProposal);
 
-	List<UniversityDO> getIndexUniversities();
+	List<University> getIndexUniversities();
 }

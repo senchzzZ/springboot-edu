@@ -3,11 +3,11 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.EnrollRemarkDao">
 
-	<select id="get" resultType="com.ultron.admin.edu.domain.EnrollRemarkDO">
+	<select id="get" resultType="com.ultron.admin.edu.domain.EnrollRemark">
 		select `id`,`name`,`enroll_id`,`enroll_fee`,`first_fee`,`second_fee`,`third_fee`,`service_item`,`remark`,`status`,`create_time`,`update_time` from edu_enroll_remark where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.ultron.admin.edu.domain.EnrollRemarkDO">
+	<select id="list" resultType="com.ultron.admin.edu.domain.EnrollRemark">
 		select `id`,`name`,`enroll_id`,`enroll_fee`,`first_fee`,`second_fee`,`third_fee`,`service_item`,`remark`,`status`,`create_time`,`update_time` from edu_enroll_remark
         <where>
 			status = 1
@@ -56,7 +56,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.ultron.admin.edu.domain.EnrollRemarkDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.EnrollRemark" useGeneratedKeys="true" keyProperty="id">
 		insert into edu_enroll_remark
 		(
 			`name`, 
@@ -87,7 +87,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.ultron.admin.edu.domain.EnrollRemarkDO">
+	<update id="update" parameterType="com.ultron.admin.edu.domain.EnrollRemark">
 		update edu_enroll_remark 
 		<set>
 			<if test="name != null">`name` = #{name}, </if>

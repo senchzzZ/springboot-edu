@@ -3,11 +3,11 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.CertificateDao">
 
-	<select id="get" resultType="com.ultron.admin.edu.domain.CertificateDO">
+	<select id="get" resultType="com.ultron.admin.edu.domain.Certificate">
 		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`certificate_fee`,`preferential_fee`,`term_begin_time`,`term_time`,`organizer`,`organize_address`,`certificate_type`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`area`,`file`,`banner`,`introduction`,`create_time`,`update_time` from edu_certificate where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.ultron.admin.edu.domain.CertificateDO">
+	<select id="list" resultType="com.ultron.admin.edu.domain.Certificate">
 		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`certificate_fee`,`preferential_fee`,`term_begin_time`,`term_time`,`organizer`,`organize_address`,`certificate_type`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`area`,`file`,`banner`,`introduction`,`create_time`,`update_time` from edu_certificate
         <where>
 			status = 1
@@ -88,7 +88,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.ultron.admin.edu.domain.CertificateDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.Certificate" useGeneratedKeys="true" keyProperty="id">
 		insert into edu_certificate
 		(
 			`name`, 
@@ -147,7 +147,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.ultron.admin.edu.domain.CertificateDO">
+	<update id="update" parameterType="com.ultron.admin.edu.domain.Certificate">
 		update edu_certificate 
 		<set>
 			<if test="name != null">`name` = #{name}, </if>

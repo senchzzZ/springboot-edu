@@ -94,7 +94,8 @@ function load() {
 								},
 																{
 									field : 'createTime', 
-									title : '创建时间' 
+									title : '创建时间',
+									sortable:true
 								},
 																{
 									title : '操作',

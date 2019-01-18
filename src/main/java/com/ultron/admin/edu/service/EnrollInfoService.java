@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.service;
 
-import com.ultron.admin.edu.domain.EnrollInfoDO;
+import com.ultron.admin.edu.domain.EnrollInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -14,15 +14,15 @@ import java.util.Map;
  */
 public interface EnrollInfoService {
 	
-	EnrollInfoDO get(Long id);
+	EnrollInfo get(Long id);
 	
-	List<EnrollInfoDO> list(Map<String, Object> map);
+	List<EnrollInfo> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(EnrollInfoDO enrollInfo);
+	int save(EnrollInfo enrollInfo);
 	
-	int update(EnrollInfoDO enrollInfo);
+	int update(EnrollInfo enrollInfo);
 	
 	int remove(Long id);
 	

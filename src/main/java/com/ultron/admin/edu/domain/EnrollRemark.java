@@ -12,7 +12,7 @@ import java.util.Date;
  * @email sench.zhao@gmail.com
  * @date 2018-12-03 19:03:34
  */
-public class EnrollRemarkDO implements Serializable {
+public class EnrollRemark implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//ID

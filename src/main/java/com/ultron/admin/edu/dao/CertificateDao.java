@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.dao;
 
-import com.ultron.admin.edu.domain.CertificateDO;
+import com.ultron.admin.edu.domain.Certificate;
 
 import java.util.List;
 import java.util.Map;
@@ -16,15 +16,15 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CertificateDao {
 
-	CertificateDO get(Long id);
+	Certificate get(Long id);
 	
-	List<CertificateDO> list(Map<String, Object> map);
+	List<Certificate> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(CertificateDO certificate);
+	int save(Certificate certificate);
 	
-	int update(CertificateDO certificate);
+	int update(Certificate certificate);
 	
 	int remove(Long id);
 	

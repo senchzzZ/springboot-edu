@@ -3,11 +3,11 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.EnrollInfoDao">
 
-	<select id="get" resultType="com.ultron.admin.edu.domain.EnrollInfoDO">
+	<select id="get" resultType="com.ultron.admin.edu.domain.EnrollInfo">
 		select `id`,`name`,`sex`,`id_card`,`political`,`province`,`city`,`address`,`school`,`specialty`,`enroll_type`,`qualification`,`graduation_school`,`graduati_specialty`,`occupation_type`,`student_type`,`privilege_type`,`nation`,`phone`,`qq`,`email`,`wechat`,`if_delivery`,`delivery_name`,`delivery_time`,`delivery_num`,`if_pay`,`remark`,`status`,`type`,`create_time`,`update_time` from edu_enroll_info where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.ultron.admin.edu.domain.EnrollInfoDO">
+	<select id="list" resultType="com.ultron.admin.edu.domain.EnrollInfo">
 		select `id`,`name`,`sex`,`id_card`,`political`,`province`,`city`,`address`,`school`,`specialty`,`enroll_type`,`qualification`,`graduation_school`,`graduati_specialty`,`occupation_type`,`student_type`,`privilege_type`,`nation`,`phone`,`qq`,`email`,`wechat`,`if_delivery`,`delivery_name`,`delivery_time`,`delivery_num`,`if_pay`,`remark`,`status`,`type`,`create_time`,`update_time` from edu_enroll_info
         <where>
 			status = 1
@@ -112,7 +112,7 @@
 		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.ultron.admin.edu.domain.EnrollInfoDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.EnrollInfo" useGeneratedKeys="true" keyProperty="id">
 		insert into edu_enroll_info
 		(
 			`name`, 
@@ -183,7 +183,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.ultron.admin.edu.domain.EnrollInfoDO">
+	<update id="update" parameterType="com.ultron.admin.edu.domain.EnrollInfo">
 		update edu_enroll_info 
 		<set>
 			<if test="name != null">`name` = #{name}, </if>

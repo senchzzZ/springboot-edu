@@ -30,4 +30,6 @@ public interface SpecialtyService {
 	int batchRemove(Long[] ids);
 
     String batchImport(String fileName, MultipartFile file, Long universityId) throws Exception;
+
+	List<Specialty> getIndexSpecialties();
 }

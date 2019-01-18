@@ -162,4 +162,13 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 		log.info(result);
 		return result;
 	}
+
+	/**
+	 * 获取首页推荐专业数据
+	 * @return
+	 */
+	@Override
+	public List<Specialty> getIndexSpecialties() {
+		return specialtyDao.getIndexSpecialties();
+	}
 }

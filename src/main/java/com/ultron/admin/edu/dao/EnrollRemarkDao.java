@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.dao;
 
-import com.ultron.admin.edu.domain.EnrollRemarkDO;
+import com.ultron.admin.edu.domain.EnrollRemark;
 
 import java.util.List;
 import java.util.Map;
@@ -16,15 +16,15 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface EnrollRemarkDao {
 
-	EnrollRemarkDO get(Long id);
+	EnrollRemark get(Long id);
 	
-	List<EnrollRemarkDO> list(Map<String, Object> map);
+	List<EnrollRemark> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(EnrollRemarkDO enrollRemark);
+	int save(EnrollRemark enrollRemark);
 	
-	int update(EnrollRemarkDO enrollRemark);
+	int update(EnrollRemark enrollRemark);
 	
 	int remove(Long id);
 	

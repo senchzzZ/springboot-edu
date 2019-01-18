@@ -3,11 +3,11 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.NewsDao">
 
-	<select id="get" resultType="com.ultron.admin.edu.domain.NewsDO">
+	<select id="get" resultType="com.ultron.admin.edu.domain.News">
 		select `id`,`title`,`keyword`,`description`,`if_proposal`,`news_type`,`news_url`,`status`,`area`,`file`,`banner`,`introduction`,`remark`,`create_time`,`update_time` from edu_news where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.ultron.admin.edu.domain.NewsDO">
+	<select id="list" resultType="com.ultron.admin.edu.domain.News">
 		select `id`,`title`,`keyword`,`description`,`if_proposal`,`news_type`,`news_url`,`status`,`area`,`file`,`banner`,`introduction`,`remark`,`create_time`,`update_time` from edu_news
         <where>
 			status = 1
@@ -66,7 +66,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.ultron.admin.edu.domain.NewsDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.News" useGeneratedKeys="true" keyProperty="id">
 		insert into edu_news
 		(
 			`title`, 
@@ -103,7 +103,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.ultron.admin.edu.domain.NewsDO">
+	<update id="update" parameterType="com.ultron.admin.edu.domain.News">
 		update edu_news 
 		<set>
 			<if test="title != null">`title` = #{title}, </if>

@@ -7,11 +7,11 @@
     `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time`
   	</sql>
 
-	<select id="get" resultType="com.ultron.admin.edu.domain.UniversityDO">
+	<select id="get" resultType="com.ultron.admin.edu.domain.University">
 		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time` from edu_university where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.ultron.admin.edu.domain.UniversityDO">
+	<select id="list" resultType="com.ultron.admin.edu.domain.University">
 		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`type`,`address`,`area`,`logo`,`banner`,`introduction`,`condition`,`create_time`,`update_time` from edu_university
         <where>
 			status = 1
@@ -84,7 +84,7 @@
 		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.ultron.admin.edu.domain.UniversityDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.ultron.admin.edu.domain.University" useGeneratedKeys="true" keyProperty="id">
 		insert into edu_university
 		(
 			`name`, 
@@ -135,7 +135,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.ultron.admin.edu.domain.UniversityDO">
+	<update id="update" parameterType="com.ultron.admin.edu.domain.University">
 		update edu_university 
 		<set>
 			<if test="name != null">`name` = #{name}, </if>
@@ -173,7 +173,7 @@
 			#{id}
 		</foreach>
 	</update>
-	<select id="getIndexUniversities" resultType="com.ultron.admin.edu.domain.UniversityDO">
+	<select id="getIndexUniversities" resultType="com.ultron.admin.edu.domain.University">
 		select
 		<include refid="Base_Column_List" />
 

@@ -8,7 +8,7 @@ import com.ultron.admin.common.service.DictService;
 import com.ultron.admin.common.utils.PageUtils;
 import com.ultron.admin.common.utils.Query;
 import com.ultron.admin.common.utils.R;
-import com.ultron.admin.edu.domain.CertificateDO;
+import com.ultron.admin.edu.domain.Certificate;
 import com.ultron.admin.edu.service.CertificateService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -57,7 +57,7 @@ public class CertificateController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<CertificateDO> certificateList = certificateService.list(query);
+		List<Certificate> certificateList = certificateService.list(query);
 		int total = certificateService.count(query);
 		PageUtils pageUtils = new PageUtils(certificateList, total);
 		return pageUtils;
@@ -74,7 +74,7 @@ public class CertificateController {
 	String edit(@PathVariable("id") Long id,Model model){
 		List<DictDO> certificateTypes = dictService.listByType("edu_certificate_type");//证书类别
 
-		CertificateDO certificate = certificateService.get(id);
+		Certificate certificate = certificateService.get(id);
 		model.addAttribute("certificate", certificate);
 		model.addAttribute("certificateTypes", certificateTypes);
 	    return prefix + "edit";
@@ -86,7 +86,7 @@ public class CertificateController {
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("edu:certificate:add")
-	public R save(CertificateDO certificate){
+	public R save(Certificate certificate){
 		if(certificateService.save(certificate)>0){
 			return R.ok();
 		}
@@ -98,7 +98,7 @@ public class CertificateController {
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("edu:certificate:edit")
-	public R update( CertificateDO certificate){
+	public R update( Certificate certificate){
 		certificateService.update(certificate);
 		return R.ok();
 	}

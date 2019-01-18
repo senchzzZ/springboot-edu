@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.service;
 
-import com.ultron.admin.edu.domain.NewsDO;
+import com.ultron.admin.edu.domain.News;
 
 import java.util.List;
 import java.util.Map;
@@ -14,15 +14,15 @@ import java.util.Map;
  */
 public interface NewsService {
 	
-	NewsDO get(Long id);
+	News get(Long id);
 	
-	List<NewsDO> list(Map<String, Object> map);
+	List<News> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(NewsDO news);
+	int save(News news);
 	
-	int update(NewsDO news);
+	int update(News news);
 	
 	int remove(Long id);
 	

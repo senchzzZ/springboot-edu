@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ultron.admin.edu.domain.EnrollRemark;
 import com.ultron.admin.edu.service.EnrollRemarkService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ultron.admin.edu.domain.EnrollRemarkDO;
 import com.ultron.admin.common.utils.PageUtils;
 import com.ultron.admin.common.utils.Query;
 import com.ultron.admin.common.utils.R;
@@ -49,7 +49,7 @@ public class EnrollRemarkController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<EnrollRemarkDO> enrollRemarkList = enrollRemarkService.list(query);
+		List<EnrollRemark> enrollRemarkList = enrollRemarkService.list(query);
 		int total = enrollRemarkService.count(query);
 		PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
 		return pageUtils;
@@ -62,7 +62,7 @@ public class EnrollRemarkController {
 		Map<String, Object> params = new HashMap<>();
 		params.put("enrollId",enrollId);
 		//Query query = new Query(params);
-		List<EnrollRemarkDO> enrollRemarkList = enrollRemarkService.list(params);
+		List<EnrollRemark> enrollRemarkList = enrollRemarkService.list(params);
 		//int total = enrollRemarkService.count(query);
 		//PageUtils pageUtils = new PageUtils(enrollRemarkList, total);
 		model.addAttribute("enrollRemarkList",enrollRemarkList);
@@ -78,7 +78,7 @@ public class EnrollRemarkController {
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("edu:enrollRemark:edit")
 	String edit(@PathVariable("id") Long id,Model model){
-		EnrollRemarkDO enrollRemark = enrollRemarkService.get(id);
+		EnrollRemark enrollRemark = enrollRemarkService.get(id);
 		model.addAttribute("enrollRemark", enrollRemark);
 	    return prefix + "edit";
 	}
@@ -89,7 +89,7 @@ public class EnrollRemarkController {
 	@ResponseBody
 	@PostMapping("/save")
 	//@RequiresPermissions("edu:enrollRemark:add")
-	public R save( EnrollRemarkDO enrollRemark){
+	public R save( EnrollRemark enrollRemark){
 		if(enrollRemarkService.save(enrollRemark)>0){
 			return R.ok();
 		}
@@ -101,7 +101,7 @@ public class EnrollRemarkController {
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("edu:enrollRemark:edit")
-	public R update( EnrollRemarkDO enrollRemark){
+	public R update( EnrollRemark enrollRemark){
 		enrollRemarkService.update(enrollRemark);
 		return R.ok();
 	}

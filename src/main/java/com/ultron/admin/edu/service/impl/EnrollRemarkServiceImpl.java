@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ultron.admin.edu.dao.EnrollRemarkDao;
-import com.ultron.admin.edu.domain.EnrollRemarkDO;
+import com.ultron.admin.edu.domain.EnrollRemark;
 import com.ultron.admin.edu.service.EnrollRemarkService;
 
 
@@ -19,12 +19,12 @@ public class EnrollRemarkServiceImpl implements EnrollRemarkService {
 	private EnrollRemarkDao enrollRemarkDao;
 	
 	@Override
-	public EnrollRemarkDO get(Long id){
+	public EnrollRemark get(Long id){
 		return enrollRemarkDao.get(id);
 	}
 	
 	@Override
-	public List<EnrollRemarkDO> list(Map<String, Object> map){
+	public List<EnrollRemark> list(Map<String, Object> map){
 		return enrollRemarkDao.list(map);
 	}
 	
@@ -34,14 +34,14 @@ public class EnrollRemarkServiceImpl implements EnrollRemarkService {
 	}
 	
 	@Override
-	public int save(EnrollRemarkDO enrollRemark){
+	public int save(EnrollRemark enrollRemark){
 		enrollRemark.setCreateTime(new Date());
 		enrollRemark.setUpdateTime(new Date());
 		return enrollRemarkDao.save(enrollRemark);
 	}
 	
 	@Override
-	public int update(EnrollRemarkDO enrollRemark){
+	public int update(EnrollRemark enrollRemark){
 		enrollRemark.setUpdateTime(new Date());
 		return enrollRemarkDao.update(enrollRemark);
 	}

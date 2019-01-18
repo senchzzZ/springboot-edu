@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.ultron.admin.common.controller.BaseController;
 import com.ultron.admin.common.service.DictService;
+import com.ultron.admin.edu.domain.EnrollInfo;
 import com.ultron.admin.edu.service.EnrollInfoService;
 import com.ultron.admin.common.domain.DictDO;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ultron.admin.edu.domain.EnrollInfoDO;
 import com.ultron.admin.common.utils.PageUtils;
 import com.ultron.admin.common.utils.Query;
 import com.ultron.admin.common.utils.R;
@@ -54,7 +54,7 @@ public class EnrollInfoController extends BaseController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<EnrollInfoDO> enrollInfoList = enrollInfoService.list(query);
+		List<EnrollInfo> enrollInfoList = enrollInfoService.list(query);
 		int total = enrollInfoService.count(query);
 		PageUtils pageUtils = new PageUtils(enrollInfoList, total);
 		return pageUtils;
@@ -69,7 +69,7 @@ public class EnrollInfoController extends BaseController {
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("edu:enrollInfo:edit")
 	String edit(@PathVariable("id") Long id,Model model){
-		EnrollInfoDO enrollInfo = enrollInfoService.get(id);
+		EnrollInfo enrollInfo = enrollInfoService.get(id);
 
 		List<DictDO> qualifications = dictService.listByType("edu_qualification");//学历
 		List<DictDO> enrollTypes = dictService.listByType("edu_enroll_type");//报考形式
@@ -94,7 +94,7 @@ public class EnrollInfoController extends BaseController {
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("edu:enrollInfo:add")
-	public R save( EnrollInfoDO enrollInfo){
+	public R save( EnrollInfo enrollInfo){
 		if(enrollInfoService.save(enrollInfo)>0){
 			return R.ok();
 		}
@@ -106,7 +106,7 @@ public class EnrollInfoController extends BaseController {
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("edu:enrollInfo:edit")
-	public R update( EnrollInfoDO enrollInfo){
+	public R update( EnrollInfo enrollInfo){
 		enrollInfoService.update(enrollInfo);
 		return R.ok();
 	}
@@ -138,7 +138,7 @@ public class EnrollInfoController extends BaseController {
 	@GetMapping("/addRemark/{enrollId}")
 	//@RequiresPermissions("edu:enrollInfo:edit")
 	String addRemark(@PathVariable("enrollId") Long enrollId,Model model){
-		EnrollInfoDO enrollInfo = enrollInfoService.get(enrollId);
+		EnrollInfo enrollInfo = enrollInfoService.get(enrollId);
 		model.addAttribute("enrollInfo", enrollInfo);
 		return "admin/edu/enrollRemark/add";
 	}

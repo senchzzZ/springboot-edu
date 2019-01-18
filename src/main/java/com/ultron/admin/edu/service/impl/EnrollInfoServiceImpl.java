@@ -1,5 +1,6 @@
 package com.ultron.admin.edu.service.impl;
 
+import com.ultron.admin.edu.domain.EnrollInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.ultron.admin.edu.dao.EnrollInfoDao;
-import com.ultron.admin.edu.domain.EnrollInfoDO;
 import com.ultron.admin.edu.service.EnrollInfoService;
 
 
@@ -19,12 +19,12 @@ public class EnrollInfoServiceImpl implements EnrollInfoService {
 	private EnrollInfoDao enrollInfoDao;
 	
 	@Override
-	public EnrollInfoDO get(Long id){
+	public EnrollInfo get(Long id){
 		return enrollInfoDao.get(id);
 	}
 	
 	@Override
-	public List<EnrollInfoDO> list(Map<String, Object> map){
+	public List<EnrollInfo> list(Map<String, Object> map){
 		return enrollInfoDao.list(map);
 	}
 	
@@ -34,14 +34,14 @@ public class EnrollInfoServiceImpl implements EnrollInfoService {
 	}
 	
 	@Override
-	public int save(EnrollInfoDO enrollInfo){
+	public int save(EnrollInfo enrollInfo){
 		enrollInfo.setCreateTime(new Date());
 		enrollInfo.setUpdateTime(new Date());
 		return enrollInfoDao.save(enrollInfo);
 	}
 	
 	@Override
-	public int update(EnrollInfoDO enrollInfo){
+	public int update(EnrollInfo enrollInfo){
 		enrollInfo.setUpdateTime(new Date());
 		return enrollInfoDao.update(enrollInfo);
 	}

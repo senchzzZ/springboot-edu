@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ultron.admin.edu.domain.UniversityDO;
+import com.ultron.admin.edu.domain.University;
 import com.ultron.admin.edu.service.UniversityService;
 import com.ultron.admin.common.utils.PageUtils;
 import com.ultron.admin.common.utils.Query;
@@ -51,7 +51,7 @@ public class UniversityController extends BaseController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<UniversityDO> universityList = universityService.list(query);
+		List<University> universityList = universityService.list(query);
 		int total = universityService.count(query);
 		PageUtils pageUtils = new PageUtils(universityList, total);
 		return pageUtils;
@@ -66,7 +66,7 @@ public class UniversityController extends BaseController {
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("edu:university:edit")
 	String edit(@PathVariable("id") Long id,Model model){
-		UniversityDO university = universityService.get(id);
+		University university = universityService.get(id);
 		model.addAttribute("university", university);
 	    return prefix + "edit";
 	}
@@ -77,7 +77,7 @@ public class UniversityController extends BaseController {
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("edu:university:add")
-	public R save( UniversityDO university){
+	public R save( University university){
 		if(universityService.save(university)>0){
 			return R.ok();
 		}
@@ -89,7 +89,7 @@ public class UniversityController extends BaseController {
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("edu:university:edit")
-	public R update( UniversityDO university){
+	public R update( University university){
 		universityService.update(university);
 		return R.ok();
 	}
@@ -132,7 +132,7 @@ public class UniversityController extends BaseController {
 
 	@GetMapping("/addSpecialty/{universityId}")
 	String addSpecialty(@PathVariable("universityId") Long universityId,Model model){
-		UniversityDO university = universityService.get(universityId);
+		University university = universityService.get(universityId);
 		model.addAttribute("university", university);
 		return "admin/edu/specialty/add";
 	}
@@ -144,7 +144,7 @@ public class UniversityController extends BaseController {
 	 */
 	@PostMapping(value = "/getIndexUniversities")
 	@ResponseBody
-	public Response<List<UniversityDO>> getIndexUniversities() {
+	public Response<List<University>> getIndexUniversities() {
 		try {
 			return Response.success(universityService.getIndexUniversities());
 		} catch (Exception e) {

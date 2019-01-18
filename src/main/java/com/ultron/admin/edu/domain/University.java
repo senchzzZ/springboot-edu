@@ -6,18 +6,18 @@ import java.util.Date;
 
 
 /**
- * 证书管理
+ * 学校管理
  * 
  * @author zhaoshengqi
  * @email sench.zhao@gmail.com
- * @date 2018-12-21 16:17:26
+ * @date 2018-12-05 17:33:53
  */
-public class CertificateDO implements Serializable {
+public class University implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//ID
 	private Long id;
-	//证书名称
+	//学校名称
 	private String name;
 	//标题
 	private String title;
@@ -27,20 +27,6 @@ public class CertificateDO implements Serializable {
 	private String description;
 	//是否推荐 0否1是
 	private Integer ifProposal;
-	//学费（元）
-	private String certificateFee;
-	//优惠学费（元）
-	private String preferentialFee;
-	//开学时间
-	private String termBeginTime;
-	//学时
-	private String termTime;
-	//举办机构
-	private String organizer;
-	//举办地点
-	private String organizeAddress;
-	//证书类别（字典edu_certificate_type）
-	private String certificateType;
 	//老师
 	private String teacher;
 	//电话
@@ -53,16 +39,22 @@ public class CertificateDO implements Serializable {
 	private String wechat;
 	//备注
 	private String remark;
-	//状态 1有效 -1删除
+	//状态
 	private Integer status;
+	//学校类型
+	private Integer type;
+	//地址
+	private String address;
 	//地区
 	private String area;
-	//相关文件
-	private String file;
+	//logo
+	private String logo;
 	//banner
 	private String banner;
-	//详细介绍
+	//学校介绍
 	private String introduction;
+	//报名条件
+	private String condition;
 	//创建时间
 	private Date createTime;
 	//修改时间
@@ -81,13 +73,13 @@ public class CertificateDO implements Serializable {
 		return id;
 	}
 	/**
-	 * 设置：证书名称
+	 * 设置：学校名称
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
-	 * 获取：证书名称
+	 * 获取：学校名称
 	 */
 	public String getName() {
 		return name;
@@ -139,90 +131,6 @@ public class CertificateDO implements Serializable {
 	 */
 	public Integer getIfProposal() {
 		return ifProposal;
-	}
-	/**
-	 * 设置：学费（元）
-	 */
-	public void setCertificateFee(String certificateFee) {
-		this.certificateFee = certificateFee;
-	}
-	/**
-	 * 获取：学费（元）
-	 */
-	public String getCertificateFee() {
-		return certificateFee;
-	}
-	/**
-	 * 设置：优惠学费（元）
-	 */
-	public void setPreferentialFee(String preferentialFee) {
-		this.preferentialFee = preferentialFee;
-	}
-	/**
-	 * 获取：优惠学费（元）
-	 */
-	public String getPreferentialFee() {
-		return preferentialFee;
-	}
-	/**
-	 * 设置：开学时间
-	 */
-	public void setTermBeginTime(String termBeginTime) {
-		this.termBeginTime = termBeginTime;
-	}
-	/**
-	 * 获取：开学时间
-	 */
-	public String getTermBeginTime() {
-		return termBeginTime;
-	}
-	/**
-	 * 设置：学时
-	 */
-	public void setTermTime(String termTime) {
-		this.termTime = termTime;
-	}
-	/**
-	 * 获取：学时
-	 */
-	public String getTermTime() {
-		return termTime;
-	}
-	/**
-	 * 设置：举办机构
-	 */
-	public void setOrganizer(String organizer) {
-		this.organizer = organizer;
-	}
-	/**
-	 * 获取：举办机构
-	 */
-	public String getOrganizer() {
-		return organizer;
-	}
-	/**
-	 * 设置：举办地点
-	 */
-	public void setOrganizeAddress(String organizeAddress) {
-		this.organizeAddress = organizeAddress;
-	}
-	/**
-	 * 获取：举办地点
-	 */
-	public String getOrganizeAddress() {
-		return organizeAddress;
-	}
-	/**
-	 * 设置：证书类别（字典edu_certificate_type）
-	 */
-	public void setCertificateType(String certificateType) {
-		this.certificateType = certificateType;
-	}
-	/**
-	 * 获取：证书类别（字典edu_certificate_type）
-	 */
-	public String getCertificateType() {
-		return certificateType;
 	}
 	/**
 	 * 设置：老师
@@ -297,16 +205,40 @@ public class CertificateDO implements Serializable {
 		return remark;
 	}
 	/**
-	 * 设置：状态 1有效 -1删除
+	 * 设置：状态
 	 */
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	/**
-	 * 获取：状态 1有效 -1删除
+	 * 获取：状态
 	 */
 	public Integer getStatus() {
 		return status;
+	}
+	/**
+	 * 设置：学校类型
+	 */
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	/**
+	 * 获取：学校类型
+	 */
+	public Integer getType() {
+		return type;
+	}
+	/**
+	 * 设置：地址
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	/**
+	 * 获取：地址
+	 */
+	public String getAddress() {
+		return address;
 	}
 	/**
 	 * 设置：地区
@@ -321,16 +253,16 @@ public class CertificateDO implements Serializable {
 		return area;
 	}
 	/**
-	 * 设置：相关文件
+	 * 设置：logo
 	 */
-	public void setFile(String file) {
-		this.file = file;
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 	/**
-	 * 获取：相关文件
+	 * 获取：logo
 	 */
-	public String getFile() {
-		return file;
+	public String getLogo() {
+		return logo;
 	}
 	/**
 	 * 设置：banner
@@ -345,16 +277,28 @@ public class CertificateDO implements Serializable {
 		return banner;
 	}
 	/**
-	 * 设置：详细介绍
+	 * 设置：学校介绍
 	 */
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
 	/**
-	 * 获取：详细介绍
+	 * 获取：学校介绍
 	 */
 	public String getIntroduction() {
 		return introduction;
+	}
+	/**
+	 * 设置：报名条件
+	 */
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+	/**
+	 * 获取：报名条件
+	 */
+	public String getCondition() {
+		return condition;
 	}
 	/**
 	 * 设置：创建时间

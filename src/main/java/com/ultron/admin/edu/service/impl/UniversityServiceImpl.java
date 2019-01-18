@@ -1,5 +1,6 @@
 package com.ultron.admin.edu.service.impl;
 
+import com.ultron.admin.edu.domain.University;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.ultron.admin.edu.dao.UniversityDao;
-import com.ultron.admin.edu.domain.UniversityDO;
 import com.ultron.admin.edu.service.UniversityService;
 
 
@@ -19,12 +19,12 @@ public class UniversityServiceImpl implements UniversityService {
 	private UniversityDao universityDao;
 	
 	@Override
-	public UniversityDO get(Long id){
+	public University get(Long id){
 		return universityDao.get(id);
 	}
 	
 	@Override
-	public List<UniversityDO> list(Map<String, Object> map){
+	public List<University> list(Map<String, Object> map){
 		return universityDao.list(map);
 	}
 	
@@ -34,14 +34,14 @@ public class UniversityServiceImpl implements UniversityService {
 	}
 	
 	@Override
-	public int save(UniversityDO university){
+	public int save(University university){
 		university.setCreateTime(new Date());
 		university.setUpdateTime(new Date());
 		return universityDao.save(university);
 	}
 	
 	@Override
-	public int update(UniversityDO university){
+	public int update(University university){
 		university.setUpdateTime(new Date());
 		return universityDao.update(university);
 	}
@@ -58,14 +58,14 @@ public class UniversityServiceImpl implements UniversityService {
 
 	@Override
 	public int changeProposal(Long id, int ifProposal) {
-		UniversityDO universityDO = new UniversityDO();
-		universityDO.setId(id);
-		universityDO.setIfProposal(ifProposal);
-		return universityDao.update(universityDO);
+		University university = new University();
+		university.setId(id);
+		university.setIfProposal(ifProposal);
+		return universityDao.update(university);
 	}
 
 	@Override
-	public List<UniversityDO> getIndexUniversities() {
+	public List<University> getIndexUniversities() {
 		return universityDao.getIndexUniversities();
 	}
 

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.ultron.admin.common.domain.DictDO;
 import com.ultron.admin.common.service.DictService;
+import com.ultron.admin.edu.domain.News;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ultron.admin.edu.domain.NewsDO;
 import com.ultron.admin.edu.service.NewsService;
 import com.ultron.admin.common.utils.PageUtils;
 import com.ultron.admin.common.utils.Query;
@@ -59,7 +59,7 @@ public class NewsController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
-		List<NewsDO> newsList = newsService.list(query);
+		List<News> newsList = newsService.list(query);
 		int total = newsService.count(query);
 		PageUtils pageUtils = new PageUtils(newsList, total);
 		return pageUtils;
@@ -76,7 +76,7 @@ public class NewsController {
 	String edit(@PathVariable("id") Long id,Model model){
 		List<DictDO> newsTypes = dictService.listByType("edu_news_type");//证书类别
 
-		NewsDO news = newsService.get(id);
+		News news = newsService.get(id);
 		model.addAttribute("news", news);
 		model.addAttribute("newsTypes", newsTypes);
 	    return prefix + "edit";
@@ -88,7 +88,7 @@ public class NewsController {
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("edu:news:add")
-	public R save( NewsDO news){
+	public R save( News news){
 		if(newsService.save(news)>0){
 			return R.ok();
 		}
@@ -100,7 +100,7 @@ public class NewsController {
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("edu:news:edit")
-	public R update( NewsDO news){
+	public R update( News news){
 		newsService.update(news);
 		return R.ok();
 	}

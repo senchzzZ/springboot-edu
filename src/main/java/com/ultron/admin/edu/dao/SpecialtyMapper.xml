@@ -3,6 +3,10 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.SpecialtyDao">
 
+	<sql id="Base_Column_List" >
+    `id`,`university_id`,`name`,proposal_weight,`qualification`,`academic_year`,`type`,`introduction`,`remark`,`status`,`create_time`,`update_time`
+  	</sql>
+
 	<select id="get" resultType="com.ultron.admin.edu.domain.Specialty">
 		select `id`,`university_id`,`name`,proposal_weight,`qualification`,`academic_year`,`type`,`introduction`,`remark`,`status`,`create_time`,`update_time` from edu_specialty where id = #{value}
 	</select>
@@ -13,7 +17,7 @@
 		from edu_specialty es
 		INNER JOIN edu_university eu ON eu.id=es.university_id
 		<where>
-			es.status = 1
+			eu.status=1 and es.status = 1
 		  		  <if test="id != null and id != ''"> and es.id = #{id} </if>
 		  		  <if test="universityId != null and universityId != ''"> and es.university_id = #{universityId} </if>
 					<if test="name != null and name != ''">
@@ -130,5 +134,16 @@
 			#{id}
 		</foreach>
 	</update>
+
+	<select id="getIndexSpecialties" resultType="com.ultron.admin.edu.domain.Specialty">
+		select es.id,es.university_id,eu.name as universityName, es.name,es.qualification,es.academic_year,
+		es.type,es.introduction,es.remark,es.status,es.create_time,es.update_time,es.proposal_weight
+		from edu_specialty es
+		INNER JOIN edu_university eu ON eu.id=es.university_id
+		where eu.status=1 and es.status = 1
+		order by es.proposal_weight desc
+		limit 10
+
+	</select>
 
 </mapper>

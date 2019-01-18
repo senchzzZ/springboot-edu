@@ -1,6 +1,6 @@
 package com.ultron.admin.edu.dao;
 
-import com.ultron.admin.edu.domain.UniversityDO;
+import com.ultron.admin.edu.domain.University;
 
 import java.util.List;
 import java.util.Map;
@@ -16,19 +16,19 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UniversityDao {
 
-	UniversityDO get(Long id);
+	University get(Long id);
 	
-	List<UniversityDO> list(Map<String, Object> map);
+	List<University> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
 	
-	int save(UniversityDO university);
+	int save(University university);
 	
-	int update(UniversityDO university);
+	int update(University university);
 	
 	int remove(Long id);
 	
 	int batchRemove(Long[] ids);
 
-	List<UniversityDO> getIndexUniversities();
+	List<University> getIndexUniversities();
 }
