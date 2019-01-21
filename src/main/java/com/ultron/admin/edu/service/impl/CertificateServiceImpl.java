@@ -66,4 +66,13 @@ public class CertificateServiceImpl implements CertificateService {
 		return certificateDao.update(certificate);
 	}
 
+	/**
+	 * 获取首页推荐数据
+	 * @return
+	 */
+	@Override
+	public List<Certificate> getIndexCertificate() {
+		return certificateDao.getIndexCertificate();
+	}
+
 }

@@ -136,7 +136,7 @@
 	</update>
 
 	<select id="getIndexSpecialties" resultType="com.ultron.admin.edu.domain.Specialty">
-		select es.id,es.university_id,eu.name as universityName, es.name,es.qualification,es.academic_year,
+		select es.id,es.university_id,eu.name as universityName,eu.logo as universityLogo, es.name,es.qualification,es.academic_year,
 		es.type,es.introduction,es.remark,es.status,es.create_time,es.update_time,es.proposal_weight
 		from edu_specialty es
 		INNER JOIN edu_university eu ON eu.id=es.university_id

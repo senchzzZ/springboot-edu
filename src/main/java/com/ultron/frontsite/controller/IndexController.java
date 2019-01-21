@@ -1,7 +1,9 @@
 package com.ultron.frontsite.controller;
 
+import com.ultron.admin.edu.domain.Certificate;
 import com.ultron.admin.edu.domain.Specialty;
 import com.ultron.admin.edu.domain.University;
+import com.ultron.admin.edu.service.CertificateService;
 import com.ultron.admin.edu.service.SpecialtyService;
 import com.ultron.admin.edu.service.UniversityService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +32,9 @@ public class IndexController {
     @Autowired
     private SpecialtyService specialtyService;
 
+    @Autowired
+    private CertificateService certificateService;
+
 
     /**
      * 首页
@@ -41,8 +46,10 @@ public class IndexController {
         try {
             List<University> universityList = universityService.getIndexUniversities();
             List<Specialty> specialtyList = specialtyService.getIndexSpecialties();
+            List<Certificate> certificateList = certificateService.getIndexCertificate();
             model.addAttribute("universityList",universityList);
             model.addAttribute("specialtyList",specialtyList);
+            model.addAttribute("certificateList",certificateList);
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));
         }

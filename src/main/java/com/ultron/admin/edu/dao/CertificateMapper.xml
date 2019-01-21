@@ -3,6 +3,10 @@
 
 <mapper namespace="com.ultron.admin.edu.dao.CertificateDao">
 
+	<sql id="Base_Column_List" >
+    `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`certificate_fee`,`preferential_fee`,`term_begin_time`,`term_time`,`organizer`,`organize_address`,`certificate_type`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`area`,`file`,`banner`,`introduction`,`create_time`,`update_time`
+  	</sql>
+
 	<select id="get" resultType="com.ultron.admin.edu.domain.Certificate">
 		select `id`,`name`,`title`,`keyword`,`description`,`if_proposal`,`certificate_fee`,`preferential_fee`,`term_begin_time`,`term_time`,`organizer`,`organize_address`,`certificate_type`,`teacher`,`phone`,`qq`,`email`,`wechat`,`remark`,`status`,`area`,`file`,`banner`,`introduction`,`create_time`,`update_time` from edu_certificate where id = #{value}
 	</select>
@@ -189,5 +193,16 @@
 			#{id}
 		</foreach>
 	</update>
+
+	<select id="getIndexCertificate" resultType="com.ultron.admin.edu.domain.Certificate">
+		select
+		<include refid="Base_Column_List" />
+
+		from edu_certificate
+		where status = 1 and if_proposal = 1
+		order by update_time desc
+		limit 10
+
+	</select>
 
 </mapper>

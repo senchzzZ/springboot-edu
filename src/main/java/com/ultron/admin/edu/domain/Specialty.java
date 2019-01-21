@@ -44,4 +44,7 @@ public class Specialty implements Serializable {
 	private Date updateTime;
 	//推荐权重（越大排序越前）
 	private Integer proposalWeight;
+
+	//学校logo 冗余
+	private String universityLogo;
 }

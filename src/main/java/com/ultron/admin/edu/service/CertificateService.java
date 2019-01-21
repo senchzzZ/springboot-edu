@@ -29,4 +29,6 @@ public interface CertificateService {
 	int batchRemove(Long[] ids);
 
 	int changeProposal(Long id, int ifProposal);
+
+    List<Certificate> getIndexCertificate();
 }
