@@ -1,16 +1,17 @@
 bootdo:
   uploadPath: /Users/zhaoshengqi/bootdo_files/
-  username: admin
-  password: 765434565
+  #uploadPath: D:\bootdo_files\
+  #username: admin
+  #password: 765434565
 logging:
   level:
     root: info
-    com.bootdo: debug
+    com.ultron: debug
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.107.255.81:3306/bootdo?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://39.107.255.81:3306/ultron?useUnicode=true&characterEncoding=utf8
     username: root
     password: sench2591
     initialSize: 1

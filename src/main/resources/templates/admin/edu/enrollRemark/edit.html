@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="admin/include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${enrollRemark.id}"  type="hidden">
+							
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>姓名:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="name" name="name" th:value="${enrollRemark.name}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>报名ID:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="enrollId" name="enrollId" th:value="${enrollRemark.enrollId}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>报名费用:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="enrollFee" name="enrollFee" th:value="${enrollRemark.enrollFee}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>第一学年学费:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="firstFee" name="firstFee" th:value="${enrollRemark.firstFee}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>第二学年学费:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="secondFee" name="secondFee" th:value="${enrollRemark.secondFee}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>第三学年学费:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="thirdFee" name="thirdFee" th:value="${enrollRemark.thirdFee}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>服务项目:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="serviceItem" name="serviceItem" th:value="${enrollRemark.serviceItem}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>备注:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="remark" name="remark" th:value="${enrollRemark.remark}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>状态:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="status" name="status" th:value="${enrollRemark.status}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>创建时间:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="createTime" name="createTime" th:value="${enrollRemark.createTime}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>修改时间:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="updateTime" name="updateTime" th:value="${enrollRemark.updateTime}" />
+        </div>
+    </div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="admin/include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/edu/enrollRemark/edit.js">
+	</script>
+</body>
+</html>

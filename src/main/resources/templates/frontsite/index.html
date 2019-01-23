@@ -1,0 +1,797 @@
+﻿<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="frontsite/include::header_link"></head>
+
+<body>
+
+	<!--[if lt IE 8]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div class="wrapper">
+		<!--Header Area Start-->
+        <div th:include="frontsite/include::header"></div>
+		<!--Header Area End-->
+		<!--Slider Area Start-->
+		<div class="slider-area">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-md-3 d-md-none col-lg-3 d-lg-block"></div>
+		            <div class="col-md-8 col-lg-6">
+		                <div class="hero-slider owl-carousel">
+                            <!--Single Slider Start-->
+                            <div class="single-slider" style="background-image: url(/frontsite/img/slider/home1-slider-1.jpg)">
+                                <div class="hero-slider-content">
+                                    <h2 class="slow-animation1">学历提升名额抢占中</h2>
+                                    <!--<h2 class="slow-animation2"></h2>-->
+                                    <h4>提升学历,即刻启程</h4>
+                                    <!-- <h1>捷足先登</h1>-->
+                                    <div class="slider-btn mt-50">
+                                        <a data-toggle="modal" href="#myModal">立即咨询</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Single Slider End-->
+                            <!--Single Slider Start-->
+                            <div class="single-slider" style="background-image: url(/frontsite/img/slider/home1-slider-7.jpg)">
+                                <div class="hero-slider-content">
+                                    <h2 class="slow-animation1">各大院校火爆招生中</h2>
+                                    <!--<h2 class="slow-animation2">wireless</h2>-->
+                                    <h4>学历提升,捷足先登</h4>
+                                    <!--<h1>60% off</h1>-->
+                                    <div class="slider-btn mt-50">
+                                        <a href="#">学历提升</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Single Slider End-->
+                        </div>
+		            </div>
+                    <!--模态框 modal-->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        请留下您的联系方式,我们会尽快联系您
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="login-form">
+                                        <form action="#">
+                                            <label>请问怎么称呼:</label>
+                                            <div class="input-radio">
+                                                <span class="custom-radio"><input name="id_gender" value="1" type="radio"> 先生</span>
+                                                <span class="custom-radio"><input name="id_gender" value="1" type="radio"> 女士</span>
+                                            </div>
+                                            <label>您的姓名:</label>
+                                            <input name="user-name" type="text" placeholder="请输入您的姓名">
+                                            <label>手机号:</label>
+                                            <input name="user-password" type="text" placeholder="请输入您的手机号">
+                                            <div class="button-box">
+                                                <button type="submit" class="add-to-cart"> 提交</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+
+		            <div class="col-md-4 col-lg-3">
+		                <!--Sidebar Product Categories Start-->
+		                <div class="sidebar-product-categori">
+		                    <div class="sidebar-cate-title">
+		                        <h2>推荐</h2>
+		                    </div>
+		                    <div class="categori-block-content owl-carousel">
+		                        <div class="item-listcategories">
+		                            <!--Single List Categories Start-->
+		                            <div class="list-categories">
+		                                <div class="desc-listcategoreis">
+		                                    <div class="name-categoreis">
+		                                       <a th:text="${specialtyList[0].name}" href="shop.html">证书</a>
+		                                    </div>
+		                                    <div class="view-more">
+		                                        <a href="#">立即报名</a>
+		                                    </div>
+		                                </div>
+		                                <div class="thumb-category">
+		                                    <a href="shop.html"><img th:src="${specialtyList[0].universityLogo}" alt=""></a>
+		                                </div>
+		                            </div>
+		                            <!--Single List Categories End-->
+		                            <!--Single List Categories Start-->
+		                            <div class="list-categories">
+		                                <div class="desc-listcategoreis">
+		                                    <div class="name-categoreis">
+		                                       <a th:text="${specialtyList[1].name}" href="shop.html">专业</a>
+		                                    </div>
+		                                    <div class="view-more">
+		                                        <a href="#">立即报名</a>
+		                                    </div>
+		                                </div>
+		                                <div class="thumb-category">
+		                                    <a href="shop.html"><img th:src="${specialtyList[1].universityLogo}" alt="" ></a>
+		                                </div>
+		                            </div>
+		                            <!--Single List Categories End-->
+		                            <!--Single List Categories Start-->
+		                            <div class="list-categories">
+		                                <div class="desc-listcategoreis">
+		                                    <div class="name-categoreis">
+		                                       <a th:text="${universityList[2].name}" href="shop.html">院校</a>
+		                                    </div>
+		                                    <div class="view-more">
+		                                        <a href="#">立即报名</a>
+		                                    </div>
+		                                </div>
+		                                <div class="thumb-category">
+		                                    <a href="shop.html"><img th:src="${specialtyList[2].universityLogo}" alt=""></a>
+		                                </div>
+		                            </div>
+		                            <!--Single List Categories End-->
+		                        </div>
+		                        <div class="item-listcategories">
+		                            <!--Single List Categories Start-->
+		                            <div class="list-categories">
+		                                <div class="desc-listcategoreis">
+		                                    <div class="name-categoreis">
+		                                       <a href="shop.html">Cosmetic</a>
+		                                    </div>
+		                                    <div class="view-more">
+		                                        <a href="#">Buy Now</a>
+		                                    </div>
+		                                </div>
+		                                <div class="thumb-category">
+		                                    <a href="shop.html"><img src="img/product-thumb/product-thumb4.jpg" alt=""></a>
+		                                </div>
+		                            </div>
+		                            <!--Single List Categories End-->
+		                            <!--Single List Categories Start-->
+		                            <div class="list-categories">
+		                                <div class="desc-listcategoreis">
+		                                    <div class="name-categoreis">
+		                                       <a href="shop.html">Computer & Laptop</a>
+		                                    </div>
+		                                    <div class="view-more">
+		                                        <a href="#">Buy Now</a>
+		                                    </div>
+		                                </div>
+		                                <div class="thumb-category">
+		                                    <a href="shop.html"><img src="img/product-thumb/product-thumb5.jpg" alt=""></a>
+		                                </div>
+		                            </div>
+		                            <!--Single List Categories End-->
+		                        </div>
+		                    </div>
+		                </div>
+		                <!--Sidebar Product Categories Start-->
+		            </div>
+		        </div>
+		        <!--<div class="banner-slide mt-30">
+		            <div class="banner-inner">
+		                <a href="#">
+                            <img class="d-lg-block d-md-block d-none" src="/frontsite/img/banner/slider-banner.jpg" alt="">
+                            <img class="d-block d-md-none d-lg-none" src="/frontsite/img/banner/slider-banner1.png" alt="">
+                        </a>
+		            </div>
+		        </div>-->
+		    </div>
+		</div>
+		<!--Slider Area End-->
+		<!--Banner Area Start-->
+		<div class="banner-area mt-30">
+		    <div class="container">
+		        <div class="banner-items">
+		            <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <!--Single Banner Item Start-->
+                            <div class="single-banner-item mb-20 search-banner-border">
+                                <div class="banner-inner">
+                                    <a href="#"><img class="img-circle img-w-20" src="/frontsite/img/icon/personal-icon72.png" alt=""></a>
+                                </div>
+                                <div class="banner-content">
+                                    <h4>报名信息查询</h4>
+                                    <!--<span class="name">报名信息查询</span>-->
+                                    <!--<p class="price-sale">Up to <span class="text">75% off</span></p>-->
+                                </div>
+                            </div>
+                            <!--Single Banner Item End-->
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <!--Single Banner Item Start-->
+                            <div class="single-banner-item mb-20 search-banner-border">
+                                <div class="banner-inner">
+                                    <a href="#"><img class="img-w-20" src="/frontsite/img/icon/certificate-icon72.png" alt=""></a>
+                                </div>
+                                <div class="banner-content">
+                                    <h4>热门证书</h4>
+                                    <!--<p class="price-sale">Up to <span class="text">75% off</span></p>-->
+                                </div>
+                            </div>
+                            <!--Single Banner Item End-->
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <!--Single Banner Item Start-->
+                            <div class="single-banner-item mb-20 search-banner-border">
+                                <div class="banner-inner">
+                                    <a href="#"><img class="img-w-20 img-circle" src="/frontsite/img/icon/school-icon72-2.png" alt=""></a>
+                                </div>
+                                <div class="banner-content">
+                                    <h4>热门院校</h4>
+                                    <!--<p class="price-sale">Up to <span class="text">75% off</span></p>-->
+                                </div>
+                            </div>
+                            <!--Single Banner Item End-->
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <!--Single Banner Item Start-->
+                            <div class="single-banner-item mb-20">
+                                <div class="banner-inner">
+                                    <a href="#"><img class="img-w-20" src="/frontsite/img/icon/specialty-icon72.png" alt=""></a>
+                                </div>
+                                <div class="banner-content">
+                                    <h4>热门专业</h4>
+                                    <!--<p class="price-sale">Up to <span class="text">75% off</span></p>-->
+                                </div>
+                            </div>
+                            <!--Single Banner Item End-->
+                        </div>
+
+                    </div>
+		        </div>
+		    </div>
+		</div>
+		<!--Banner Area End-->
+		<!--Product Area Start-->
+		<div class="university-area mt-30 ">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-12">
+		                <!--Section Title Start-->
+		                <div class="section-title">
+		                    <h2>推荐院校</h2>
+		                </div>
+		                <!--Section Title End-->
+		            </div>
+		        </div>
+		        <div class="product-block-content">
+		            <div class="row">
+                        <div class="bestsellerSlide pdr-0 owl-carousel">
+
+                            <div th:each="university,universityStat : ${universityList}" class="col-md-12">
+                                <div class="single-product">
+                                    <div class="product-university-img">
+                                        <a href="single-product.html">
+                                            <img class="title-img" th:src="${university.logo}" alt="">
+                                        </a>
+                                        <span class="sticker">Hot</span>
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a th:text="${university.name}" href="single-product.html"></a></h4>
+                                        <span th:text="${university.keyword} + ' | '" class="blog-post-date"></span>
+                                        <!--<span class="post-separator">|</span>-->
+                                        <!--<span class="blog-post-date">3年 </span>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!--Product Area End-->
+
+		<!--Categorie Product Area Start-->
+        <div class="product-area mt-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!--Section Title Start-->
+                        <div class="section-title">
+                            <h2>职业资格证</h2>
+                        </div>
+                        <!--Section Title End-->
+                    </div>
+                </div>
+                <div class="product-block-content">
+                    <div class="row">
+                        <div class="bestsellerSlide pdr-0 owl-carousel">
+                            <div th:each="certificate,certificateStat : ${certificateList}" class="col-md-12">
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img blur" src="/frontsite/img/product/certificate.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">Hot</span>
+                                        <div class="certificate-item-content">
+                                            <ul>
+                                                <li><h3 th:text = "${certificate.name}">计算机科学与技术</h3></li>
+                                                <li><h4 th:text = "${certificate.title}">清华大学 </h4></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <span class="blog-post-date">1233 人报名 </span>
+                                        <span class="post-separator">|</span>
+                                        <span class="blog-post-date">3年 </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!--Categorie Product Area End-->
+		<!--Categorie Product Area Start-->
+        <div class="specialty-area mt-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!--Section Title Start-->
+                        <div class="section-title">
+                            <h2>推荐专业</h2>
+                        </div>
+                        <!--Section Title End-->
+                    </div>
+                </div>
+                <div class="product-block-content">
+                    <div class="row">
+                        <div class="bestsellerSlide pdr-0 owl-carousel">
+
+                            <div th:each="specialty,specialtyStat : ${specialtyList}" class="col-md-12">
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="single-product.html">
+                                            <img class="first-img blur" src="/frontsite/img/product/specialty4.jpg" alt="">
+                                        </a>
+                                        <span class="sticker">Hot</span>
+                                        <div class="specialty-item-content">
+                                            <ul>
+                                                <li><h3 th:text = "${specialty.name}">计算机科学与技术</h3></li>
+                                                <li><h4 th:text = "${specialty.universityName}">清华大学 </h4></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="ion-bag"></i></a></li>
+                                                <li><a href="#open-modal" data-toggle="modal"><i class="ion-eye"></i></a></li>
+                                                <li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <span class="blog-post-date">1233 人报名 </span>
+                                        <span class="post-separator">|</span>
+                                        <span class="blog-post-date">3年 </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!--Categorie Product Area End-->
+		<!--Categorie Product Area Start-->
+		<div class="news-area mt-30">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-12">
+		                <!--Section Title Start-->
+		                <div class="section-title float-left ">
+		                    <h2>奥创新闻</h2>
+		                </div>
+		                <!--Section Title End-->
+		                <!--Product Slider Nav-->
+		               <!-- <div class="cate-slider-nav float-right">
+		                    <button id="news-nav-prev" class="nav-prev"><i class="fa fa-angle-left"></i></button>
+		                    <button id="news-nav-next" class="nav-next"><i class="fa fa-angle-right"></i></button>
+		                </div>-->
+                        <!--<div class="section-right-title float-right">
+                            <h2>学历提升资讯</h2>
+                        </div>-->
+		                <!--Product Slider Nav-->
+		            </div>
+		        </div>
+		        <div class="cate-product-wrapper">
+		           <div class="row">
+                        <div class="col-md-12 col-lg-5">
+                            <!--Product Categorie Start-->
+                            <div class="product-news">
+                                <div class="block-news">
+                                    <ul>
+                                        <li>
+                                            <div class="block-news-item">
+                                                <span><a href="#">at least double rows!Security policy (edit with Customer reassurance module)</a></span>
+                                                <span class="blog-post-date float-right">2019-01-11 </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block-news-item">
+                                                <span><a href="#">at least double rows!Security policy (edit with Customer ...</a></span>
+                                                <span class="blog-post-date float-right">2019-01-11 </span>
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block-news-item">
+                                                <span><a href="#">at least double rows!Security policy (edit with Customer reassurance ...</a></span>
+                                                <span class="blog-post-date float-right">2019-01-11 </span>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!--Product Categorie Start-->
+                        </div>
+                        <div class="col-md-12 col-lg-7">
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="news-slider owl-carousel">
+                                        <div class="col-12 col-lg-8 ml-auto mr-auto">
+                                            <!--Single Testimonial Start-->
+                                            <div class="single-testimonial-style-2 text-center">
+
+                                                <h2 class="news-faq-title">FAQ1</h2>
+
+                                                <div class="news-content-2">
+                                                    <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
+                                                </div>
+                                                <div class="testimonial-author-2">
+                                                    <img src="/frontsite/img/testimonial/testimonial1.png" alt="">
+                                                    <div class="author-title-2">
+                                                        <p class="author-name-2">orando BLoom</p>
+                                                        <p class="author-email-2">demo@hastech.company</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Single Testimonial End-->
+                                        </div>
+                                        <div class="col-12 col-lg-8 ml-auto mr-auto">
+                                            <!--Single Testimonial Start-->
+                                            <div class="single-testimonial-style-2 text-center">
+                                                <h2 class="news-faq-title">FAQ2</h2>
+
+                                                <div class="news-content-2">
+                                                    <p>Dlaritas est etiam ponsuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
+                                                </div>
+                                                <div class="testimonial-author-2">
+                                                    <img src="/frontsite/img/testimonial/testimonial1.png" alt="">
+                                                    <div class="author-title-2">
+                                                        <p class="author-name-2">Md Shohel</p>
+                                                        <p class="author-email-2">demo@hastech.company</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Single Testimonial End-->
+                                        </div>
+                                        <div class="col-12 col-lg-8 ml-auto mr-auto">
+                                            <h2 class="news-faq-title">FAQ3</h2>
+
+                                            <!--Single Testimonial Start-->
+                                            <div class="single-testimonial-style-2 text-center">
+                                                <div class="news-content-2">
+                                                    <p>Elaritas est etiam processus dynamicus, qui sequi. Mirum est notare quam litteam nunc putamus parum claram.</p>
+                                                </div>
+                                                <div class="testimonial-author-2">
+                                                    <img src="/frontsite/img/testimonial/testimonial1.png" alt="">
+                                                    <div class="author-title-2">
+                                                        <p class="author-name-2">orando BLoom</p>
+                                                        <p class="author-email-2">demo@hastech.company</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Single Testimonial End-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+		        </div>
+		    </div>
+		</div>
+		<!--Categorie Product Area End-->
+
+		<!-- Brand Area Start -->
+		<div class="brand-area mt-50">
+		    <div class="container">
+                <div class="brand-block-content">
+                    <div class="row">
+		            <div class="col-12">
+		                <div class="brand-active owl-carousel">
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand1.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand2.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand3.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand4.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand5.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand2.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand1.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                    <!--Single Brand Start-->
+		                    <div class="single-brand">
+		                      <a href="#"><img src="/frontsite/img/brand/brand4.jpg" alt=""></a>
+		                    </div>
+		                    <!--Single Brand End-->
+		                </div>
+		            </div>
+		        </div>
+                </div>
+		    </div>
+		</div>
+		<!-- Brand Area End -->
+
+		<!--Feature Area Start-->
+		<div class="feature-area mt-30">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-md-4">
+		                <!--Single Feature Start-->
+		                <div class="single-feature">
+		                    <div class="feature-icon">
+		                        <i class="icon ion-ios-telephone"></i>
+		                    </div>
+		                    <div class="feature-content">
+		                        <h3>(999) 1234 56789</h3>
+		                        <p>Free support line!</p>
+		                    </div>
+		                </div>
+		                <!--Single Feature End-->
+		            </div>
+		            <div class="col-md-4">
+		                <!--Single Feature Start-->
+		                <div class="single-feature">
+		                    <div class="feature-icon">
+		                        <i class="icon ion-email"></i>
+		                    </div>
+		                    <div class="feature-content">
+		                        <h3>(999) 1234 56789</h3>
+		                        <p>Free support line!</p>
+		                    </div>
+		                </div>
+		                <!--Single Feature End-->
+		            </div>
+		            <div class="col-md-4">
+		                <!--Single Feature Start-->
+		                <div class="single-feature">
+		                    <div class="feature-icon">
+		                        <i class="icon ion-ios-timer-outline"></i>
+		                    </div>
+		                    <div class="feature-content">
+		                        <h3>(999) 1234 56789</h3>
+		                        <p>Free support line!</p>
+		                    </div>
+		                </div>
+		                <!--Single Feature End-->
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!--Feature Area End-->
+		<!--Footer Area Start-->
+        <div th:include="frontsite/include::footer"></div>
+
+        <div class="side" >
+            <ul>
+                <li>
+                    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=474872678&site=qq&menu=yes">
+                        <img border="0" src="http://wpa.qq.com/pa?p=2:474872678:53" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+                    </a>
+                </li>
+                <!--<li>
+                    <a class="sidetop" href="javascript:scroll(0,0)" title="返回顶部"><i
+                            class="fa fa-arrow-up"></i></a>
+
+                </li>-->
+            </ul>
+        </div>
+		<!--Footer Area End-->
+        <!-- Modal Area Strat -->
+        <!--<div class="modal fade" id="open-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <div class="row">
+                  &lt;!&ndash;Modal Img&ndash;&gt;
+                  <div class="col-md-5">
+                      &lt;!&ndash;Modal Tab Content Start&ndash;&gt;
+                      <div class="tab-content product-details-large" id="myTabContent">
+                        <div class="tab-pane fade show active" id="single-slide1" role="tabpanel" aria-labelledby="single-slide-tab-1">
+                            &lt;!&ndash;Single Product Image Start&ndash;&gt;
+                            <div class="single-product-img img-full">
+                              <img src="img/single-product/large/large1.jpg" alt="">
+                            </div>
+                            &lt;!&ndash;Single Product Image End&ndash;&gt;
+                        </div>
+                        <div class="tab-pane fade" id="single-slide2" role="tabpanel" aria-labelledby="single-slide-tab-2">
+                            &lt;!&ndash;Single Product Image Start&ndash;&gt;
+                            <div class="single-product-img img-full">
+                              <img src="img/single-product/large/large2.jpg" alt="">
+                            </div>
+                            &lt;!&ndash;Single Product Image End&ndash;&gt;
+                        </div>
+                        <div class="tab-pane fade" id="single-slide3" role="tabpanel" aria-labelledby="single-slide-tab-3">
+                            &lt;!&ndash;Single Product Image Start&ndash;&gt;
+                            <div class="single-product-img img-full">
+                              <img src="img/single-product/large/large3.jpg" alt="">
+                            </div>
+                            &lt;!&ndash;Single Product Image End&ndash;&gt;
+                        </div>
+                        <div class="tab-pane fade" id="single-slide4" role="tabpanel" aria-labelledby="single-slide-tab-4">
+                            &lt;!&ndash;Single Product Image Start&ndash;&gt;
+                            <div class="single-product-img img-full">
+                              <img src="img/single-product/large/large4.jpg" alt="">
+                            </div>
+                            &lt;!&ndash;Single Product Image End&ndash;&gt;
+                        </div>
+                      </div>
+                      &lt;!&ndash;Modal Content End&ndash;&gt;
+                      &lt;!&ndash;Modal Tab Menu Start&ndash;&gt;
+                      <div class="single-product-menu">
+                          <div class="nav single-slide-menu" role="tablist">
+                              <div class="single-tab-menu img-full">
+                                  <a class="active" data-toggle="tab" id="single-slide-tab-1" href="#single-slide1"><img src="img/single-product/small/small1.jpg" alt=""></a>
+                              </div>
+                              <div class="single-tab-menu img-full">
+                                  <a data-toggle="tab" id="single-slide-tab-2" href="#single-slide2"><img src="img/single-product/small/small2.jpg" alt=""></a>
+                              </div>
+                              <div class="single-tab-menu img-full">
+                                  <a data-toggle="tab" id="single-slide-tab-3" href="#single-slide3"><img src="img/single-product/small/small3.jpg" alt=""></a>
+                              </div>
+                              <div class="single-tab-menu img-full">
+                                  <a data-toggle="tab" id="single-slide-tab-4" href="#single-slide4"><img src="img/single-product/small/small4.jpg" alt=""></a>
+                              </div>
+                          </div>
+                      </div>
+                      &lt;!&ndash;Modal Tab Menu End&ndash;&gt;
+                  </div>
+                  &lt;!&ndash;Modal Img&ndash;&gt;
+                  &lt;!&ndash;Modal Content&ndash;&gt;
+                  <div class="col-md-7">
+                      <div class="single-product-content">
+                          <h1 class="single-product-name">Printed Chiffon Dress</h1>
+                          <div class="single-product-reviews">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                          </div>
+                          <div class="single-product-price">
+                              <div class="product-discount">
+                                  <span class="regular-price">$20.50</span>
+                                  <span class="price">$16.40</span>
+                                  <span class="discount">-20%</span>
+                              </div>
+                          </div>
+                          <div class="product-info">
+                              <p>Long printed dress with thin adjustable straps. V-neckline and wiring under the bust with ruffles at the bottom of the dress.</p>
+                          </div>
+                          <div class="single-product-action">
+                              <form action="#">
+                                  <div class="product-variants">
+                                      <div class="product-variants-item">
+                                            <span class="control-label">Size</span>
+                                            <select class="nice-select" name="size">
+                                                <option value="1">S</option>
+                                                <option value="2">M</option>
+                                                <option value="3">X</option>
+                                                <option value="4">XL</option>
+                                            </select>
+                                        </div>
+                                        <div class="product-variants-item">
+                                            <span class="control-label">Color</span>
+                                            <select class="nice-select" name="color">
+                                                <option value="1">Red</option>
+                                                <option value="2">Green</option>
+                                                <option value="3">Blue</option>
+                                                <option value="4">White</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                  <div class="product-add-to-cart">
+                                      <span class="control-label">Quantity</span>
+                                      <div class="cart-plus-minus">
+                                          <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
+                                       </div>
+                                       <div class="add">
+                                           <button class="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i> add-to-cart</button>
+                                           <span class="product-availability"><i class="zmdi zmdi-check"></i> In stock</span>
+                                       </div>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                  &lt;!&ndash;Modal Content&ndash;&gt;
+              </div>
+            </div>
+            <div class="modal-footer">
+              &lt;!&ndash;Single Product Share&ndash;&gt;
+              <div class="single-product-share">
+                  <ul>
+                     <li class="categories-title">Share :</li>
+                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                      <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                  </ul>
+              </div>
+              &lt;!&ndash;Single Product Share&ndash;&gt;
+            </div>
+          </div>
+        </div>
+        </div>-->
+        <!-- Modal Area End -->
+
+	</div>
+
+    <!-- app js  -->
+    <script src="/frontsite/appjs/index.js"></script>
+</body>
+
+</html>

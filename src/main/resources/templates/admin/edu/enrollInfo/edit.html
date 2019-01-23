@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head th:include="admin/include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${enrollInfo.id}"  type="hidden">
+							
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>姓名:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="name" name="name" th:value="${enrollInfo.name}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>性别</span>
+        </div>
+        <div class="gg-formDetail">
+            <div class="radio">
+                <label class="radio-inline">
+                    <input th:field="*{enrollInfo.sex}" type="radio" name="sex" value="1" />男
+                </label>
+                <label class="radio-inline">
+                    <input th:field="*{enrollInfo.sex}" type="radio" name="sex" value="0" />女
+                </label>
+            </div>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>身份证号:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="idCard" name="idCard" th:value="${enrollInfo.idCard}" />
+        </div>
+    </div>
+
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>报名类型:</span>
+        </div>
+        <div class="gg-formDetail">
+            <select data-placeholder="请选择" name="type" id="type"
+                    class="form-control chosen-select" tabindex="2" required>
+                <option value="">请选择</option>
+
+                <option th:each="edutype : ${types}" th:value="${edutype.value}" th:text="${edutype.name}"
+                        th:selected="${enrollInfo.type} == ${edutype.value}"></option>
+
+            </select>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>政治面貌:</span>
+        </div>
+        <div class="gg-formDetail">
+            <select data-placeholder="请选择" name="political" id="political"
+                    class="form-control chosen-select" tabindex="2" required>
+                <option value="">请选择</option>
+                <option th:each="political : ${politicals}" th:value="${political.value}" th:text="${political.name}"
+                        th:selected="${enrollInfo.political eq political.value}"></option>
+
+            </select>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+
+        <div class="gg-formTitle">
+            <em class="gg-star">*</em>
+            <span>户口所在地:</span>
+        </div>
+        <div class="gg-formDetail gg-font0" data-toggle="distpicker" th:attr="data-province=${enrollInfo.province},data-city=${enrollInfo.city}">
+            <div class="gg-area">
+                <select class="form-control" id="province" name="province">
+                </select>
+            </div>
+            <div class="gg-area">
+                <select class="form-control" id="city" name="city">
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>目前所在地:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="address" name="address" th:value="${enrollInfo.address}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>报考学校:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="school" name="school" th:value="${enrollInfo.school}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>报考专业:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="specialty" name="specialty" th:value="${enrollInfo.specialty}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>报考形式:</span>
+        </div>
+        <div class="gg-formDetail">
+            <select data-placeholder="请选择" name="enrollType" id="enrollType"
+                    class="form-control chosen-select" tabindex="2" required>
+                <option value="">请选择</option>
+                <option th:each="enrollType : ${enrollTypes}" th:value="${enrollType.value}" th:text="${enrollType.name}"
+                        th:selected="${enrollInfo.enrollType eq enrollType.value}"></option>
+
+            </select>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>目前学历:</span>
+        </div>
+        <div class="gg-formDetail">
+            <select data-placeholder="请选择" name="qualification" id="qualification"
+                    class="form-control chosen-select" tabindex="2" required>
+                <option value="">请选择</option>
+                <option th:each="qualification : ${qualifications}" th:value="${qualification.value}" th:text="${qualification.name}"
+                        th:selected="${enrollInfo.qualification eq qualification.value}"></option>
+
+            </select>
+
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>毕业院校:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="graduationSchool" name="graduationSchool" th:value="${enrollInfo.graduationSchool}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>毕业专业:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="graduatiSpecialty" name="graduatiSpecialty" th:value="${enrollInfo.graduatiSpecialty}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>职业类别:</span>
+        </div>
+        <div class="gg-formDetail">
+            <select data-placeholder="请选择" name="occupationType" id="occupationType"
+                    class="form-control chosen-select" tabindex="2" required>
+                <option value="">请选择</option>
+                <option th:each="occupationType : ${occupationTypes}" th:value="${occupationType.value}" th:text="${occupationType.name}"
+                        th:selected="${enrollInfo.occupationType eq occupationType.value}"></option>
+
+            </select>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>考生类别:</span>
+        </div>
+        <div class="gg-formDetail">
+            <div class="radio">
+                <label class="radio-inline">
+                    <input th:field="*{enrollInfo.studentType}" type="radio" name="studentType" value="1" />统考生
+                </label>
+                <label class="radio-inline">
+                    <input th:field="*{enrollInfo.studentType}" type="radio" name="studentType" value="0" />免考生
+                </label>
+            </div>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>照顾对象:</span>
+        </div>
+        <div class="gg-formDetail">
+            <select data-placeholder="请选择" name="privilegeType" id="privilegeType"
+                    class="form-control chosen-select" tabindex="2" required>
+                <option value="">请选择</option>
+                <option th:each="privilegeType : ${privilegeTypes}" th:value="${privilegeType.value}" th:text="${privilegeType.name}"
+                        th:selected="${enrollInfo.privilegeType eq privilegeType.value}"></option>
+
+            </select>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>民族:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="nation" name="nation" th:value="${enrollInfo.nation}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>电话:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="phone" name="phone" th:value="${enrollInfo.phone}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>QQ:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="qq" name="qq" th:value="${enrollInfo.qq}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>邮箱:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="email" name="email" th:value="${enrollInfo.email}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>微信:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="wechat" name="wechat" th:value="${enrollInfo.wechat}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>是否快递:</span>
+        </div>
+        <div class="gg-formDetail">
+            <div class="radio">
+                <label class="radio-inline">
+                    <input th:field="*{enrollInfo.ifDelivery}" type="radio" name="ifDelivery" value="1" />已发
+                </label>
+                <label class="radio-inline">
+                    <input th:field="*{enrollInfo.ifDelivery}" type="radio" name="ifDelivery" value="0" />未发
+                </label>
+            </div>
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>快递名称:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="deliveryName" name="deliveryName" th:value="${enrollInfo.deliveryName}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>快递时间:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="laydate-icon layer-date form-control" id="deliveryTime" name="deliveryTime"
+                   th:value="${enrollInfo.deliveryTime}==null?null:${#dates.format(enrollInfo.deliveryTime,'yyyy-MM-dd HH:mm:ss')}" placeholder="快递时间"
+                   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" style="background-color: #fff;" readonly="readonly"/>
+            <!--<input type="text" class="form-control" id="deliveryTime" name="deliveryTime" th:value="${enrollInfo.deliveryTime}" />-->
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>快递单号:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="deliveryNum" name="deliveryNum" th:value="${enrollInfo.deliveryNum}" />
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>是否付款:</span>
+        </div>
+        <div class="gg-formDetail">
+            <!--<span th:case="0" class="label label-danger">未付</span>
+            <span th:case="1" class="label label-primary">已付</span>-->
+
+            <span th:if="${enrollInfo.ifPay} == 0" class="label label-danger">未付</span>
+            <span th:if="${enrollInfo.ifPay} == 1" class="label label-primary">已付</span>
+
+        </div>
+    </div>
+														
+    <div class="gg-formGroup">
+        <div class="gg-formTitle">
+            <span>备注:</span>
+        </div>
+        <div class="gg-formDetail">
+            <input type="text" class="form-control" id="remark" name="remark" th:value="${enrollInfo.remark}" />
+        </div>
+    </div>
+														
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="admin/include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/edu/enrollInfo/edit.js">
+	</script>
+</body>
+</html>

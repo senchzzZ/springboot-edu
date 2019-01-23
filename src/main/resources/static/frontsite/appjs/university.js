@@ -1,0 +1,1 @@
+$('.category-menu-list').hide();

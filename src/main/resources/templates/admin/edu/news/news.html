@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:shiro="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head th:include="admin/include :: header"></head>
+
+<body>
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+					<div class="fixed-table-toolbar layui-form">
+						<div class="columns pull-left">
+							<button shiro:hasPermission="edu:news:add" type="button" class="btn  btn-primary" onclick="add()">
+								<i class="fa fa-plus" aria-hidden="true"></i>添加
+							</button>
+							<button shiro:hasPermission="edu:news:batchRemove" type="button" class="btn  btn-danger"
+								onclick="batchRemove()">
+								<i class="fa fa-trash" aria-hidden="true"></i>删除
+							</button>
+						</div>
+						<div class="columns pull-right" role="group">
+							<button class="btn btn-success" onclick="reLoad()">
+								<i class="fa fa-search" aria-hidden="true"></i>查询
+							</button>
+						</div>
+						<div class="pull-right search col-md-2">
+							<input id="searchName" type="text" class="form-control"
+								   placeholder="新闻标题">
+						</div>
+						<div class="pull-right search col-md-2" data-toggle="distpicker">
+							<select class="form-control chosen-select" id="searchArea" name="searchArea" placeholder="地区" lay-search>
+							</select>
+
+						</div>
+
+						<div class="pull-right search col-md-2 nopadding">
+							<select name="searchType" id="searchType" lay-search>
+								<option value="">类别</option>
+								<option th:each="newsType : ${newsTypes}" th:value="${newsType.name}" th:text="${newsType.name}"></option>
+
+							</select>
+						</div>
+					</div>
+					<table id="exampleTable" data-mobile-responsive="true">
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--shiro控制bootstraptable行内按钮看见性 来自bootdo的创新方案 -->
+		<div>
+			<script type="text/javascript">
+				var s_edit_h = 'hidden';
+				var s_remove_h = 'hidden';
+				var s_resetPwd_h = 'hidden';
+			</script>
+		</div>
+		<div shiro:hasPermission="edu:news:edit">
+			<script type="text/javascript">
+				s_edit_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="edu:news:remove">
+			<script type="text/javascript">
+				var s_remove_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="edu:news:resetPwd">
+			<script type="text/javascript">
+				var s_resetPwd_h = '';
+			</script>
+		</div>
+	</div>
+	<div th:include="admin/include :: footer"></div>
+	<script type="text/javascript" src="/js/appjs/edu/news/news.js"></script>
+</body>
+</html>

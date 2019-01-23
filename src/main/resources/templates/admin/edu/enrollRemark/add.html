@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="admin/include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="enrollId" name="enrollId" th:value="${enrollInfo.id}" type="hidden">
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>姓名:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="name" readonly name="name" th:value="${enrollInfo.name}" />
+                            </div>
+                        </div>
+
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>报名费用:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="enrollFee" name="enrollFee"/>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>第一学年学费:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="firstFee" name="firstFee"/>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>第二学年学费:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="secondFee" name="secondFee"/>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>第三学年学费:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="thirdFee" name="thirdFee"/>
+                            </div>
+                        </div>
+                        <div class="gg-formGroup">
+                            <div class="gg-formTitle">
+                                <span>服务项目:</span>
+                            </div>
+                            <div class="gg-formDetail">
+                                <input type="text" class="form-control" id="serviceItem" name="serviceItem"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:include="admin/include::footer"></div>
+<script type="text/javascript" src="/js/appjs/edu/enrollRemark/add.js">
+</script>
+</body>
+</html>

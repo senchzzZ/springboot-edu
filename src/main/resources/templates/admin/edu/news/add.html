@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="admin/include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">标题:</span>
+                            <div class="col-sm-4">
+                                <input id="title" name="title" class="form-control" type="text">
+                            </div>
+                            <span class="col-sm-1 control-label">关键词:</span>
+                            <div class="col-sm-4">
+                                <input id="keyword" name="keyword" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">描述:</span>
+                            <div class="col-sm-9">
+                                <input id="description" name="description" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">类别:</span>
+                            <div class="col-sm-4">
+                                <select data-placeholder="请选择" name="newsType" id="newsType"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <span class="col-sm-1 control-label">链接地址:</span>
+                            <div class="col-sm-4">
+                                <input id="newsUrl" name="newsUrl" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">地区:</span>
+                            <div class="col-sm-4">
+                                <div class="gg-formDetail gg-font0" data-toggle="distpicker">
+                                    <div class="gg-area">
+                                        <select class="form-control" id="area" name="area">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="col-sm-1 control-label">是否推荐:</span>
+                            <div class="col-sm-4">
+                                <div class="gg-formDetail">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ifProposal" checked value="0" />否
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ifProposal" value="1" />是
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">缩略图:</span>
+                            <div class="col-sm-7">
+                                <div class="layui-upload-drag" id="banner_button">
+                                    <i class="layui-icon"></i>
+                                    <p>点击上传，或将文件拖拽到此处</p>
+                                </div>
+                                <img class="layui-upload-img" style="position: absolute;margin-left: 10px;" id="banner_img">
+
+                                <input id="banner" name="banner" class="form-control" type="hidden">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">相关文件:</span>
+                            <div class="col-sm-7">
+                                <div class="layui-upload-drag" id="file_button">
+                                    <i class="layui-icon"></i>
+                                    <p>点击上传，或将文件拖拽到此处</p>
+                                </div>
+                                <input id="file" name="file" class="form-control" type="hidden">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <span class="col-sm-1 control-label">备注:</span>
+                            <div class="col-sm-9">
+                                <input id="remark" name="remark" class="form-control" type="text">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1 control-label">详细介绍:</span>
+                            <div class="col-sm-11">
+                                <input id="introduction" name="introduction" type="hidden">
+
+                                <div class="ibox-content no-padding">
+                                    <div id="introduction_sn" class="summernote"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="text-right form-group" style="margin-right:0">
+                            <button class="btn btn-primary waves-effect waves-light" id="submit" type="submit">保存</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:include="admin/include::footer"></div>
+<script type="text/javascript" src="/js/appjs/edu/news/add.js">
+</script>
+</body>
+</html>
