@@ -1,6 +1,7 @@
 package com.ultron.admin.edu.service;
 
 import com.ultron.admin.edu.domain.University;
+import com.ultron.common.util.PageQuery;
 
 import java.util.List;
 import java.util.Map;
@@ -31,4 +32,6 @@ public interface UniversityService {
 	int changeProposal(Long id, int ifProposal);
 
 	List<University> getIndexUniversities();
+
+    List<University> getUniversityPageList(PageQuery pageQuery);
 }

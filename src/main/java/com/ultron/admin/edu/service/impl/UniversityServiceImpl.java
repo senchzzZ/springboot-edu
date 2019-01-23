@@ -1,6 +1,7 @@
 package com.ultron.admin.edu.service.impl;
 
 import com.ultron.admin.edu.domain.University;
+import com.ultron.common.util.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,6 +68,11 @@ public class UniversityServiceImpl implements UniversityService {
 	@Override
 	public List<University> getIndexUniversities() {
 		return universityDao.getIndexUniversities();
+	}
+
+	@Override
+	public List<University> getUniversityPageList(PageQuery pageQuery) {
+		return universityDao.getUniversityPageList(pageQuery);
 	}
 
 }

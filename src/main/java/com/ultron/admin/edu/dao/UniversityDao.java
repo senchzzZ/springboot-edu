@@ -5,7 +5,9 @@ import com.ultron.admin.edu.domain.University;
 import java.util.List;
 import java.util.Map;
 
+import com.ultron.common.util.PageQuery;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Results;
 
 /**
  * 学校管理
@@ -31,4 +33,7 @@ public interface UniversityDao {
 	int batchRemove(Long[] ids);
 
 	List<University> getIndexUniversities();
+
+	@Results()
+    List<University> getUniversityPageList(PageQuery pageQuery);
 }

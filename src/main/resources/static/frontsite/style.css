@@ -2303,13 +2303,14 @@ li.right-menu .cat-mega-menu > li {
 .product-img {
 	position: relative;
 	overflow: hidden;
+    border: 1px solid #ededed;
 }
 .product-img > a {
 	display: block;
     text-align: center;
 }
 .product-img > a > img {
-	width: 100%;
+	width: 150px;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
@@ -2414,7 +2415,7 @@ li.right-menu .cat-mega-menu > li {
 	background: #1e56a0;
 }
 .product-content {
-	padding: 20px 0 0 0;
+	/*padding: 20px 0 0 0;*/
 	background: transparent;
 	text-align: center;
 	overflow: hidden;
@@ -3673,14 +3674,14 @@ li.right-menu .cat-mega-menu > li {
 }
 .product-list-action > ul > li > a {
 	height: 35px;
-	width: 32px;
+	width: 60px;
 	display: block;
 	background-color: #008bff;
 	border-bottom: 3px solid #0680e5;
 	margin-bottom: 5px;
 	font-weight: normal;
 	color: #fff;
-	font-size: 18px;
+	/*font-size: 18px;*/
 	border-radius: 3px;
 	text-align: center;
 	line-height: 35px;
@@ -3696,7 +3697,7 @@ li.right-menu .cat-mega-menu > li {
 	line-height: 35px;
 	font-size: 14px;
 	text-transform: capitalize;
-	width: 150px;
+	width: 110px;
 	font-weight: normal;
 }
 .product-list-action > ul > li > a.pro-add-btn > i {
@@ -6096,4 +6097,36 @@ h2.entry-title > a:hover {
     margin: 0 10px;
     vertical-align: middle;
     background-color: #e2e2e2;
+}
+.border-left-1 {
+    border-left: 1px solid #ededed;
+}
+
+.specialty-tag-block {
+    background: #fff;
+    border: 1px solid #ededed;
+    padding: 18px;
+}
+.specialty-tag-block > ul > li {
+    display: inline-block;
+    list-style: none;
+    margin: 5px;
+}
+.specialty-tag-block > ul > li > a {
+    background: #f5f5f5;
+    border-radius: 3px;
+    padding: 11px;
+    font-size: 14px;
+    color: #333;
+    display: inline-block;
+    margin-bottom: 5px;
+    line-height: 16px;
+}
+.specialty-tag-block > ul > li > a:hover{
+    background: #e40046;
+    color: #fff;
+}
+.specialty-tag-block.style-4 > ul > li > a:hover{
+    background: #1e56a0;
+    color: #fff;
 }
