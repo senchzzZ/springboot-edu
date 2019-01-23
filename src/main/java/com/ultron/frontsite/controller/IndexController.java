@@ -21,7 +21,6 @@ import java.util.List;
  * Created by zhaoshengqi on 2018/12/27.
  */
 @Slf4j
-@RequestMapping("/index")
 @Controller
 public class IndexController {
     private static final String prefix = "frontsite/";
@@ -41,7 +40,7 @@ public class IndexController {
      * @param model
      * @return
      */
-    @GetMapping()
+    @GetMapping("/index")
     String index(Model model) {
         try {
             List<University> universityList = universityService.getIndexUniversities();
@@ -56,6 +55,24 @@ public class IndexController {
 
         return prefix + "index";
     }
+
+    /**
+     * 院校列表
+     * @param model
+     * @return
+     */
+    @GetMapping("/university/list")
+    String universityListPage(Model model) {
+        try {
+
+        }catch (Exception e){
+            log.error(ExceptionUtils.getFullStackTrace(e));
+        }
+
+        return prefix + "university-list";
+    }
+
+
 
     @GetMapping("/1")
     String index1() {

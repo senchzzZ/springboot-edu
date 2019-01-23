@@ -3429,7 +3429,7 @@ li.right-menu .cat-mega-menu > li {
     12. Breadcrumb Area CSS
 -------------------------*/
 .breadcrumb-area {
-	padding: 30px 0;
+	padding: 10px 0;
 	background-color: #f3f3f3;
 }
 .breadmome-name {
@@ -3624,7 +3624,7 @@ li.right-menu .cat-mega-menu > li {
 	font-weight: 400;
 	margin-bottom: 0;
 	font-size: 12px;
-	padding: 5px 15px;
+	padding: 10px 15px;
 	color: #232323;
 	text-transform: capitalize;
 }
@@ -6081,4 +6081,16 @@ h2.entry-title > a:hover {
 
 .thumb-category img {
     width: 100px !important;
+}
+
+.search-area {
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    background: #fff;
+}
+
+.search-area ul li {
+    list-style: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
