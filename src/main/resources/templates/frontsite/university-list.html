@@ -37,14 +37,14 @@
 		                    <!--Grid & List View Start-->
 		                    <div class="shop-topbar-wrapper mb-30 d-md-flex justify-content-md-between align-items-center">
 		                        <div class="grid-list-option">
-		                             <ul class="nav">
+		                             <!--<ul class="nav">
                                       <li>
-                                        <a class="active" data-toggle="tab" href="#grid"><i class="ion-grid show_grid"></i></a>
+                                        <a data-toggle="tab" href="#grid"><i class="ion-grid show_grid"></i></a>
                                       </li>
                                       <li>
-                                        <a data-toggle="tab" href="#list"><i class="ion-android-menu show_list"></i></a>
+                                        <a class="active" data-toggle="tab" href="#list"><i class="ion-android-menu show_list"></i></a>
                                       </li>
-                                    </ul>
+                                    </ul>-->
                                     <p class="show-product">共20所院校</p>
 		                         </div>
                                 <div class="search__sidbar">
@@ -58,15 +58,11 @@
 		                         <!--Toolbar Short Area Start-->
 		                         <div class="toolbar-short-area d-md-flex align-items-center">
                                      <div class="toolbar-shorter">
-                                        <label>排序:</label>
-                                         <select class="wide nice-select">
-                                             <option data-display="Select">Nothing</option>
-                                             <option value="Relevance">Relevance</option>
-                                             <option value="Name, A to Z">Name, A to Z</option>
-                                             <option value="Name, Z to A">Name, Z to A</option>
-                                             <option value="Price, low to high">Price, low to high</option>
-                                             <option value="Price, high to low">Price, high to low</option>
-                                         </select>
+                                         <span class="fly-filter-right">
+                                            <a href="" class="layui-this">最新</a>
+                                            <span class="fly-mid"></span>
+                                            <a href="">最热</a>
+                                          </span>
                                      </div>
                                  </div>
 		                         <!--Toolbar Short Area End-->
@@ -986,14 +982,14 @@
 		                            <!--Pagination Start-->
                                     <div class="pagination-product d-md-flex justify-content-md-between align-items-center">
                                       <div class="showing-product">
-                                          <p> Showing 1-12 of 13 item(s) </p>
+                                          <p> 共 5 页,当前第 1 页 </p>
                                       </div>
-                                      <div class="page-list">
+                                      <div class="page-list" id="pageDemo">
                                           <ul>
-                                              <li class="prev"><a href="#"><i class="ion-ios-arrow-left"></i>Previous</a></li>
+                                              <li class="prev"><a href="#"><i class="ion-ios-arrow-left"></i>上一页</a></li>
                                               <li class="active"><a href="#">1</a></li>
                                               <li><a href="#">2</a></li>
-                                              <li class="next"><a href="#">Next<i class="ion-ios-arrow-right"></i></a></li>
+                                              <li class="next"><a href="#">下一页<i class="ion-ios-arrow-right"></i></a></li>
                                           </ul>
                                       </div>
                                     </div>

@@ -6083,14 +6083,17 @@ h2.entry-title > a:hover {
     width: 100px !important;
 }
 
-.search-area {
-    overflow: hidden;
-    float: left;
-    width: 100%;
-    background: #fff;
-}
 
-.search-area ul li {
-    list-style: none;
-    border-bottom: 1px solid rgba(0,0,0,.1);
+.fly-filter-right {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.fly-mid {
+    display: inline-block;
+    height: 10px;
+    width: 1px;
+    margin: 0 10px;
+    vertical-align: middle;
+    background-color: #e2e2e2;
 }
