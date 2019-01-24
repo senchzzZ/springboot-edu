@@ -239,7 +239,24 @@
 		    *
 		from edu_specialty
 		where university_id = #{universityId}
+		limit 5
 	</select>
 
+	<select id="getUniversityPageCount" resultType="int">
+		select
+		count(*)
+		from edu_university
+		where status = 1
+		<if test="area != null and area != ''">
+			and area = #{area}
+		</if>
+		<if test="name != null and name != ''">
+			and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="keyword != null and keyword != ''">
+			and keyword like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%')
+		</if>
+
+	</select>
 
 </mapper>

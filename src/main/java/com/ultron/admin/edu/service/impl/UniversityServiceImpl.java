@@ -75,4 +75,9 @@ public class UniversityServiceImpl implements UniversityService {
 		return universityDao.getUniversityPageList(pageQuery);
 	}
 
+	@Override
+	public Integer getUniversityPageCount(PageQuery pageQuery) {
+		return universityDao.getUniversityPageCount(pageQuery);
+	}
+
 }

@@ -7,7 +7,18 @@ $(function() {
     load(1);
 });
 
-function load(page,area,order,keyword){
+function orderLoad(orderMark) {
+    var sort;
+    if (orderMark == 0){//最新
+        sort = 'create_time';
+    } else {
+        sort = 'if_proposal';
+        $('.latest').removeClass("active");
+    }
+    load(1,null,sort,null,);
+}
+
+function load(page,area,sort,keyword){
     var limit = 20;
     $.ajax({
         url : prefix + "/pageList",
@@ -17,7 +28,7 @@ function load(page,area,order,keyword){
             "page" : page,
             "limit" : limit,
             "area" : area,
-            "order" : order,
+            "sort" : sort,
             "keyword" : keyword
         },
         dataType : "json",
@@ -28,6 +39,14 @@ function load(page,area,order,keyword){
                 var e = '';
                 for (var i = 0;i < universities.length;i++){
                     var data = universities[i];
+                    var s = '';
+                    var specialties = data.specialties;
+                    if (specialties && specialties.length > 0){
+                        for (var j = 0;j < specialties.length;j++){
+                            s += '<li><a href="/specialty/get/' + specialties[j].id + '">' + specialties[j].name + '</a></li>\n';
+                        }
+                    }
+
                     e += '<div class="product-list-item mb-40">\n' +
                         '    <div class="row">\n' +
                         '        <!--Single List Product Start-->\n' +
@@ -70,7 +89,8 @@ function load(page,area,order,keyword){
                         '                <h4>推荐专业</h4>\n' +
                         '                <div class="specialty-tag-block blog-tag">\n' +
                         '                    <ul>\n' +
-                        '                        <li><a href="#">brand</a></li>\n' +
+                        s +
+                        /*'                        <li><a href="#">brand</a></li>\n' +
                         '                        <li><a href="#">black</a></li>\n' +
                         '                        <li><a href="#">white</a></li>\n' +
                         '                        <li><a href="#">chire</a></li>\n' +
@@ -79,7 +99,7 @@ function load(page,area,order,keyword){
                         '                        <li><a href="#">ipsum</a></li>\n' +
                         '                        <li><a href="#">dolor</a></li>\n' +
                         '                        <li><a href="#">sit</a></li>\n' +
-                        '                        <li><a href="#">amet</a></li>\n' +
+                        '                        <li><a href="#">amet</a></li>\n' +*/
                         '                    </ul>\n' +
                         '                </div>\n' +
                         '            </div>' +
@@ -94,35 +114,48 @@ function load(page,area,order,keyword){
             }
         },
         error : function() {
-            layer.msg("请求失败");
+            //layer.msg("请求失败");
             //todo 无数据样式
         }
     });
 }
 //分页
 layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function() {
-    var laydate = layui.laydate //日期
-        , laypage = layui.laypage //分页
+    var laypage = layui.laypage //分页
         , layer = layui.layer //弹层
-        , table = layui.table //表格
-        , carousel = layui.carousel //轮播
-        , upload = layui.upload //上传
-        , element = layui.element //元素操作
-        , slider = layui.slider //滑块
 
+    var count = 0;
     //向世界问个好
-    layer.msg('Hello World');
-
+    //layer.msg('Hello World');
+    var area;
+    var keyword;
+    $.ajax({
+        url: prefix + "/pageCount",
+        type: "post",
+        async: false,
+        data : {
+            "area" : area,
+            "keyword" : keyword
+        },
+        success: function (r) {
+            if (r.code == 200) {
+                count = r.data;
+            }
+        }
+    });
     //分页
     laypage.render({
         elem: 'pageDemo' //分页容器的id
-        ,count: 100 //总页数
-        ,layout: ['count', 'prev', 'page', 'next', 'refresh']
+        ,count: count //总页数
+        ,layout: ['count', 'prev', 'page', 'next']
         ,limit: 20
         ,theme: '#ff6d00' //自定义选中色值
         //,skip: true //开启跳页
         ,jump: function(obj, first){
             if(!first){
+                var keyword = '';
+                var area = '';
+                load(obj.curr);
                 layer.msg('第'+ obj.curr +'页', {offset: 'b'});
             }
         }

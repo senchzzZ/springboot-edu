@@ -6088,7 +6088,6 @@ h2.entry-title > a:hover {
 .fly-filter-right {
     position: absolute;
     right: 20px;
-    top: 20px;
 }
 .fly-mid {
     display: inline-block;
@@ -6129,4 +6128,62 @@ h2.entry-title > a:hover {
 .specialty-tag-block.style-4 > ul > li > a:hover{
     background: #1e56a0;
     color: #fff;
+}
+
+.fly-filter-right .active {
+    color: #ff6a00;
+}
+
+/*area condition*/
+.area-condition .card {
+    border-radius: 0;
+    margin-bottom: 10px;
+}
+.area-condition .card-header {
+    padding: 0;
+    margin-bottom: 0;
+    background-color: #ffffff;
+    border: 0;
+}
+.area-condition .card-header a.collapsed:before,
+.area-condition .card-header a:after {
+    content: "\f0dd";
+    font-family: fontawesome;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+.area-condition .card-header a:after{
+    content: "\f0de ";
+}
+.area-condition .card-header a {
+    display: inline-block;
+    cursor: pointer;
+}
+.area-condition .card-header a:hover {
+    color: #ff6a00!important;
+}
+.area-condition span {
+    display: inline-block;
+    padding: 15px 15px 15px 20px;
+    cursor: pointer;
+}
+.area-condition .condition-title {
+    font-size: 15px;
+    font-weight: 400;
+    padding-right: 80px;
+}
+.area-condition .chosen-title {
+    color: #ff6a00;
+}
+.condition-body {
+    padding: inherit;
+}
+.chosen-tag {
+    background: #dcdad7;
+    border-radius: 3px;
+    padding: 11px;
+    font-size: 14px;
+    color: #333;
+    line-height: 16px;
 }

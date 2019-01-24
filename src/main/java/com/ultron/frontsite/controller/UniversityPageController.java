@@ -44,4 +44,23 @@ public class UniversityPageController {
         }
         return null;
     }
+
+    /**
+     * 院校总数
+     * @param params
+     * @return
+     */
+    @PostMapping("/pageCount")
+    @ResponseBody
+    Response<Integer> pageCount(@RequestParam Map<String, Object> params) {
+        try {
+            System.out.println(params);
+            PageQuery pageQuery = new PageQuery(params);
+            //List<University> universityList = universityService.getUniversityPageList(pageQuery);
+            return Response.success(universityService.getUniversityPageCount(pageQuery));
+        }catch (Exception e){
+            log.error(ExceptionUtils.getFullStackTrace(e));
+        }
+        return null;
+    }
 }

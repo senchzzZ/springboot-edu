@@ -34,4 +34,6 @@ public interface UniversityService {
 	List<University> getIndexUniversities();
 
     List<University> getUniversityPageList(PageQuery pageQuery);
+
+	Integer getUniversityPageCount(PageQuery pageQuery);
 }

@@ -22,7 +22,7 @@ public class PageQuery extends LinkedHashMap {
                 Integer.parseInt(params.get("page").toString());
         this.limit = params.get("limit") == null ? 20 :
                 Integer.parseInt(params.get("limit").toString());
-        this.offset = (page - 1) * limit + 1;
+        this.offset = (page - 1) * limit;
         this.put("offset", offset);
         this.put("page", page);
         this.put("limit", limit);

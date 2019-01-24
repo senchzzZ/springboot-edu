@@ -34,6 +34,7 @@ public interface UniversityDao {
 
 	List<University> getIndexUniversities();
 
-	@Results()
     List<University> getUniversityPageList(PageQuery pageQuery);
+
+	Integer getUniversityPageCount(PageQuery pageQuery);
 }
