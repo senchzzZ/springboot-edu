@@ -80,4 +80,9 @@ public class UniversityServiceImpl implements UniversityService {
 		return universityDao.getUniversityPageCount(pageQuery);
 	}
 
+	@Override
+	public List<String> getUniversityAreas() {
+		return universityDao.getUniversityAreas();
+	}
+
 }

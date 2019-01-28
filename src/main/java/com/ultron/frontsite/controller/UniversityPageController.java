@@ -37,7 +37,6 @@ public class UniversityPageController {
         try {
             System.out.println(params);
             PageQuery pageQuery = new PageQuery(params);
-            //List<University> universityList = universityService.getUniversityPageList(pageQuery);
             return Response.success(universityService.getUniversityPageList(pageQuery));
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));

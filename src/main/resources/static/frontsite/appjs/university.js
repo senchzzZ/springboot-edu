@@ -5,20 +5,44 @@ $('.category-menu-list').hide();
 
 $(function() {
     load(1);
+    //loadPage(page,area,sort,keyword);分页
 });
 
+function load(page,area,keyword,sort) {
+    loadData(page,area,keyword,sort);
+    loadPage();
+}
+//排序
 function orderLoad(orderMark) {
     var sort;
     if (orderMark == 0){//最新
         sort = 'create_time';
+        $('.hotest').removeClass("active");
+        $('.latest').addClass("active");
     } else {
         sort = 'if_proposal';
         $('.latest').removeClass("active");
+        $('.hotest').addClass("active");
     }
-    load(1,null,sort,null,);
+    var area = $('#area').val();
+    var keyword = $('#keyword').val();
+    load(1,area,keyword,sort);
 }
 
-function load(page,area,sort,keyword){
+//地区选择
+function loadByArea(obj,area){
+    $(".chosen-tag").removeClass("chosen-tag");
+    $(obj).addClass("chosen-tag");
+
+    load(1,area);
+}
+
+
+//加载数据
+function loadData(page,area,keyword,sort){
+    $('#area').val(area);
+    $('#keyword').val(keyword);
+    $('#sort').val(sort);
     var limit = 20;
     $.ajax({
         url : prefix + "/pageList",
@@ -118,46 +142,53 @@ function load(page,area,sort,keyword){
             //todo 无数据样式
         }
     });
-}
-//分页
-layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function() {
-    var laypage = layui.laypage //分页
-        , layer = layui.layer //弹层
 
-    var count = 0;
-    //向世界问个好
-    //layer.msg('Hello World');
-    var area;
-    var keyword;
-    $.ajax({
-        url: prefix + "/pageCount",
-        type: "post",
-        async: false,
-        data : {
-            "area" : area,
-            "keyword" : keyword
-        },
-        success: function (r) {
-            if (r.code == 200) {
-                count = r.data;
+}
+
+
+//分页
+function loadPage(){
+    layui.use(['laypage', 'layer'], function() {
+        var laypage = layui.laypage //分页
+            , layer = layui.layer //弹层
+
+        var count = 0;
+        //向世界问个好
+        //layer.msg('Hello World');
+        var area = $('#area').val();
+        var keyword = $('#keyword').val();
+        $.ajax({
+            url: prefix + "/pageCount",
+            type: "post",
+            async: false,
+            data : {
+                "area" : area,
+                "keyword" : keyword
+            },
+            success: function (r) {
+                if (r.code == 200) {
+                    count = r.data;
+                }
             }
-        }
-    });
-    //分页
-    laypage.render({
-        elem: 'pageDemo' //分页容器的id
-        ,count: count //总页数
-        ,layout: ['count', 'prev', 'page', 'next']
-        ,limit: 20
-        ,theme: '#ff6d00' //自定义选中色值
-        //,skip: true //开启跳页
-        ,jump: function(obj, first){
-            if(!first){
-                var keyword = '';
-                var area = '';
-                load(obj.curr);
-                layer.msg('第'+ obj.curr +'页', {offset: 'b'});
+        });
+        //分页
+        laypage.render({
+            elem: 'pageDemo' //分页容器的id
+            ,count: count //总页数
+            ,layout: ['count', 'prev', 'page', 'next']
+            ,limit: 20
+            ,theme: '#ff6d00' //自定义选中色值
+            //,skip: true //开启跳页
+            ,jump: function(obj, first){
+                if(!first){
+                    var area = $('#area').val();
+                    var keyword = $('#keyword').val();
+                    var sort = $('#sort').val();
+                    loadData(obj.curr,area,keyword,sort);
+                    layer.msg('第'+ obj.curr +'页', {offset: 'b'});
+                }
             }
-        }
+        });
     });
-});
+
+}

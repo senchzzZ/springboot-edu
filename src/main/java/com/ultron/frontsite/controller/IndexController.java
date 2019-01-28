@@ -64,6 +64,21 @@ public class IndexController {
     @GetMapping("/university/list")
     String universityListPage(Model model) {
         try {
+            //加载地区
+            List<String> areaList = universityService.getUniversityAreas();
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            model.addAttribute("areaList",areaList);
 
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));

@@ -6145,19 +6145,25 @@ h2.entry-title > a:hover {
     background-color: #ffffff;
     border: 0;
 }
-.area-condition .card-header a.collapsed:before,
-.area-condition .card-header a:after {
+.area-condition .card-header a.collapsed:before {
     content: "\f0dd";
     font-family: fontawesome;
     position: absolute;
     right: 15px;
     bottom: 15px;
 }
-.area-condition .card-header a:after{
-    content: "\f0de ";
+.area-condition .condition-body a.no-collapsed:after {
+    content: "\f0de";
+    font-family: fontawesome;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
 }
+/*.area-condition .card-header a:after{
+    content: "\f0de ";
+}*/
 .area-condition .card-header a {
-    display: inline-block;
+    /*display: inline-block;*/
     cursor: pointer;
 }
 .area-condition .card-header a:hover {
@@ -6165,11 +6171,11 @@ h2.entry-title > a:hover {
 }
 .area-condition span {
     display: inline-block;
-    padding: 15px 15px 15px 20px;
+    padding: 25px 15px 25px 20px;
     cursor: pointer;
 }
 .area-condition .condition-title {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 400;
     padding-right: 80px;
 }
@@ -6186,4 +6192,39 @@ h2.entry-title > a:hover {
     font-size: 14px;
     color: #333;
     line-height: 16px;
+}
+
+.search__topbar .input_form {
+    position: relative;
+}
+.search__topbar input.input_text[type="text"] {
+    background: none;
+    border: 1px solid #ededed;
+    height: 44px;
+    padding: 0 40px 0 15px;
+    width: 100%;
+    color: #333;
+}
+.search__topbar .button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    height: 44px;
+    line-height: 34px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    cursor: pointer;
+    top: 0;
+    width: 34px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.search__topbar .button:hover{
+    background-color: #333;
+    color: #ff6a00;
 }

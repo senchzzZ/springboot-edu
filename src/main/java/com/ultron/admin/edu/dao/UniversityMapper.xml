@@ -259,4 +259,8 @@
 
 	</select>
 
+	<select id="getUniversityAreas" resultType="string">
+		SELECT DISTINCT(area) FROM edu_university
+	</select>
+
 </mapper>
