@@ -6,6 +6,7 @@ import com.ultron.common.response.Response;
 import com.ultron.common.util.PageQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ import java.util.Map;
  */
 @Slf4j
 @Controller
-@RequestMapping("/university")
+@RequestMapping("/page/university")
 public class UniversityPageController {
     private static final String prefix = "frontsite/";
 
@@ -61,5 +62,22 @@ public class UniversityPageController {
             log.error(ExceptionUtils.getFullStackTrace(e));
         }
         return null;
+    }
+
+    /**
+     * 院校详情页
+     * @param id
+     * @param model
+     * @return
+     */
+    @GetMapping("/get/{id}")
+    String get(@PathVariable("id") Long id,Model model){
+
+        University university = universityService.get(id);
+        //推荐院校
+        List<University> universityList = universityService.getIndexUniversities();
+        model.addAttribute("universityList",universityList);
+        model.addAttribute("university", university);
+        return prefix + "single-university";
     }
 }

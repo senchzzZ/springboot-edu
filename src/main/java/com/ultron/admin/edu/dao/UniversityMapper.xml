@@ -214,11 +214,12 @@
 		<if test="area != null and area != ''">
 			and area = #{area}
 		</if>
-		<if test="name != null and name != ''">
-			and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
-		</if>
+
 		<if test="keyword != null and keyword != ''">
-			and keyword like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%')
+			and (
+				name like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%') or
+				keyword like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%')
+			)
 		</if>
 
 		<choose>
@@ -250,11 +251,11 @@
 		<if test="area != null and area != ''">
 			and area = #{area}
 		</if>
-		<if test="name != null and name != ''">
-			and name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
-		</if>
 		<if test="keyword != null and keyword != ''">
-			and keyword like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%')
+			and (
+			name like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%') or
+			keyword like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%')
+			)
 		</if>
 
 	</select>

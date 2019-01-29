@@ -1,4 +1,4 @@
-var prefix = "/university";
+var prefix = "/page/university";
 
 
 $('.category-menu-list').hide();
@@ -36,7 +36,12 @@ function loadByArea(obj,area){
 
     load(1,area);
 }
-
+//名称搜索
+function loadByName() {
+    var area = $('#area').val();
+    var keyword = $('#keyword').val();
+    load(1,area,keyword);
+}
 
 //加载数据
 function loadData(page,area,keyword,sort){
@@ -87,7 +92,7 @@ function loadData(page,area,keyword,sort){
                         '        </div>\n' +
                         '        <div class="row col-md-8">\n' +
                         '            <div class="product-content shop-list col-md-6">\n' +
-                        '                <h4><a href="single-product.html">' + data.name + '</a></h4>\n' +
+                        '                <h4><a href="/page/university/get/' + data.id + '">' + data.name + '</a></h4>\n' +
                         '                    <div class="product-price">\n' +
                         '                        <span class="blog-post-date">' + data.keyword + '</span>\n' +
                         '                    </div>\n' +
@@ -103,8 +108,8 @@ function loadData(page,area,keyword,sort){
                         '                    </div>\n' +
                         '                    <div class="product-list-action">\n' +
                         '                        <ul>\n' +
-                        '                            <li><a class="pro-add-btn" href="#"><i class="ion-heart"></i>立即报名</a></li>\n' +
-                        '                            <li><a class="pro-add-btn" href="#open-modal"><i class="ion-chatbubble-working"></i>咨询</a></li>\n' +
+                        '                            <li><a class="pro-add-btn" href="/page/university/get/' + data.id + '"><i class="ion-eye"></i>院校详情</a></li>\n' +
+                        '                            <li><a class="pro-add-btn" href="/page/university/get/' + data.id + '"><i class="ion-clipboard"></i>招生简章</a></li>\n' +
                         '                            <!--<li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>-->\n' +
                         '                        </ul>\n' +
                         '                    </div>\n' +
@@ -171,6 +176,7 @@ function loadPage(){
                 }
             }
         });
+        $(".show-product").html("共" + count + "所院校");
         //分页
         laypage.render({
             elem: 'pageDemo' //分页容器的id
