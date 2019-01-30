@@ -73,7 +73,7 @@ public class UniversityPageController {
     @GetMapping("/get/{id}")
     String get(@PathVariable("id") Long id,Model model){
 
-        University university = universityService.get(id);
+        University university = universityService.getUniversityAndSpecialtyById(id);
         //推荐院校
         List<University> universityList = universityService.getIndexUniversities();
         model.addAttribute("universityList",universityList);

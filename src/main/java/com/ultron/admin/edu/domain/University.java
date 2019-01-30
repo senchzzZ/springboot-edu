@@ -40,7 +40,7 @@ public class University implements Serializable {
 	private String email;
 	//微信
 	private String wechat;
-	//备注
+	//报读人数,单位万
 	private String remark;
 	//状态
 	private Integer status;

@@ -240,7 +240,7 @@
 		    *
 		from edu_specialty
 		where university_id = #{universityId}
-		limit 5
+		order by id desc
 	</select>
 
 	<select id="getUniversityPageCount" resultType="int">
@@ -262,6 +262,15 @@
 
 	<select id="getUniversityAreas" resultType="string">
 		SELECT DISTINCT(area) FROM edu_university
+	</select>
+
+	<select id="getUniversityAndSpecialtyById" resultMap="universityMaps">
+		select
+		<include refid="Base_Column_List" />
+
+		from edu_university
+		where status = 1 and id = #{value}
+
 	</select>
 
 </mapper>

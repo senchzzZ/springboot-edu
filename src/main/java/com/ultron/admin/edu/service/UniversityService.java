@@ -38,4 +38,6 @@ public interface UniversityService {
 	Integer getUniversityPageCount(PageQuery pageQuery);
 
     List<String> getUniversityAreas();
+
+    University getUniversityAndSpecialtyById(Long id);
 }

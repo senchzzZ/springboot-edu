@@ -85,4 +85,9 @@ public class UniversityServiceImpl implements UniversityService {
 		return universityDao.getUniversityAreas();
 	}
 
+	@Override
+	public University getUniversityAndSpecialtyById(Long id) {
+		return universityDao.getUniversityAndSpecialtyById(id);
+	}
+
 }

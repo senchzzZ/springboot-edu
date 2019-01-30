@@ -70,14 +70,14 @@ function load() {
 									field : 'qq',
 									title : 'QQ'
 								},*/
-																{
+																/*{
 									field : 'email',
 									title : '邮箱'
 								},
 																{
 									field : 'wechat',
 									title : '微信'
-								},
+								},*/
 																{
 									field : 'type',
 									title : '学校类型' ,
@@ -119,7 +119,7 @@ function load() {
 								},
 																{
 									field : 'remark',
-									title : '备注'
+									title : '报读人数(单位:万)'
 								},
 																{
 									title : '操作',
