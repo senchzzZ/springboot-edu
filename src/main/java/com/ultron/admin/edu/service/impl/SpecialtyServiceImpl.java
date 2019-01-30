@@ -130,6 +130,12 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 				throw new Exception("导入失败(第" + (r + 1) + "行,学年未填写)");
 			}
 
+			//推荐权重
+			/*Double proposalWeight = row.getCell(3).getNumericCellValue();
+			if (proposalWeight == null) {
+				throw new Exception("导入失败(第" + (r + 1) + "行,推荐权重未填写)");
+			}*/
+
 			//专业形式
 			String type = row.getCell(3).getStringCellValue();
 			if (StringUtils.isBlank(type)) {

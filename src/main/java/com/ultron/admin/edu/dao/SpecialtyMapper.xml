@@ -84,8 +84,10 @@
 			`name`, 
 			`qualification`, 
 			`academic_year`, 
-			`type`, 
+			`type`,
+		<if test="proposalWeight != null">
 			`proposal_weight`,
+		</if>
 			`introduction`,
 			`remark`, 
 			`create_time`,
@@ -97,8 +99,10 @@
 			#{name}, 
 			#{qualification}, 
 			#{academicYear}, 
-			#{type}, 
+			#{type},
+		<if test="proposalWeight != null">
 			#{proposalWeight},
+		</if>
 			#{introduction},
 			#{remark}, 
 			#{createTime},

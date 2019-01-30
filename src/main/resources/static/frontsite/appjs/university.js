@@ -71,7 +71,7 @@ function loadData(page,area,keyword,sort){
                     var s = '';
                     var specialties = data.specialties;
                     if (specialties && specialties.length > 0){
-                        for (var j = 0;j < specialties.length;j++){
+                        for (var j = 0;j < specialties.length && j < 5;j++){
                             s += '<li><a href="/specialty/get/' + specialties[j].id + '">' + specialties[j].name + '</a></li>\n';
                         }
                     }
@@ -82,11 +82,11 @@ function loadData(page,area,keyword,sort){
                         '        <div class="col-md-4">\n' +
                         '            <div class="single-product">\n' +
                         '                <div class="product-img">\n' +
-                        '                    <a href="single-product.html">\n' +
+                        '                    <a href="/page/university/get/' + data.id + '">\n' +
                         '                            <img class="first-img" src="'+ data.logo +'" alt="">\n' +
                         //'                            <img class="hover-img" src="img/product/product7.jpg" alt="">\n' +
                         '                        </a>\n' +
-                        '                        <span class="sticker">New</span>\n' +
+                        '                        <span class="sticker">Hot</span>\n' +
                         '                </div>\n' +
                         '            </div>\n' +
                         '        </div>\n' +

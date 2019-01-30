@@ -137,20 +137,4 @@ public class UniversityController extends BaseController {
 		return "admin/edu/specialty/add";
 	}
 
-
-	/**
-	 * 获取首页数据(前10条)
-	 * @return
-	 */
-	@PostMapping(value = "/getIndexUniversities")
-	@ResponseBody
-	public Response<List<University>> getIndexUniversities() {
-		try {
-			return Response.success(universityService.getIndexUniversities());
-		} catch (Exception e) {
-			log.warn(ExceptionUtils.getFullStackTrace(e));
-			return Response.error(e.getMessage());
-		}
-	}
-	
 }

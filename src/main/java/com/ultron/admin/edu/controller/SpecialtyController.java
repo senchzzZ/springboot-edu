@@ -148,7 +148,12 @@ public class SpecialtyController {
 		return R.ok();
 	}
 
-
+	/**
+	 * 批量导入
+	 * @param file
+	 * @param universityId
+	 * @return
+	 */
 	@ResponseBody
 	@PostMapping("/batchImport")
 	public R batchImport( @RequestParam ("file") MultipartFile file, Long universityId) {
