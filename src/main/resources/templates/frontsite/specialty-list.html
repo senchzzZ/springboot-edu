@@ -11,18 +11,16 @@
 	<div class="wrapper">
 		<!--Header Area Start-->
         <div th:include="frontsite/include::header"></div>
-		<!--Header Area End-->
+        <!--Header Area End-->
 		<!--Breadcrumb Area Start-->
 		<div class="breadcrumb-area">
 		    <div class="container">
 		        <div class="row">
 		            <div class="col-12">
 		                <div class="breadcrumb-content text-center">
-                            <h1 class="breadmome-name">院校详情</h1>
 		                    <ul>
 		                        <li><a href="/index">首页</a></li>
-		                        <li><a href="/page/university/list">院校列表</a></li>
-		                        <li class="active">院校详情</li>
+		                        <li class="active">选择院校</li>
 		                    </ul>
 		                </div>
 		            </div>
@@ -30,178 +28,130 @@
 		    </div>
 		</div>
 		<!--Breadcrumb Area End-->
-		<!--Single Product Start-->
-		<div class="single-product-area mt-30">
-		    <div class="container mt-30">
-		        <div class="row">
-                    <div class="col-md-5">
-                        <!--Tab Content Start-->
-                        <div class="tab-content product-details-large" id="myTabContent-3">
-                          <div class="tab-pane fade show active" id="single-slide-one">
-                              <!--Single Product Image Start-->
-                              <div class="single-university-img img-40">
-                                <img th:src="${university.logo}" alt="">
-                                  <!--<img src="/frontsite/img/product/university-exam.jpg" alt="">-->
-                              </div>
-                              <!--Single Product Image End-->
-                          </div>
-                        </div>
-                        <!--Tab Content End-->
-                        <!--Tab Menu Start-->
-
-                        <!--Tab Menu End-->
-                    </div>
-                    <div class="col-md-7">
-                        <div class="single-product-content">
-                            <h1 class="single-product-name" th:text="${university.name}"></h1>
-                            <div class="single-product-reviews">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="single-product-data">
-                                <div class="sort">开设专业<br>
-                                    <span th:text="${university.specialties.size()}">23</span>个
-                                </div>
-                                <div class="sort">累计报读<br>
-                                    <span th:text="${university.remark}">4.6</span>万人
-                                </div>
-                                    <!--<span class="blog-post-date" th:text="${university.keyword}"></span>-->
-                            </div>
-                            <div class="product-info">
-                                <p th:text="${university.description}"> </p>
-                            </div>
-                            <div class="single-product-action">
-                                <div class="product-add-to-cart">
-
-                                     <div class="add">
-                                         <button class="add-to-cart"><i class="ion-heart"></i> 立即报名</button>
-                                     </div>
-                                </div>
-                            </div>
-                            <!--Block Reassurance-->
-
-                            <!--Block Reassurance-->
-                        </div>
-		            </div>
-		        </div>
-		    </div>
-        </div>
-		<!--Single Product End-->
-		<!--Single Product Review Tab Start-->
-		<div class="single-product-review-tab mt-10">
+		<!--Shop Area Start-->
+		<div class="shop-area mt-30">
 		    <div class="container">
-               <div class="row">
-                 <div class="col-md-12">
-                       <div class="single-product-review-and-description-area">
-                           <!--Review And Description Tab Menu Start-->
-                           <ul class="nav dec-and-review-menu">
-                              <li>
-                                <a class="active" data-toggle="tab" href="#description">招生简章</a>
-                              </li>
-                              <li>
-                                <a data-toggle="tab" href="#product-details">院校介绍</a>
-                              </li>
-                              <li>
-                                <a data-toggle="tab" href="#reviews">开设专业</a>
-                              </li>
-                            </ul>
-                            <!--Review And Description Tab Menu End-->
-                            <!--Review And Description Tab Content Start-->
-                            <div class="tab-content product-review-content-tab mt-30" id="myTabContent-4">
-                              <div class="tab-pane fade show active" id="description">
-                                  <div th:utext="${university.condition}" class="single-product-description">
 
-                                  </div>
-                              </div>
-                              <div class="tab-pane fade" id="product-details">
-                                  <div th:utext="${university.introduction}" class="product-details">
+                <div class="row mb-10">
+                    <div class="col-lg-12">
+                        <!--<div class="col-md-4">
 
-                                  </div>
-                              </div>
-                              <div class="tab-pane fade" id="reviews">
-                                  <div class="product-details">
-                                      <div class="product-quantities">
-                                          <label class="label">专业总数:</label> <span class="item">30</span>
-                                      </div>
-                                      <div class="product-features">
-                                          <div class="table-responsive">
-                                              <table class="table">
-                                                  <tr>
-                                                      <th>专业名称</th>
-                                                      <th>学制</th>
-                                                      <th>层次</th>
-                                                      <th>专业类型</th>
-                                                      <th>专业介绍</th>
-                                                      <th>报名</th>
-                                                  </tr>
-                                                  <tr th:each="specialty,specialtyStat : ${university.specialties}" th:if="${specialtyStat.count} <= 5">
-                                                      <td th:text="${specialty.name}"></td>
-                                                      <td th:text="${specialty.academicYear}"></td>
-                                                      <td th:text="${specialty.qualification}"></td>
-                                                      <td th:text="${specialty.type}"></td>
-                                                      <td th:text="${specialty.introduction}"></td>
-                                                      <td><a href="#">立即报名</a></td>
-                                                  </tr>
+                        </div>
+                        <div class="col-md-8">
 
-                                              </table>
-                                          </div>
-                                      </div>
-                                      <div class="more_btn"><a href="/page/specialty/list" target="_blank">查看全部专业</a></div>
-                                  </div>
-                              </div>
-                            </div>
-                            <!--Review And Description Tab Content End-->
-                       </div>
-                   </div>
-               </div>
-            </div>
-		</div>
-		<!--Single Product Review Tab End-->
-		<!--Product Area Start-->
-		<!--<div class="product-area mt-55">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-12">
-		                &lt;!&ndash;Section Title Start&ndash;&gt;
-		                <div class="section-title">
-		                    <h2>院校推荐</h2>
-		                </div>
-		                &lt;!&ndash;Section Title End&ndash;&gt;
-		            </div>
-		        </div>
-		        <div class="product-block-content">
+                        </div>-->
+                        <div id="accordion" class="area-condition">
 
-                    <div class="row">
-                        <div class="bestsellerSlide-3 pdr-0 owl-carousel">
+                            <input type="hidden" id="area" name="area"/>
+                            <input type="hidden" id="sort" name="sort"/>
 
-                            <div th:each="universityRec : ${universityList}" class="col-md-12">
-                                <div class="single-product">
-                                    <div class="product-university-img">
-                                        <a th:href="'/page/university/get/' + ${universityRec.id}">
-                                            <img class="title-img" th:src="${universityRec.logo}" alt="">
+                            <div class="card actives">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <span class="condition-title">院校所在地 > </span>
+                                        <span><a class="chosen-tag" href="javascript:;" onclick="loadByArea(this,'')" > 全部</a></span>
+
+                                        <span th:each="area,areaStat : ${areaList}" th:if="${areaStat.count} <= 11">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByArea(this,\''+${area}+'\')'" th:text="${area}"> </a>
+                                        </span>
+
+                                        <a th:if="${areaList.size()} > 11" class="collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         </a>
-                                        <span class="sticker">Hot</span>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                                    <div class="condition-body card-body">
+                                        <span th:each="area,areaStat : ${areaList}" th:if="${areaStat.count} > 11">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByArea(this,\''+${area}+'\')'" th:text="${area}"> </a>
+                                        </span>
 
-                                    </div>
-                                    <div class="product-content">
-                                        <h4><a th:text="${universityRec.name}" th:href="'/page/university/get/' + ${universityRec.id}"></a></h4>
-                                        <span th:text="${universityRec.keyword} + ' | '" class="blog-post-date"></span>
-                                        &lt;!&ndash;<span class="post-separator">|</span>&ndash;&gt;
-                                        &lt;!&ndash;<span class="blog-post-date">3年 </span>&ndash;&gt;
+                                        <a class="no-collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <div id="accordion2" class="area-condition">
+
+                            <div class="card actives">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <span class="condition-title">专业层次 > </span>
+                                        <span><a class="chosen-tag" href="javascript:;" onclick="loadByArea(this,'')" > 全部</a></span>
+
+                                        <span th:each="area,areaStat : ${areaList}" th:if="${areaStat.count} <= 11">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByArea(this,\''+${area}+'\')'" th:text="${area}"> </a>
+                                        </span>
+
+                                        <a th:if="${areaList.size()} > 11" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                                    <div class="condition-body card-body">
+                                        <span th:each="area,areaStat : ${areaList}" th:if="${areaStat.count} > 11">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByArea(this,\''+${area}+'\')'" th:text="${area}"> </a>
+                                        </span>
+
+                                        <a class="no-collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search__topbar mt-30">
+                            <div class="input_form">
+                                <input id="keyword" name="keyword" placeholder="请输入您心仪的院校..." class="input_text" type="text">
+                                <button id="blogsearchsubmit" type="submit" class="button" onclick="loadByName()">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
+                </div>
+		        <div class="row mt-30">
+		            <div class="col-lg-12">
+		                <div class="shop-layout">
+		                    <!--Shop Product Start-->
+		                    <div class="shop-product">
+                                <div class="grid-list-option">
+                                    <p class="show-product">共20所院校</p>
+                                    <span class="fly-filter-right">
+                                        <a href="javascript:void(0);" onclick="orderLoad(0)" class="layui-this latest active">最新</a>
+                                        <span class="fly-mid"></span>
+                                        <a href="javascript:void(0);" onclick="orderLoad(1)" class="hotest">最热</a>
+                                      </span>
+                                </div>
+
+		                        <div id="myTabContent-2" class="tab-content">
+
+		                            <div id="list" class="tab-pane fade show active">
+		                                <div class="product-list-view">
+
+		                                </div>
+		                            </div>
+		                            <!--Pagination Start-->
+                                    <div class="pagination-product d-md-flex justify-content-md-between align-items-center">
+                                      <div class="showing-product">
+                                          <!--<p> 共 5 页,当前第 1 页 </p>-->
+                                      </div>
+                                      <div id="pageDemo">
+
+                                      </div>
+                                    </div>
+		                            <!--Pagination End-->
+		                        </div>
+		                    </div>
+		                    <!--Shop Product End-->
+		                </div>
+		            </div>
 		        </div>
 		    </div>
-		</div>-->
-		<!--Product Area End-->
+		</div>
+		<!--Shop Area End-->
 		<!--Feature Area Start-->
 		<div class="feature-area mt-80">
 		    <div class="container">
@@ -396,8 +346,7 @@
         <!-- Modal Area End -->
 	</div>
 
-    <!--All Js Here-->
-    <!--Main Js-->
-    <script src="/frontsite/appjs/single-university.js"></script>
+	<!--Main Js-->
+	<script src="/frontsite/appjs/university.js"></script>
 </body>
 </html>

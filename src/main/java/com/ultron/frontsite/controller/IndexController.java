@@ -76,6 +76,42 @@ public class IndexController {
         return prefix + "university-list";
     }
 
+    /**
+     * 专业列表
+     * @param model
+     * @return
+     */
+    @GetMapping("page/specialty/list")
+    String specialtyListPage(Model model) {
+        try {
+            //加载地区
+            List<String> areaList = universityService.getUniversityAreas();
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            areaList.add("河南省");
+            model.addAttribute("areaList",areaList);
+
+        }catch (Exception e){
+            log.error(ExceptionUtils.getFullStackTrace(e));
+        }
+
+        return prefix + "specialty-list";
+    }
 
 
     @GetMapping("/1")
