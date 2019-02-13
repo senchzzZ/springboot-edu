@@ -20,7 +20,7 @@
 		                <div class="breadcrumb-content text-center">
 		                    <ul>
 		                        <li><a href="/index">首页</a></li>
-		                        <li class="active">选择院校</li>
+		                        <li class="active">专业列表</li>
 		                    </ul>
 		                </div>
 		            </div>
@@ -40,10 +40,11 @@
                         <div class="col-md-8">
 
                         </div>-->
-                        <div id="accordion" class="area-condition">
-
-                            <input type="hidden" id="area" name="area"/>
-                            <input type="hidden" id="sort" name="sort"/>
+                        <!--<input type="hidden" id="area" name="area"/>-->
+                        <input type="hidden" id="sort" name="sort"/>
+                        <input type="hidden" id="universityId" name="universityId" th:value="${universityId}"/>
+                        <!-- 院校所在地 -->
+                        <!--<div id="accordion" class="area-condition">
 
                             <div class="card actives">
                                 <div class="card-header" id="headingOne">
@@ -70,9 +71,44 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>-->
+
+                        <!-- 推荐院校 -->
+                        <div id="accordion3" class="area-condition">
+
+                            <div class="card actives">
+                                <div class="card-header" id="headingThird">
+                                    <h5 class="mb-0">
+                                        <span class="condition-title">推荐院校 > </span>
+                                        <span><a th:class="${chosenUniversity == null} ? 'chosen-tag'" href="javascript:;" onclick="loadByUniversity(this,'')" > 全部</a></span>
+
+                                        <span th:if="${chosenUniversity != null}">
+                                            <a class="chosen-tag" href="javascript:;" th:onclick="'javascript:loadByUniversity(this,\''+${chosenUniversity.id}+'\')'" th:text="${chosenUniversity.name}"> </a>
+                                        </span>
+
+                                        <span th:if="${chosenUniversity == null}" th:each="university,universityStat : ${universityList}">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByUniversity(this,\''+${university.id}+'\')'" th:text="${university.name}"> </a>
+                                        </span>
+
+                                        <!--<a th:if="${universityList.size()} > 11" class="collapsed" data-toggle="collapse" data-target="#collapseThird" aria-expanded="false" aria-controls="collapseThird">
+                                        </a>-->
+                                    </h5>
+                                </div>
+                                <!--<div id="collapseThird" class="collapse" aria-labelledby="headingThird">
+                                    <div class="condition-body card-body">
+                                        <span th:each="university,universityStat : ${universityList}" th:if="${universityStat.count} > 11">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByUniversity(this,\''+${university.id}+'\')'" th:text="${university.name}"> </a>
+                                        </span>
+
+                                        <a class="no-collapsed" data-toggle="collapse" data-target="#collapseThird" aria-expanded="true" aria-controls="collapseThird">
+                                        </a>
+                                    </div>
+                                </div>-->
+                            </div>
                         </div>
 
-                        <div id="accordion2" class="area-condition">
+                        <!-- 专业层次 -->
+                        <div id="accordion2" class="area-condition mt-30">
 
                             <div class="card actives">
                                 <div class="card-header" id="headingTwo">
@@ -80,18 +116,18 @@
                                         <span class="condition-title">专业层次 > </span>
                                         <span><a class="chosen-tag" href="javascript:;" onclick="loadByArea(this,'')" > 全部</a></span>
 
-                                        <span th:each="area,areaStat : ${areaList}" th:if="${areaStat.count} <= 11">
-                                            <a href="javascript:;" th:onclick="'javascript:loadByArea(this,\''+${area}+'\')'" th:text="${area}"> </a>
+                                        <span th:each="specialtyLevel,specialtyLevelStat : ${specialtyLevels}" th:if="${specialtyLevelStat.count} <= 11">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByLevel(this,\''+${specialtyLevel.name}+'\')'" th:text="${specialtyLevel.name}"> </a>
                                         </span>
 
-                                        <a th:if="${areaList.size()} > 11" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <a th:if="${specialtyLevels.size()} > 11" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         </a>
                                     </h5>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
                                     <div class="condition-body card-body">
-                                        <span th:each="area,areaStat : ${areaList}" th:if="${areaStat.count} > 11">
-                                            <a href="javascript:;" th:onclick="'javascript:loadByArea(this,\''+${area}+'\')'" th:text="${area}"> </a>
+                                        <span th:each="specialtyLevel,specialtyLevelStat : ${specialtyLevels}" th:if="${specialtyLevelStat.count} > 11">
+                                            <a href="javascript:;" th:onclick="'javascript:loadByLevel(this,\''+${specialtyLevel.name}+'\')'" th:text="${specialtyLevel.name}"> </a>
                                         </span>
 
                                         <a class="no-collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -103,7 +139,7 @@
 
                         <div class="search__topbar mt-30">
                             <div class="input_form">
-                                <input id="keyword" name="keyword" placeholder="请输入您心仪的院校..." class="input_text" type="text">
+                                <input id="keyword" name="keyword" placeholder="请输入您心仪的专业..." class="input_text" type="text">
                                 <button id="blogsearchsubmit" type="submit" class="button" onclick="loadByName()">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -118,7 +154,7 @@
 		                    <!--Shop Product Start-->
 		                    <div class="shop-product">
                                 <div class="grid-list-option">
-                                    <p class="show-product">共20所院校</p>
+                                    <p class="show-product">共20个专业</p>
                                     <span class="fly-filter-right">
                                         <a href="javascript:void(0);" onclick="orderLoad(0)" class="layui-this latest active">最新</a>
                                         <span class="fly-mid"></span>
@@ -130,7 +166,109 @@
 
 		                            <div id="list" class="tab-pane fade show active">
 		                                <div class="product-list-view">
+                                            <div class="product-list-item mb-40">
+                                                <div class="row">
+                                                    <!--Single List Product Start-->
+                                                    <div class="col-md-4">
+                                                        <div class="single-product">
+                                                            <div class="item-specialty-img">
+                                                                <a href="single-product.html">
+                                                                    <img class="first-img blur" src="/frontsite/img/product/specialty4.jpg" alt="">
+                                                                </a>
+                                                                <span class="sticker">Hot</span>
+                                                                <div class="specialty-item-content">
+                                                                    <ul>
+                                                                        <li><h3>计算机科学与技术</h3></li>
+                                                                        <li><h4>清华大学 </h4></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row col-md-8">
+                                                        <div class="product-content shop-list col-md-6">
+                                                            <h4><a href="single-product.html">计算机科学与技术</a></h4>
+                                                            <div>
+                                                                <p>北京大学</p>
+                                                            </div>
+                                                            <div class="product-price">
+                                                                <span class="item-desc">层次：专升本</span>
+                                                                <span class="item-desc">学制：2年</span>
+                                                            </div>
 
+                                                            <div class="product-description">
+                                                                <p>入学考试科目：语文、数学、英语、史地综合</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-content shop-list col-md-6">
+                                                            <div class="product-list-action">
+                                                                <ul>
+                                                                    <li><a class="pro-add-btn" href="#"><i class="ion-bag"></i>立即报名</a></li>
+                                                                    <li><a class="pro-add-btn" href="#"><i class="ion-bag"></i>咨询</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--Single List Product End-->
+                                                </div>
+                                            </div>
+                                            <div class="product-list-item mb-40">
+                                                <div class="row">
+                                                    <!--Single List Product Start-->
+                                                    <div class="col-md-4">
+                                                        <div class="single-product">
+                                                            <div class="product-img">
+                                                                <a target="_blank" href="/page/university/get/65">
+                                                                    <img class="first-img" src="undefined" alt="">
+                                                                </a>
+                                                                <span class="sticker">Hot</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row col-md-8">
+                                                        <div class="product-content shop-list col-md-6">
+                                                            <h4><a target="_blank" href="/page/university/get/65">测试权重</a></h4>
+                                                            <div class="product-price">
+                                                                <span class="blog-post-date">undefined</span>
+                                                            </div>
+                                                            <div class="product-reviews">
+                                                                <i class="ion-android-star"></i>
+                                                                <i class="ion-android-star"></i>
+                                                                <i class="ion-android-star"></i>
+                                                                <i class="ion-android-star"></i>
+                                                                <i class="ion-android-star"></i>
+                                                            </div>
+                                                            <div class="product-description">
+                                                                <p>undefined</p>
+                                                            </div>
+                                                            <div class="product-list-action">
+                                                                <ul>
+                                                                    <li><a class="pro-add-btn" target="_blank" href="/page/university/get/65"><i class="ion-eye"></i>院校详情</a></li>
+                                                                    <li><a class="pro-add-btn" target="_blank" href="/page/university/get/65"><i class="ion-clipboard"></i>招生简章</a></li>
+                                                                    <!--<li><a href="#"><i class="ion-ios-copy-outline"></i></a></li>-->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-content shop-list col-md-6 border-left-1">
+                                                            <h4>推荐专业</h4>
+                                                            <div class="specialty-tag-block blog-tag">
+                                                                <ul>
+                                                                    <li><a href="#">brand</a></li>
+                                                                    <li><a href="#">black</a></li>
+                                                                    <li><a href="#">white</a></li>
+                                                                    <li><a href="#">chire</a></li>
+                                                                    <li><a href="#">table</a></li>
+                                                                    <li><a href="#">Lorem</a></li>
+                                                                    <li><a href="#">ipsum</a></li>
+                                                                    <li><a href="#">dolor</a></li>
+                                                                    <li><a href="#">sit</a></li>
+                                                                    <li><a href="#">amet</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>        </div>
+                                                    <!--Single List Product End-->
+                                                </div>
+                                            </div>
 		                                </div>
 		                            </div>
 		                            <!--Pagination Start-->
@@ -347,6 +485,6 @@
 	</div>
 
 	<!--Main Js-->
-	<script src="/frontsite/appjs/university.js"></script>
+	<script src="/frontsite/appjs/specialty.js"></script>
 </body>
 </html>

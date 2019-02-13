@@ -1,12 +1,13 @@
 package com.ultron.frontsite.controller;
 
+import com.ultron.admin.edu.domain.Specialty;
 import com.ultron.admin.edu.domain.University;
+import com.ultron.admin.edu.service.SpecialtyService;
 import com.ultron.admin.edu.service.UniversityService;
 import com.ultron.common.response.Response;
 import com.ultron.common.util.PageQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,29 +17,32 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 专业
  * Created by zhaoshengqi on 2019/1/23.
  */
 @Slf4j
 @Controller
-@RequestMapping("/page/university")
-public class UniversityPageController {
+@RequestMapping("/page/specialty")
+public class SpecialtyPageController {
     private static final String prefix = "frontsite/";
 
     @Autowired
     private UniversityService universityService;
 
+    @Autowired
+    private SpecialtyService specialtyService;
+
     /**
-     * 院校列表
+     * 专业列表
      * @param params
      * @return
      */
     @PostMapping("/pageList")
     @ResponseBody
-    Response<List<University>> pageList(@RequestParam Map<String, Object> params) {
+    Response<List<Specialty>> pageList(@RequestParam Map<String, Object> params) {
         try {
-            System.out.println(params);
             PageQuery pageQuery = new PageQuery(params);
-            return Response.success(universityService.getUniversityPageList(pageQuery));
+            return Response.success(specialtyService.getSpecialtyPageList(pageQuery));
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));
         }
@@ -46,7 +50,7 @@ public class UniversityPageController {
     }
 
     /**
-     * 院校总数
+     * 专业总数
      * @param params
      * @return
      */
@@ -54,10 +58,9 @@ public class UniversityPageController {
     @ResponseBody
     Response<Integer> pageCount(@RequestParam Map<String, Object> params) {
         try {
-            System.out.println(params);
             PageQuery pageQuery = new PageQuery(params);
             //List<University> universityList = universityService.getUniversityPageList(pageQuery);
-            return Response.success(universityService.getUniversityPageCount(pageQuery));
+            return Response.success(specialtyService.getSpecialtyPageCount(pageQuery));
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));
         }
@@ -65,7 +68,7 @@ public class UniversityPageController {
     }
 
     /**
-     * 院校详情页
+     * 专业详情页
      * @param id
      * @param model
      * @return
@@ -78,8 +81,8 @@ public class UniversityPageController {
         List<University> universityList = universityService.getIndexUniversities(10);
         model.addAttribute("universityList",universityList);
         model.addAttribute("university", university);
-        model.addAttribute("title","院校详情");
+        model.addAttribute("title","专业详情");
 
-        return prefix + "single-university";
+        return prefix + "single-specialty";
     }
 }

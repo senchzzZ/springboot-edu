@@ -30,5 +30,5 @@ public interface CertificateDao {
 	
 	int batchRemove(Long[] ids);
 
-    List<Certificate> getIndexCertificate();
+    List<Certificate> getIndexCertificate(int itemCount);
 }

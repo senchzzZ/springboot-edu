@@ -69,7 +69,7 @@ function load() {
 								},
 																{
 									field : 'qualification', 
-									title : '学历' 
+									title : '学历层次' 
 								},
 																{
 									field : 'academicYear', 

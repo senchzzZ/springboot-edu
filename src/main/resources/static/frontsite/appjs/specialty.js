@@ -1,51 +1,50 @@
-var prefix = "/page/university";
+var prefix = "/page/specialty";
 
 
 $('.category-menu-list').hide();
 
 $(function() {
-    load(1);
-    //loadPage(page,area,sort,keyword);分页
+    var universityId = $('#universityId').val();
+    load(1,universityId);
 });
 
-function load(page,area,keyword,sort) {
-    loadData(page,area,keyword,sort);
+function load(page,universityId,keyword,sort) {
+    loadData(page,universityId,keyword,sort);
     loadPage();
 }
 //排序
 function orderLoad(orderMark) {
     var sort;
     if (orderMark == 0){//最新
-        sort = 'create_time';
         $('.hotest').removeClass("active");
         $('.latest').addClass("active");
     } else {
-        sort = 'if_proposal';
+        sort = 'proposal';
         $('.latest').removeClass("active");
         $('.hotest').addClass("active");
     }
-    var area = $('#area').val();
+    var universityId = $('#universityId').val();
     var keyword = $('#keyword').val();
-    load(1,area,keyword,sort);
+    load(1,universityId,keyword,sort);
 }
 
-//地区选择
-function loadByArea(obj,area){
+//院校选择
+function loadByUniversity(obj,universityId){
     $(".chosen-tag").removeClass("chosen-tag");
     $(obj).addClass("chosen-tag");
 
-    load(1,area);
+    load(1,universityId);
 }
 //名称搜索
 function loadByName() {
-    var area = $('#area').val();
+    var universityId = $('#universityId').val();
     var keyword = $('#keyword').val();
-    load(1,area,keyword);
+    load(1,universityId,keyword);
 }
 
 //加载数据
-function loadData(page,area,keyword,sort){
-    $('#area').val(area);
+function loadData(page,universityId,keyword,sort){
+    $('#universityId').val(universityId);
     $('#keyword').val(keyword);
     $('#sort').val(sort);
     var limit = 20;
@@ -56,7 +55,7 @@ function loadData(page,area,keyword,sort){
         data : {
             "page" : page,
             "limit" : limit,
-            "area" : area,
+            "universityId" : universityId,
             "sort" : sort,
             "keyword" : keyword
         },
@@ -68,13 +67,13 @@ function loadData(page,area,keyword,sort){
                 var e = '';
                 for (var i = 0;i < universities.length;i++){
                     var data = universities[i];
-                    var s = '';
+                    /*var s = '';
                     var specialties = data.specialties;
                     if (specialties && specialties.length > 0){
                         for (var j = 0;j < specialties.length && j < 5;j++){
                             s += '<li><a href="/specialty/get/' + specialties[j].id + '">' + specialties[j].name + '</a></li>\n';
                         }
-                    }
+                    }*/
 
                     e += '<div class="product-list-item mb-40">\n' +
                         '    <div class="row">\n' +
@@ -118,8 +117,8 @@ function loadData(page,area,keyword,sort){
                         '                <h4>推荐专业</h4>\n' +
                         '                <div class="specialty-tag-block blog-tag">\n' +
                         '                    <ul>\n' +
-                        s +
-                        /*'                        <li><a href="#">brand</a></li>\n' +
+                        //s +
+                        '                        <li><a href="#">brand</a></li>\n' +
                         '                        <li><a href="#">black</a></li>\n' +
                         '                        <li><a href="#">white</a></li>\n' +
                         '                        <li><a href="#">chire</a></li>\n' +
@@ -128,7 +127,7 @@ function loadData(page,area,keyword,sort){
                         '                        <li><a href="#">ipsum</a></li>\n' +
                         '                        <li><a href="#">dolor</a></li>\n' +
                         '                        <li><a href="#">sit</a></li>\n' +
-                        '                        <li><a href="#">amet</a></li>\n' +*/
+                        '                        <li><a href="#">amet</a></li>\n' +
                         '                    </ul>\n' +
                         '                </div>\n' +
                         '            </div>' +
@@ -139,7 +138,7 @@ function loadData(page,area,keyword,sort){
                 }
 
                 //alert(e);
-                $(".product-list-view").html(e);
+                //$(".product-list-view").html(e);
             }
         },
         error : function() {
@@ -160,14 +159,14 @@ function loadPage(){
         var count = 0;
         //向世界问个好
         //layer.msg('Hello World');
-        var area = $('#area').val();
+        var universityId = $('#universityId').val();
         var keyword = $('#keyword').val();
         $.ajax({
             url: prefix + "/pageCount",
             type: "post",
             async: false,
             data : {
-                "area" : area,
+                "universityId" : universityId,
                 "keyword" : keyword
             },
             success: function (r) {
@@ -176,7 +175,7 @@ function loadPage(){
                 }
             }
         });
-        $(".show-product").html("共" + count + "所院校");
+        $(".show-product").html("共" + count + "个专业");
         //分页
         laypage.render({
             elem: 'pageDemo' //分页容器的id
@@ -187,10 +186,10 @@ function loadPage(){
             //,skip: true //开启跳页
             ,jump: function(obj, first){
                 if(!first){
-                    var area = $('#area').val();
+                    var universityId = $('#universityId').val();
                     var keyword = $('#keyword').val();
                     var sort = $('#sort').val();
-                    loadData(obj.curr,area,keyword,sort);
+                    loadData(obj.curr,universityId,keyword,sort);
                     layer.msg('第'+ obj.curr +'页', {offset: 'b'});
                 }
             }

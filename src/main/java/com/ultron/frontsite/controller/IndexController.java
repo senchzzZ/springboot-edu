@@ -1,5 +1,7 @@
 package com.ultron.frontsite.controller;
 
+import com.ultron.admin.common.domain.DictDO;
+import com.ultron.admin.common.service.DictService;
 import com.ultron.admin.edu.domain.Certificate;
 import com.ultron.admin.edu.domain.Specialty;
 import com.ultron.admin.edu.domain.University;
@@ -34,6 +36,12 @@ public class IndexController {
     @Autowired
     private CertificateService certificateService;
 
+    @Autowired
+    private DictService dictService;
+
+    //首页推荐位条数
+    private static final int INDEX_ITEM_COUNT = 10;
+
 
     /**
      * 首页
@@ -43,12 +51,14 @@ public class IndexController {
     @GetMapping("/index")
     String index(Model model) {
         try {
-            List<University> universityList = universityService.getIndexUniversities();
-            List<Specialty> specialtyList = specialtyService.getIndexSpecialties();
-            List<Certificate> certificateList = certificateService.getIndexCertificate();
+            List<University> universityList = universityService.getIndexUniversities(INDEX_ITEM_COUNT);//推荐院校
+            List<Specialty> specialtyList = specialtyService.getIndexSpecialties(INDEX_ITEM_COUNT);//推荐专业
+            List<Certificate> certificateList = certificateService.getIndexCertificate(INDEX_ITEM_COUNT);//证书
             model.addAttribute("universityList",universityList);
             model.addAttribute("specialtyList",specialtyList);
             model.addAttribute("certificateList",certificateList);
+            model.addAttribute("title","奥创教育-一站式继续教育咨询服务中心");
+
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));
         }
@@ -68,6 +78,7 @@ public class IndexController {
             List<String> areaList = universityService.getUniversityAreas();
 
             model.addAttribute("areaList",areaList);
+            model.addAttribute("title","院校列表");
 
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));
@@ -82,29 +93,20 @@ public class IndexController {
      * @return
      */
     @GetMapping("page/specialty/list")
-    String specialtyListPage(Model model) {
+    String specialtyListPage(Model model,Long universityId) {
         try {
-            //加载地区
-            List<String> areaList = universityService.getUniversityAreas();
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            areaList.add("河南省");
-            model.addAttribute("areaList",areaList);
+            List<University> universityList = universityService.getConditionUniversities(20);//推荐院校
+            List<DictDO> specialtyLevels = dictService.listByType("edu_level");//专业层次
+
+            if (universityId != null){
+                University chosenUniversity = universityService.get(universityId);
+                if (chosenUniversity != null)
+                    model.addAttribute("chosenUniversity",chosenUniversity);
+            }
+            model.addAttribute("universityList",universityList);
+            model.addAttribute("specialtyLevels",specialtyLevels);
+            model.addAttribute("universityId",universityId);
+            model.addAttribute("title","专业列表");
 
         }catch (Exception e){
             log.error(ExceptionUtils.getFullStackTrace(e));

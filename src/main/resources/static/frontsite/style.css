@@ -2303,7 +2303,7 @@ li.right-menu .cat-mega-menu > li {
 .product-img {
 	position: relative;
 	overflow: hidden;
-    border: 1px solid #ededed;
+    /*border: 1px solid #ededed;*/
 }
 .product-img > a {
 	display: block;
@@ -6177,7 +6177,7 @@ h2.entry-title > a:hover {
 .area-condition .condition-title {
     font-size: 17px;
     font-weight: 400;
-    padding-right: 80px;
+    width: 150px;
 }
 .area-condition .chosen-title {
     color: #ff6a00;
@@ -6294,4 +6294,26 @@ h2.entry-title > a:hover {
     text-align: center;
     font-size: 15px;
     background: #ff6a00;
+}
+
+.item-desc {
+    color: #8c8c8c;
+    display: inline-block;
+    font-size: 13px;
+    vertical-align: middle;
+    margin: 0 10px 0 0;
+}
+
+.item-specialty-img {
+    position: relative;
+    overflow: hidden;
+}
+.item-specialty-img > a {
+    display: block;
+    text-align: center;
+}
+.item-specialty-img > a > img {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    height: 170px;
 }

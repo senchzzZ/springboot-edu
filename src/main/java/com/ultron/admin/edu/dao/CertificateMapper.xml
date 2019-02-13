@@ -201,7 +201,7 @@
 		from edu_certificate
 		where status = 1 and if_proposal = 1
 		order by update_time desc
-		limit 10
+		limit #{value}
 
 	</select>
 

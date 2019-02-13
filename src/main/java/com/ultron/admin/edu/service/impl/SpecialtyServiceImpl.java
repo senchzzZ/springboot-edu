@@ -1,6 +1,7 @@
 package com.ultron.admin.edu.service.impl;
 
 import com.ultron.admin.common.service.DictService;
+import com.ultron.common.util.PageQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -174,7 +175,17 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 	 * @return
 	 */
 	@Override
-	public List<Specialty> getIndexSpecialties() {
-		return specialtyDao.getIndexSpecialties();
+	public List<Specialty> getIndexSpecialties(int itemCount) {
+		return specialtyDao.getIndexSpecialties(itemCount);
+	}
+
+	@Override
+	public List<Specialty> getSpecialtyPageList(PageQuery pageQuery) {
+		return specialtyDao.getSpecialtyPageList(pageQuery);
+	}
+
+	@Override
+	public Integer getSpecialtyPageCount(PageQuery pageQuery) {
+		return specialtyDao.getSpecialtyPageCount(pageQuery);
 	}
 }

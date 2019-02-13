@@ -30,5 +30,5 @@ public interface CertificateService {
 
 	int changeProposal(Long id, int ifProposal);
 
-    List<Certificate> getIndexCertificate();
+    List<Certificate> getIndexCertificate(int itemCount);
 }

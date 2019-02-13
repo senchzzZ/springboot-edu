@@ -180,7 +180,7 @@
 		from edu_university
 		where status = 1 and if_proposal = 1
 		order by update_time desc
-		limit 10
+		limit #{value}
 
 	</select>
 
@@ -270,6 +270,16 @@
 
 		from edu_university
 		where status = 1 and id = #{value}
+
+	</select>
+
+	<select id="getConditionUniversities" resultType="com.ultron.admin.edu.domain.University">
+		select
+		id,name
+		from edu_university
+		where status = 1 and if_proposal = 1
+		order by update_time desc
+		limit #{value}
 
 	</select>
 

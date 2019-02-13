@@ -1,6 +1,7 @@
 package com.ultron.admin.edu.service;
 
 import com.ultron.admin.edu.domain.Specialty;
+import com.ultron.common.util.PageQuery;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -31,5 +32,9 @@ public interface SpecialtyService {
 
     String batchImport(String fileName, MultipartFile file, Long universityId) throws Exception;
 
-	List<Specialty> getIndexSpecialties();
+	List<Specialty> getIndexSpecialties(int itemCount);
+
+	List<Specialty> getSpecialtyPageList(PageQuery pageQuery);
+
+	Integer getSpecialtyPageCount(PageQuery pageQuery);
 }

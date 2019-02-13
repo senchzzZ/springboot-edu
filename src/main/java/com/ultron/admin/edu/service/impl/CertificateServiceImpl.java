@@ -71,8 +71,8 @@ public class CertificateServiceImpl implements CertificateService {
 	 * @return
 	 */
 	@Override
-	public List<Certificate> getIndexCertificate() {
-		return certificateDao.getIndexCertificate();
+	public List<Certificate> getIndexCertificate(int itemCount) {
+		return certificateDao.getIndexCertificate(itemCount);
 	}
 
 }

@@ -37,7 +37,7 @@ function save() {
 function loadType(){
     //学历
     $.ajax({
-        url : '/common/dict/list/edu_qualification',
+        url : '/common/dict/list/edu_level',
         success : function(data) {
             var html = "";
             //加载数据

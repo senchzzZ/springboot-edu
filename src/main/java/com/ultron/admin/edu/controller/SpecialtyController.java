@@ -91,7 +91,7 @@ public class SpecialtyController {
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("edu:specialty:edit")
 	String edit(@PathVariable("id") Long id,Model model){
-		List<DictDO> qualifications = dictService.listByType("edu_qualification");//学历
+		List<DictDO> qualifications = dictService.listByType("edu_level");//专业层次
 		List<DictDO> specialtyTypes = dictService.listByType("edu_specialty_type");//专业类型
 
 		Specialty specialty = specialtyService.get(id);

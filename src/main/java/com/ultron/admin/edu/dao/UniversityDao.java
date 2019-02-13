@@ -32,7 +32,7 @@ public interface UniversityDao {
 	
 	int batchRemove(Long[] ids);
 
-	List<University> getIndexUniversities();
+	List<University> getIndexUniversities(int itemCount);
 
     List<University> getUniversityPageList(PageQuery pageQuery);
 
@@ -41,4 +41,6 @@ public interface UniversityDao {
     List<String> getUniversityAreas();
 
 	University getUniversityAndSpecialtyById(Long id);
+
+	List<University> getConditionUniversities(int itemCount);
 }

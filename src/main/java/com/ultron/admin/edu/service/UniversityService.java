@@ -31,7 +31,7 @@ public interface UniversityService {
 
 	int changeProposal(Long id, int ifProposal);
 
-	List<University> getIndexUniversities();
+	List<University> getIndexUniversities(int itemCount);
 
     List<University> getUniversityPageList(PageQuery pageQuery);
 
@@ -40,4 +40,6 @@ public interface UniversityService {
     List<String> getUniversityAreas();
 
     University getUniversityAndSpecialtyById(Long id);
+
+	List<University> getConditionUniversities(int itemCount);
 }

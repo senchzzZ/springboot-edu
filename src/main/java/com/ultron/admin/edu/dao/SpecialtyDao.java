@@ -5,6 +5,7 @@ import com.ultron.admin.edu.domain.Specialty;
 import java.util.List;
 import java.util.Map;
 
+import com.ultron.common.util.PageQuery;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -30,5 +31,9 @@ public interface SpecialtyDao {
 	
 	int batchRemove(Long[] ids);
 
-	List<Specialty> getIndexSpecialties();
+	List<Specialty> getIndexSpecialties(int itemCount);
+
+	List<Specialty> getSpecialtyPageList(PageQuery pageQuery);
+
+	Integer getSpecialtyPageCount(PageQuery pageQuery);
 }

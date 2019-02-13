@@ -4,400 +4,262 @@
 
 <body>
 
-	<!--[if lt IE 8]>
-	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-	<div class="wrapper">
-		<!--Header Area Start-->
-        <div th:include="frontsite/include::header"></div>
-		<!--Header Area End-->
-		<!--Breadcrumb Area Start-->
-		<div class="breadcrumb-area">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-12">
-		                <div class="breadcrumb-content text-center">
-                            <h1 class="breadmome-name">院校详情</h1>
-		                    <ul>
-		                        <li><a href="/index">首页</a></li>
-		                        <li><a href="/page/university/list">院校列表</a></li>
-		                        <li class="active">院校详情</li>
-		                    </ul>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<!--Breadcrumb Area End-->
-		<!--Single Product Start-->
-		<div class="single-product-area mt-30">
-		    <div class="container mt-30">
-		        <div class="row">
-                    <div class="col-md-5">
-                        <!--Tab Content Start-->
-                        <div class="tab-content product-details-large" id="myTabContent-3">
-                          <div class="tab-pane fade show active" id="single-slide-one">
-                              <!--Single Product Image Start-->
-                              <div class="single-university-img img-40">
+<div class="wrapper">
+    <!--Header Area Start-->
+    <div th:include="frontsite/include::header"></div>
+    <!--Header Area End-->
+    <!--Breadcrumb Area Start-->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h1 class="breadmome-name">院校详情</h1>
+                        <ul>
+                            <li><a href="/index">首页</a></li>
+                            <li><a href="/page/university/list">院校列表</a></li>
+                            <li class="active">院校详情</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumb Area End-->
+    <!--Single Product Start-->
+    <div class="single-product-area mt-30">
+        <div class="container mt-30">
+            <div class="row">
+                <div class="col-md-5">
+                    <!--Tab Content Start-->
+                    <div class="tab-content product-details-large" id="myTabContent-3">
+                        <div class="tab-pane fade show active" id="single-slide-one">
+                            <!--Single Product Image Start-->
+                            <div class="single-university-img img-40">
                                 <img th:src="${university.logo}" alt="">
-                                  <!--<img src="/frontsite/img/product/university-exam.jpg" alt="">-->
-                              </div>
-                              <!--Single Product Image End-->
-                          </div>
+                                <!--<img src="/frontsite/img/product/university-exam.jpg" alt="">-->
+                            </div>
+                            <!--Single Product Image End-->
                         </div>
-                        <!--Tab Content End-->
-                        <!--Tab Menu Start-->
-
-                        <!--Tab Menu End-->
                     </div>
-                    <div class="col-md-7">
-                        <div class="single-product-content">
-                            <h1 class="single-product-name" th:text="${university.name}"></h1>
-                            <div class="single-product-reviews">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="single-product-data">
-                                <div class="sort">开设专业<br>
-                                    <span th:text="${university.specialties.size()}">23</span>个
-                                </div>
-                                <div class="sort">累计报读<br>
-                                    <span th:text="${university.remark}">4.6</span>万人
-                                </div>
-                                    <!--<span class="blog-post-date" th:text="${university.keyword}"></span>-->
-                            </div>
-                            <div class="product-info">
-                                <p th:text="${university.description}"> </p>
-                            </div>
-                            <div class="single-product-action">
-                                <div class="product-add-to-cart">
+                    <!--Tab Content End-->
+                    <!--Tab Menu Start-->
 
-                                     <div class="add">
-                                         <button class="add-to-cart"><i class="ion-heart"></i> 立即报名</button>
-                                     </div>
-                                </div>
-                            </div>
-                            <!--Block Reassurance-->
-
-                            <!--Block Reassurance-->
+                    <!--Tab Menu End-->
+                </div>
+                <div class="col-md-7">
+                    <div class="single-product-content">
+                        <h1 class="single-product-name" th:text="${university.name}"></h1>
+                        <div class="single-product-reviews">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
-		            </div>
-		        </div>
-		    </div>
+                        <div class="single-product-data">
+                            <div class="sort">开设专业<br>
+                                <span th:text="${university.specialties.size()}">23</span>个
+                            </div>
+                            <div class="sort">累计报读<br>
+                                <span th:text="${university.remark}">4.6</span>万人
+                            </div>
+                            <!--<span class="blog-post-date" th:text="${university.keyword}"></span>-->
+                        </div>
+                        <div class="product-info">
+                            <p th:text="${university.description}"></p>
+                        </div>
+                        <div class="single-product-action">
+                            <div class="product-add-to-cart">
+
+                                <div class="add">
+                                    <button class="add-to-cart"><i class="ion-heart"></i> 立即报名</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Block Reassurance-->
+
+                        <!--Block Reassurance-->
+                    </div>
+                </div>
+            </div>
         </div>
-		<!--Single Product End-->
-		<!--Single Product Review Tab Start-->
-		<div class="single-product-review-tab mt-10">
-		    <div class="container">
-               <div class="row">
-                 <div class="col-md-12">
-                       <div class="single-product-review-and-description-area">
-                           <!--Review And Description Tab Menu Start-->
-                           <ul class="nav dec-and-review-menu">
-                              <li>
+    </div>
+    <!--Single Product End-->
+    <!--Single Product Review Tab Start-->
+    <div class="single-product-review-tab mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="single-product-review-and-description-area">
+                        <!--Review And Description Tab Menu Start-->
+                        <ul class="nav dec-and-review-menu">
+                            <li>
                                 <a class="active" data-toggle="tab" href="#description">招生简章</a>
-                              </li>
-                              <li>
+                            </li>
+                            <li>
                                 <a data-toggle="tab" href="#product-details">院校介绍</a>
-                              </li>
-                              <li>
+                            </li>
+                            <li>
                                 <a data-toggle="tab" href="#reviews">开设专业</a>
-                              </li>
-                            </ul>
-                            <!--Review And Description Tab Menu End-->
-                            <!--Review And Description Tab Content Start-->
-                            <div class="tab-content product-review-content-tab mt-30" id="myTabContent-4">
-                              <div class="tab-pane fade show active" id="description">
-                                  <div th:utext="${university.condition}" class="single-product-description">
+                            </li>
+                        </ul>
+                        <!--Review And Description Tab Menu End-->
+                        <!--Review And Description Tab Content Start-->
+                        <div class="tab-content product-review-content-tab mt-30" id="myTabContent-4">
+                            <div class="tab-pane fade show active" id="description">
+                                <div th:utext="${university.condition}" class="single-product-description">
 
-                                  </div>
-                              </div>
-                              <div class="tab-pane fade" id="product-details">
-                                  <div th:utext="${university.introduction}" class="product-details">
-
-                                  </div>
-                              </div>
-                              <div class="tab-pane fade" id="reviews">
-                                  <div class="product-details">
-                                      <div class="product-quantities">
-                                          <label class="label">专业总数:</label> <span class="item">30</span>
-                                      </div>
-                                      <div class="product-features">
-                                          <div class="table-responsive">
-                                              <table class="table">
-                                                  <tr>
-                                                      <th>专业名称</th>
-                                                      <th>学制</th>
-                                                      <th>层次</th>
-                                                      <th>专业类型</th>
-                                                      <th>专业介绍</th>
-                                                      <th>报名</th>
-                                                  </tr>
-                                                  <tr th:each="specialty,specialtyStat : ${university.specialties}" th:if="${specialtyStat.count} <= 5">
-                                                      <td th:text="${specialty.name}"></td>
-                                                      <td th:text="${specialty.academicYear}"></td>
-                                                      <td th:text="${specialty.qualification}"></td>
-                                                      <td th:text="${specialty.type}"></td>
-                                                      <td th:text="${specialty.introduction}"></td>
-                                                      <td><a href="#">立即报名</a></td>
-                                                  </tr>
-
-                                              </table>
-                                          </div>
-                                      </div>
-                                      <div class="more_btn"><a href="/page/specialty/list" target="_blank">查看全部专业</a></div>
-                                  </div>
-                              </div>
+                                </div>
                             </div>
-                            <!--Review And Description Tab Content End-->
-                       </div>
-                   </div>
-               </div>
-            </div>
-		</div>
-		<!--Single Product Review Tab End-->
-		<!--Product Area Start-->
-		<!--<div class="product-area mt-55">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-12">
-		                &lt;!&ndash;Section Title Start&ndash;&gt;
-		                <div class="section-title">
-		                    <h2>院校推荐</h2>
-		                </div>
-		                &lt;!&ndash;Section Title End&ndash;&gt;
-		            </div>
-		        </div>
-		        <div class="product-block-content">
+                            <div class="tab-pane fade" id="product-details">
+                                <div th:utext="${university.introduction}" class="product-details">
 
-                    <div class="row">
-                        <div class="bestsellerSlide-3 pdr-0 owl-carousel">
-
-                            <div th:each="universityRec : ${universityList}" class="col-md-12">
-                                <div class="single-product">
-                                    <div class="product-university-img">
-                                        <a th:href="'/page/university/get/' + ${universityRec.id}">
-                                            <img class="title-img" th:src="${universityRec.logo}" alt="">
-                                        </a>
-                                        <span class="sticker">Hot</span>
-
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="reviews">
+                                <div class="product-details">
+                                    <div class="product-quantities">
+                                        <label class="label">专业总数:</label> <span class="item">30</span>
                                     </div>
-                                    <div class="product-content">
-                                        <h4><a th:text="${universityRec.name}" th:href="'/page/university/get/' + ${universityRec.id}"></a></h4>
-                                        <span th:text="${universityRec.keyword} + ' | '" class="blog-post-date"></span>
-                                        &lt;!&ndash;<span class="post-separator">|</span>&ndash;&gt;
-                                        &lt;!&ndash;<span class="blog-post-date">3年 </span>&ndash;&gt;
+                                    <div class="product-features">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>专业名称</th>
+                                                    <th>学制</th>
+                                                    <th>层次</th>
+                                                    <th>专业类型</th>
+                                                    <th>专业介绍</th>
+                                                    <th>报名</th>
+                                                </tr>
+                                                <tr th:each="specialty,specialtyStat : ${university.specialties}"
+                                                    th:if="${specialtyStat.count} <= 5">
+                                                    <td th:text="${specialty.name}"></td>
+                                                    <td th:text="${specialty.academicYear}"></td>
+                                                    <td th:text="${specialty.qualification}"></td>
+                                                    <td th:text="${specialty.type}"></td>
+                                                    <td th:text="${specialty.introduction}"></td>
+                                                    <td><a target="_blank" href="#">立即报名</a></td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="more_btn"><a th:href="'/page/specialty/list?universityId=' + ${university.id}" target="_blank">查看全部专业</a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!--Review And Description Tab Content End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Single Product Review Tab End-->
+    <!--Product Area Start-->
+    <!--<div class="product-area mt-55">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    &lt;!&ndash;Section Title Start&ndash;&gt;
+                    <div class="section-title">
+                        <h2>院校推荐</h2>
+                    </div>
+                    &lt;!&ndash;Section Title End&ndash;&gt;
+                </div>
+            </div>
+            <div class="product-block-content">
 
+                <div class="row">
+                    <div class="bestsellerSlide-3 pdr-0 owl-carousel">
+
+                        <div th:each="universityRec : ${universityList}" class="col-md-12">
+                            <div class="single-product">
+                                <div class="product-university-img">
+                                    <a th:href="'/page/university/get/' + ${universityRec.id}">
+                                        <img class="title-img" th:src="${universityRec.logo}" alt="">
+                                    </a>
+                                    <span class="sticker">Hot</span>
+
+                                </div>
+                                <div class="product-content">
+                                    <h4><a th:text="${universityRec.name}" th:href="'/page/university/get/' + ${universityRec.id}"></a></h4>
+                                    <span th:text="${universityRec.keyword} + ' | '" class="blog-post-date"></span>
+                                    &lt;!&ndash;<span class="post-separator">|</span>&ndash;&gt;
+                                    &lt;!&ndash;<span class="blog-post-date">3年 </span>&ndash;&gt;
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>-->
+    <!--Product Area End-->
+    <!--Feature Area Start-->
+    <div class="feature-area mt-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!--Single Feature Start-->
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <i class="icon ion-ios-telephone"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>(999) 1234 56789</h3>
+                            <p>Free support line!</p>
                         </div>
                     </div>
-
-		        </div>
-		    </div>
-		</div>-->
-		<!--Product Area End-->
-		<!--Feature Area Start-->
-		<div class="feature-area mt-80">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-md-4">
-		                <!--Single Feature Start-->
-		                <div class="single-feature">
-		                    <div class="feature-icon">
-		                        <i class="icon ion-ios-telephone"></i>
-		                    </div>
-		                    <div class="feature-content">
-		                        <h3>(999) 1234 56789</h3>
-		                        <p>Free support line!</p>
-		                    </div>
-		                </div>
-		                <!--Single Feature End-->
-		            </div>
-		            <div class="col-md-4">
-		                <!--Single Feature Start-->
-		                <div class="single-feature">
-		                    <div class="feature-icon">
-		                        <i class="icon ion-email"></i>
-		                    </div>
-		                    <div class="feature-content">
-		                        <h3>(999) 1234 56789</h3>
-		                        <p>Free support line!</p>
-		                    </div>
-		                </div>
-		                <!--Single Feature End-->
-		            </div>
-		            <div class="col-md-4">
-		                <!--Single Feature Start-->
-		                <div class="single-feature">
-		                    <div class="feature-icon">
-		                        <i class="icon ion-ios-timer-outline"></i>
-		                    </div>
-		                    <div class="feature-content">
-		                        <h3>(999) 1234 56789</h3>
-		                        <p>Free support line!</p>
-		                    </div>
-		                </div>
-		                <!--Single Feature End-->
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<!--Feature Area End-->
-		<!--Footer Area Start-->
-        <div th:include="frontsite/include::footer"></div>
-		<!--Footer Area End-->
-        <!-- Modal Area Strat -->
-        <div class="modal fade" id="open-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                    <!--Single Feature End-->
+                </div>
+                <div class="col-md-4">
+                    <!--Single Feature Start-->
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <i class="icon ion-email"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>(999) 1234 56789</h3>
+                            <p>Free support line!</p>
+                        </div>
+                    </div>
+                    <!--Single Feature End-->
+                </div>
+                <div class="col-md-4">
+                    <!--Single Feature Start-->
+                    <div class="single-feature">
+                        <div class="feature-icon">
+                            <i class="icon ion-ios-timer-outline"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>(999) 1234 56789</h3>
+                            <p>Free support line!</p>
+                        </div>
+                    </div>
+                    <!--Single Feature End-->
+                </div>
             </div>
-            <div class="modal-body">
-              <div class="row">
-                  <!--Modal Img-->
-                  <div class="col-md-5">
-                      <!--Modal Tab Content Start-->
-                      <div class="tab-content product-details-large" id="myTabContent">
-                        <div class="tab-pane fade show active" id="single-slide1" role="tabpanel" aria-labelledby="single-slide-tab-1">
-                            <!--Single Product Image Start-->
-                            <div class="single-product-img img-full">
-                              <img src="img/single-product/large/large1.jpg" alt="">
-                            </div>
-                            <!--Single Product Image End-->
-                        </div>
-                        <div class="tab-pane fade" id="single-slide2" role="tabpanel" aria-labelledby="single-slide-tab-2">
-                            <!--Single Product Image Start-->
-                            <div class="single-product-img img-full">
-                              <img src="img/single-product/large/large2.jpg" alt="">
-                            </div>
-                            <!--Single Product Image End-->
-                        </div>
-                        <div class="tab-pane fade" id="single-slide3" role="tabpanel" aria-labelledby="single-slide-tab-3">
-                            <!--Single Product Image Start-->
-                            <div class="single-product-img img-full">
-                              <img src="img/single-product/large/large3.jpg" alt="">
-                            </div>
-                            <!--Single Product Image End-->
-                        </div>
-                        <div class="tab-pane fade" id="single-slide4" role="tabpanel" aria-labelledby="single-slide-tab-4">
-                            <!--Single Product Image Start-->
-                            <div class="single-product-img img-full">
-                              <img src="img/single-product/large/large4.jpg" alt="">
-                            </div>
-                            <!--Single Product Image End-->
-                        </div>
-                      </div>
-                      <!--Modal Content End-->
-                      <!--Modal Tab Menu Start-->
-                      <div class="single-product-menu">
-                          <div class="nav single-slide-menu" role="tablist">
-                              <div class="single-tab-menu img-full">
-                                  <a class="active" data-toggle="tab" id="single-slide-tab-1" href="#single-slide1"><img src="img/single-product/small/small1.jpg" alt=""></a>
-                              </div>
-                              <div class="single-tab-menu img-full">
-                                  <a data-toggle="tab" id="single-slide-tab-2" href="#single-slide2"><img src="img/single-product/small/small2.jpg" alt=""></a>
-                              </div>
-                              <div class="single-tab-menu img-full">
-                                  <a data-toggle="tab" id="single-slide-tab-3" href="#single-slide3"><img src="img/single-product/small/small3.jpg" alt=""></a>
-                              </div>
-                              <div class="single-tab-menu img-full">
-                                  <a data-toggle="tab" id="single-slide-tab-4" href="#single-slide4"><img src="img/single-product/small/small4.jpg" alt=""></a>
-                              </div>
-                          </div>
-                      </div>
-                      <!--Modal Tab Menu End-->
-                  </div>
-                  <!--Modal Img-->
-                  <!--Modal Content-->
-                  <div class="col-md-7">
-                      <div class="single-product-content">
-                          <h1 class="single-product-name">Printed Chiffon Dress</h1>
-                          <div class="single-product-reviews">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                          </div>
-                          <div class="single-product-price">
-                              <div class="product-discount">
-                                  <span class="regular-price">$20.50</span>
-                                  <span class="price">$16.40</span>
-                                  <span class="discount">-20%</span>
-                              </div>
-                          </div>
-                          <div class="product-info">
-                              <p>Long printed dress with thin adjustable straps. V-neckline and wiring under the bust with ruffles at the bottom of the dress.</p>
-                          </div>
-                          <div class="single-product-action">
-                              <form action="#">
-                                  <div class="product-variants">
-                                      <div class="product-variants-item">
-                                            <span class="control-label">Size</span>
-                                            <select class="nice-select" name="size">
-                                                <option value="1">S</option>
-                                                <option value="2">M</option>
-                                                <option value="3">X</option>
-                                                <option value="4">XL</option>
-                                            </select>
-                                        </div>
-                                        <div class="product-variants-item">
-                                            <span class="control-label">Color</span>
-                                            <select class="nice-select" name="color">
-                                                <option value="1">Red</option>
-                                                <option value="2">Green</option>
-                                                <option value="3">Blue</option>
-                                                <option value="4">White</option>
-                                            </select>
-                                        </div>
-                                  </div>
-                                  <div class="product-add-to-cart">
-                                      <span class="control-label">Quantity</span>
-                                      <div class="cart-plus-minus">
-                                          <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
-                                       </div>
-                                       <div class="add">
-                                           <button class="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i> add-to-cart</button>
-                                           <span class="product-availability"><i class="zmdi zmdi-check"></i> In stock</span>
-                                       </div>
-                                  </div>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-                  <!--Modal Content-->
-              </div>
-            </div>
-            <div class="modal-footer">
-              <!--Single Product Share-->
-              <div class="single-product-share">
-                  <ul>
-                     <li class="categories-title">Share :</li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                      <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                  </ul>
-              </div>
-              <!--Single Product Share-->
-            </div>
-          </div>
         </div>
-        </div>
-        <!-- Modal Area End -->
-	</div>
+    </div>
+    <!--Feature Area End-->
+    <!--Footer Area Start-->
+    <div th:include="frontsite/include::footer"></div>
+    <!--Footer Area End-->
 
-    <!--All Js Here-->
-    <!--Main Js-->
-    <script src="/frontsite/appjs/single-university.js"></script>
+</div>
+
+<!--All Js Here-->
+<!--Main Js-->
+<script src="/frontsite/appjs/single-university.js"></script>
 </body>
 </html>

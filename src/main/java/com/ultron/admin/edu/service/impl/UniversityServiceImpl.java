@@ -66,8 +66,8 @@ public class UniversityServiceImpl implements UniversityService {
 	}
 
 	@Override
-	public List<University> getIndexUniversities() {
-		return universityDao.getIndexUniversities();
+	public List<University> getIndexUniversities(int itemCount) {
+		return universityDao.getIndexUniversities(itemCount);
 	}
 
 	@Override
@@ -88,6 +88,11 @@ public class UniversityServiceImpl implements UniversityService {
 	@Override
 	public University getUniversityAndSpecialtyById(Long id) {
 		return universityDao.getUniversityAndSpecialtyById(id);
+	}
+
+	@Override
+	public List<University> getConditionUniversities(int itemCount) {
+		return universityDao.getConditionUniversities(itemCount);
 	}
 
 }

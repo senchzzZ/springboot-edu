@@ -146,7 +146,50 @@
 		INNER JOIN edu_university eu ON eu.id=es.university_id
 		where eu.status=1 and es.status = 1
 		order by es.proposal_weight desc
-		limit 10
+		limit #{value}
+
+	</select>
+
+	<select id="getSpecialtyPageList" resultType="com.ultron.admin.edu.domain.Specialty">
+		select es.id,es.university_id,eu.name as universityName, es.name,es.qualification,es.academic_year,
+		es.type,es.introduction,es.remark,es.status,es.create_time,es.update_time,es.proposal_weight
+		from edu_specialty es
+		INNER JOIN edu_university eu ON eu.id=es.university_id
+		<where>
+			eu.status=1 and es.status = 1
+			<if test="id != null and id != ''"> and es.id = #{id} </if>
+			<if test="universityId != null and universityId != ''"> and es.university_id = #{universityId} </if>
+			<if test="keyword != null and keyword != ''">
+				and es.name like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%')
+			</if>
+
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by es.proposal_weight desc
+			</when>
+			<otherwise>
+				order by es.id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="getSpecialtyPageCount" resultType="int">
+		select count(*)
+		from edu_specialty es
+		INNER JOIN edu_university eu ON eu.id=es.university_id
+		<where>
+			eu.status=1 and es.status = 1
+			<if test="id != null and id != ''"> and es.id = #{id} </if>
+			<if test="universityId != null and universityId != ''"> and es.university_id = #{universityId} </if>
+			<if test="keyword != null and keyword != ''">
+				and es.name like concat(concat('%',#{keyword,jdbcType=VARCHAR}),'%')
+			</if>
+
+		</where>
 
 	</select>
 
