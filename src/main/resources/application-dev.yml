@@ -11,9 +11,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.107.255.81:3306/ultron?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://101.132.73.85:3306/ultron?useUnicode=true&characterEncoding=utf8
     username: root
-    password: sench2591
+    password: 123456
     initialSize: 1
     minIdle: 3
     maxActive: 20
